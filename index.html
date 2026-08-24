@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPA Kelas 9 Semester 1 — MEDY CANDRA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* =========================================================
+     GANTI GAMBAR DI BAGIAN INI:
+     - Cover buku  : ganti file "cover-buku.png" pada folder yang sama
+     - Photo penulis: ganti file "photo-penulis.png" pada folder yang sama
+     ========================================================= */
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg-dark: #0a0a0f;
+    --bg-deep: #111118;
+    --gold: #c9a961;
+    --gold-light: #e8d5a3;
+    --gold-dark: #8a7340;
+    --cream: #f5f1e8;
+    --text-muted: #8a8a95;
+    --border: rgba(201, 169, 97, 0.2);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg-dark);
+    color: var(--cream);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* Decorative background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(201, 169, 97, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(201, 169, 97, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1; }
+
+  /* ============ NAVBAR ============ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 1.5rem 3rem;
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: var(--gold);
+  }
+
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 300;
+    transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; left: 0;
+    width: 0; height: 1px;
+    background: var(--gold);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 0 4rem;
+    position: relative;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .hero-text .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .hero-text .eyebrow::before {
+    content: '';
+    width: 40px; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-text h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+  }
+  .hero-text h1 .accent { color: var(--gold); font-style: italic; }
+
+  .hero-text .subtitle {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    max-width: 500px;
+  }
+
+  .author-info {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+  }
+  .author-info div { flex: 1; }
+  .author-info .label {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .author-info .value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+
+  .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn {
+    padding: 1rem 2.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.4s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--bg-dark);
+  }
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--cream);
+    border: 1px solid var(--gold);
+  }
+  .btn-outline:hover {
+    background: var(--gold);
+    color: var(--bg-dark);
+  }
+
+  /* ============ COVER BOOK ============ */
+  .book-showcase {
+    position: relative;
+    perspective: 2000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .book-3d {
+    position: relative;
+    width: 350px;
+    height: 480px;
+    transform-style: preserve-3d;
+    transform: rotateY(-20deg) rotateX(5deg);
+    transition: transform 0.8s;
+    animation: floatBook 6s ease-in-out infinite;
+  }
+  .book-3d:hover { transform: rotateY(-5deg) rotateX(2deg); }
+
+  @keyframes floatBook {
+    0%, 100% { transform: rotateY(-20deg) rotateX(5deg) translateY(0); }
+    50% { transform: rotateY(-20deg) rotateX(5deg) translateY(-15px); }
+  }
+
+  .book-cover {
+    position: absolute;
+    width: 100%; height: 100%;
+    background: url('cover-buku.png') center/cover no-repeat;
+    border-radius: 4px 12px 12px 4px;
+    box-shadow:
+      0 30px 60px rgba(0,0,0,0.6),
+      0 0 0 1px rgba(201, 169, 97, 0.3),
+      inset 0 0 0 1px rgba(255,255,255,0.1);
+    transform: translateZ(25px);
+  }
+
+  .book-spine {
+    position: absolute;
+    left: -24px; top: 0;
+    width: 50px; height: 100%;
+    background: linear-gradient(90deg, #2a2218 0%, #4a3a25 50%, #2a2218 100%);
+    transform: rotateY(-90deg) translateZ(25px);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+  }
+
+  .book-pages {
+    position: absolute;
+    right: -5px; top: 5px;
+    width: 30px; height: calc(100% - 10px);
+    background: linear-gradient(90deg, #f5f1e8 0%, #d4cfc0 100%);
+    transform: rotateY(90deg) translateX(15px);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
+  }
+
+  .book-shadow {
+    position: absolute;
+    bottom: -40px; left: 50%;
+    transform: translateX(-50%);
+    width: 80%; height: 30px;
+    background: radial-gradient(ellipse, rgba(0,0,0,0.5) 0%, transparent 70%);
+    filter: blur(10px);
+  }
+
+  /* ============ SECTION TITLES ============ */
+  .section-title {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .section-title .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .section-title h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .section-title .divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .section-title .divider::before,
+  .section-title .divider::after {
+    content: '';
+    width: 60px; height: 1px;
+    background: var(--gold);
+  }
+  .section-title .divider span {
+    color: var(--gold);
+    font-size: 1.2rem;
+  }
+
+  /* ============ ABOUT AUTHOR ============ */
+  .about {
+    padding: 8rem 0;
+    background: var(--bg-deep);
+    position: relative;
+  }
+
+  .author-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .author-photo {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 3/4;
+    margin: 0 auto;
+  }
+  .author-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(20%) contrast(1.05);
+    border-radius: 4px;
+  }
+  .author-photo::before {
+    content: '';
+    position: absolute;
+    top: -15px; left: -15px;
+    width: 100%; height: 100%;
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    z-index: -1;
+  }
+  .author-photo::after {
+    content: '';
+    position: absolute;
+    bottom: -15px; right: -15px;
+    width: 60%; height: 60%;
+    background: linear-gradient(135deg, var(--gold) 0%, transparent 100%);
+    opacity: 0.15;
+    border-radius: 4px;
+    z-index: -1;
+  }
+
+  .author-content .eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .author-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .author-content .role {
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+  }
+  .author-content p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+  }
+
+  .author-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .stat .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .stat .label {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* ============ PERTEMUAN GRID ============ */
+  .pertemuan {
+    padding: 8rem 0;
+    position: relative;
+  }
+
+  .pertemuan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .pertemuan-card {
+    position: relative;
+    padding: 2.5rem 2rem;
+    background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    text-decoration: none;
+    color: var(--cream);
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: block;
+  }
+
+  .pertemuan-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+  }
+
+  .pertemuan-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.08) 0%, rgba(201, 169, 97, 0.02) 100%);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+  .pertemuan-card:hover::before { transform: translateX(100%); }
+
+  .card-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    color: var(--gold);
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+  }
+
+  .card-label {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    transition: color 0.3s;
+  }
+  .pertemuan-card:hover .card-arrow { color: var(--gold); }
+  .card-arrow svg { transition: transform 0.3s; }
+  .pertemuan-card:hover .card-arrow svg { transform: translateX(5px); }
+
+  /* Special cards for exams */
+  .pertemuan-card.exam {
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.15) 0%, rgba(201, 169, 97, 0.05) 100%);
+    border-color: var(--gold);
+  }
+  .pertemuan-card.exam .card-number {
+    color: var(--gold-light);
+    font-size: 4rem;
+  }
+  .pertemuan-card.exam .card-title {
+    font-size: 1.5rem;
+    color: var(--gold-light);
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    padding: 4rem 0 2rem;
+    background: var(--bg-deep);
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    letter-spacing: 4px;
+  }
+
+  .footer-contact {
+    margin: 2rem 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+  .footer-contact a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-contact a:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 968px) {
+    .hero-grid, .author-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .book-3d { width: 280px; height: 380px; }
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .author-stats { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+
+  /* Fade-in animation */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo">IPA · IX</div>
+  <ul class="nav-links">
+    <li><a href="#home">Beranda</a></li>
+    <li><a href="#about">Penulis</a></li>
+    <li><a href="#pertemuan">Pertemuan</a></li>
+    <li><a href="#contact">Kontak</a></li>
+  </ul>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="eyebrow">Buku Ajar · Edisi 2023</div>
+        <h1>IPA Kelas 9 <br><span class="accent">Semester Satu</span></h1>
+        <p class="subtitle">Sebuah perjalanan ilmiah yang dirancang khusus untuk membuka wawasan peserta didik tentang sistem kehidupan, pewarisan sifat, hingga fenomena kelistrikan — disajikan dengan bahasa yang elegan dan mendalam.</p>
+
+        <div class="author-info">
+          <div>
+            <div class="label">Penulis</div>
+            <div class="value">Medy Candra, S.Pd</div>
+          </div>
+          <div>
+            <div class="label">Institusi</div>
+            <div class="value">MTsN 10 Agam</div>
+          </div>
+        </div>
+
+        <div class="cta-group">
+          <a href="#pertemuan" class="btn btn-primary">
+            Jelajahi Materi
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#about" class="btn btn-outline">Tentang Penulis</a>
+        </div>
+      </div>
+
+      <div class="book-showcase">
+        <div class="book-3d">
+          <div class="book-cover"></div>
+          <div class="book-spine"></div>
+          <div class="book-pages"></div>
+          <div class="book-shadow"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT AUTHOR -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="author-grid">
+      <div class="author-photo">
+        <!-- GANTI GAMBAR: ganti file "photo-penulis.png" pada folder yang sama -->
+        <img src="photo-penulis.png" alt="Medy Candra, S.Pd">
+      </div>
+      <div class="author-content">
+        <div class="eyebrow">Tentang Penulis</div>
+        <h3>Medy Candra, S.Pd</h3>
+        <p class="role">Guru IPA · MTsN 10 Agam</p>
+        <p>Seorang pendidik berdedikasi yang telah mengabdikan dirinya dalam dunia pendidikan di Kabupaten Agam. Dengan pengalaman panjang di MTsN 10 Agam, beliau merancang bahan ajar ini sebagai upaya menghadirkan ilmu pengetahuan alam yang tidak hanya informatif, tetapi juga menginspirasi generasi muda untuk mencintai sains.</p>
+        <p>Buku ini merupakan hasil dari proses kreatif yang matang — memadukan konsep faktual, konseptual, dan prosedural dalam 25 pertemuan yang terstruktur, dari sistem reproduksi hingga teknologi ramah lingkungan.</p>
+
+        <div class="author-stats">
+          <div class="stat">
+            <div class="num">25</div>
+            <div class="label">Pertemuan</div>
+          </div>
+          <div class="stat">
+            <div class="num">10</div>
+            <div class="label">Bab Materi</div>
+          </div>
+          <div class="stat">
+            <div class="num">IX</div>
+            <div class="label">Kelas Target</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERTEMUAN SECTION -->
+<section class="pertemuan" id="pertemuan">
+  <div class="container">
+    <div class="section-title">
+      <div class="eyebrow">Struktur Pembelajaran</div>
+      <h2>25 Pertemuan Ilmiah</h2>
+      <div class="divider"><span>✦</span></div>
+    </div>
+
+    <div class="pertemuan-grid">
+
+      <!-- Pertemuan 1 -->
+      <a href="1.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">01</div>
+        <div class="card-label">Bab I · Reproduksi Manusia</div>
+        <div class="card-title">Pengertian Reproduksi & Organ Reproduksi Pria</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 2 -->
+      <a href="2.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">02</div>
+        <div class="card-label">Bab I · Reproduksi Manusia</div>
+        <div class="card-title">Organ Reproduksi Wanita & Fungsinya</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 3 -->
+      <a href="3.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">03</div>
+        <div class="card-label">Bab I · Reproduksi Manusia</div>
+        <div class="card-title">Gametogenesis: Mitosis & Meiosis</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 4 -->
+      <a href="4.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">04</div>
+        <div class="card-label">Bab I · Reproduksi Manusia</div>
+        <div class="card-title">Fertilisasi, Embrio, & Penyakit Reproduksi</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 5 -->
+      <a href="5.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">05</div>
+        <div class="card-label">Bab II · Reproduksi Tumbuhan</div>
+        <div class="card-title">Reproduksi Vegetatif & Generatif Tumbuhan</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 6 -->
+      <a href="6.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">06</div>
+        <div class="card-label">Bab II · Reproduksi Tumbuhan</div>
+        <div class="card-title">Penyerbukan, Pembuahan & Penyebaran Biji</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 7 -->
+      <a href="7.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">07</div>
+        <div class="card-label">Bab II · Reproduksi Hewan</div>
+        <div class="card-title">Sistem Reproduksi Hewan Avertebrata & Vertebrata</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 8 -->
+      <a href="8.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">08</div>
+        <div class="card-label">Bab II · Teknologi Reproduksi</div>
+        <div class="card-title">Teknologi Reproduksi Tumbuhan & Hewan</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 9 -->
+      <a href="9.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">09</div>
+        <div class="card-label">Bab III · Pewarisan Sifat</div>
+        <div class="card-title">Materi Genetik: DNA, Gen & Kromosom</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 10 -->
+      <a href="10.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">10</div>
+        <div class="card-label">Bab III · Pewarisan Sifat</div>
+        <div class="card-title">Hukum Mendel I & II: Persilangan Monohibrid & Dihibrid</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 11 -->
+      <a href="11.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">11</div>
+        <div class="card-label">Bab III · Pewarisan Sifat</div>
+        <div class="card-title">Pewarisan Sifat pada Manusia, Adaptasi & Seleksi Alam</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 12 -->
+      <a href="12.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">12</div>
+        <div class="card-label">Bab IV · Listrik Statis</div>
+        <div class="card-title">Muatan Listrik, Hukum Coulomb & Medan Listrik</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 13 -->
+      <a href="13.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">13</div>
+        <div class="card-label">Bab IV · Listrik Statis</div>
+        <div class="card-title">Penerapan Listrik Statis: Petir, Elektroskop & Biolistrik</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 14 -->
+      <a href="14.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">14</div>
+        <div class="card-label">Bab V · Listrik Dinamis</div>
+        <div class="card-title">Arus Listrik, Beda Potensial & Hukum Ohm</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 15 -->
+      <a href="15.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">15</div>
+        <div class="card-label">Bab V · Listrik Dinamis</div>
+        <div class="card-title">Rangkaian Listrik & Hukum Kirchoff</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 16 - UTS -->
+      <a href="16.html" target="_blank" class="pertemuan-card exam">
+        <div class="card-number">16</div>
+        <div class="card-label">Evaluasi Tengah Semester</div>
+        <div class="card-title">Ujian Tengah Semester (UTS)</div>
+        <div class="card-arrow">Akses Ujian <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 17 -->
+      <a href="17.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">17</div>
+        <div class="card-label">Bab V · Listrik Dinamis</div>
+        <div class="card-title">Energi Listrik, Daya Listrik & Sumber Energi</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 18 -->
+      <a href="18.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">18</div>
+        <div class="card-label">Bab VI · Kemagnetan</div>
+        <div class="card-title">Konsep Kemagnetan & Penerapannya</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 19 -->
+      <a href="19.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">19</div>
+        <div class="card-label">Bab VII · Bioteknologi</div>
+        <div class="card-title">Bioteknologi Konvensional & Modern</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 20 -->
+      <a href="20.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">20</div>
+        <div class="card-label">Bab VIII · Partikel Materi</div>
+        <div class="card-title">Atom, Ion & Molekul sebagai Partikel Materi</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 21 -->
+      <a href="21.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">21</div>
+        <div class="card-label">Bab IX · Tanah</div>
+        <div class="card-title">Sifat Fisika & Kimia Tanah</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 22 -->
+      <a href="22.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">22</div>
+        <div class="card-label">Bab X · Teknologi</div>
+        <div class="card-title">Produk Teknologi Ramah Lingkungan</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 23 -->
+      <a href="23.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">23</div>
+        <div class="card-label">Review Materi</div>
+        <div class="card-title">Pendalaman & Integrasi Konsep Semester 1</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 24 -->
+      <a href="24.html" target="_blank" class="pertemuan-card">
+        <div class="card-number">24</div>
+        <div class="card-label">Latihan Ujian</div>
+        <div class="card-title">Latihan Soal & Persiapan Ujian Akhir Semester</div>
+        <div class="card-arrow">Mulai Belajar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+      <!-- Pertemuan 25 - UAS -->
+      <a href="25.html" target="_blank" class="pertemuan-card exam">
+        <div class="card-number">25</div>
+        <div class="card-label">Evaluasi Akhir Semester</div>
+        <div class="card-title">Ujian Akhir Semester (UAS)</div>
+        <div class="card-arrow">Akses Ujian <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="container">
+    <div class="footer-logo">IPA · IX</div>
+    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--gold-light);">
+      "Ilmu adalah cahaya yang menerangi kegelapan ketidaktahuan"
+    </p>
+
+    <div class="footer-contact">
+      <p><strong>MTsN 10 Agam</strong> · Kabupaten Agam, Sumatera Barat</p>
+      <p>Email: <a href="mailto:medycandra514@gmail.com">medycandra514@gmail.com</a></p>
+    </div>
+
+    <div class="footer-bottom">
+      © 2023 MEDY CANDRA · ALL RIGHTS RESERVED
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Fade-in animation on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.pertemuan-card, .section-title, .author-content, .author-photo').forEach(el => {
+    el.classList.add('fade-in');
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
