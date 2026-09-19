@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pertemuan 22: Sifat Magnet & Medan Magnet | IPA Kelas IX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy-deep: #050b14;
+    --navy: #0a192f;
+    --navy-light: #112240;
+    --blue-royal: #1e3a8a;
+    --blue-glow: #3b82f6;
+    --blue-accent: #60a5fa;
+    --gold-accent: #fbbf24;
+    --yellow-accent: #eab308;
+    --green-accent: #10b981;
+    --red-accent: #ef4444;
+    --cyan-accent: #06b6d4;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --glass-bg: rgba(17, 34, 64, 0.6);
+    --glass-border: rgba(96, 165, 250, 0.15);
+    --shadow-soft: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+    --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--navy-deep);
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(30, 58, 138, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(234, 179, 8, 0.08) 0%, transparent 40%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  .orb {
+    position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.4;
+    animation: floatOrb 20s ease-in-out infinite alternate;
+  }
+  .orb-1 { width: 500px; height: 500px; background: var(--blue-royal); top: -10%; right: -5%; }
+  .orb-2 { width: 400px; height: 400px; background: var(--navy-light); bottom: 10%; left: -5%; animation-delay: -5s; }
+  
+  @keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, -40px) scale(1.1); }
+  }
+
+  .accent-line {
+    height: 2px; background: linear-gradient(90deg, transparent, var(--yellow-accent), var(--gold-accent), transparent);
+    margin: 0 auto; opacity: 0.8;
+  }
+  .accent-line.thick { height: 3px; max-width: 1200px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    background: rgba(5, 11, 20, 0.9); border-bottom: 1px solid var(--glass-border);
+  }
+  .nav-inner {
+    max-width: 1000px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; padding: 16px 24px;
+  }
+  .brand {
+    font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px;
+    color: var(--text-primary); display: flex; align-items: center; gap: 12px;
+  }
+  .brand span { color: var(--yellow-accent); }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a {
+    color: var(--text-secondary); text-decoration: none; font-size: 12px;
+    font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s;
+  }
+  .nav-links a:hover { color: var(--yellow-accent); }
+
+  .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .chapter-header {
+    text-align: center; margin-bottom: 50px; padding: 40px 30px; border-radius: 16px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft);
+  }
+  .chapter-header .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--yellow-accent); margin-bottom: 12px; display: inline-block;
+    background: rgba(234, 179, 8, 0.1); padding: 6px 16px; border-radius: 50px;
+  }
+  .chapter-header h1 {
+    font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 48px); font-weight: 700;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--yellow-accent) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    margin-bottom: 16px; line-height: 1.2;
+  }
+  .chapter-header .subtitle {
+    font-size: 16px; color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-weight: 400;
+  }
+  .author-badge {
+    display: inline-flex; align-items: center; gap: 12px; margin-top: 20px; padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); border-radius: 50px;
+    font-size: 13px; color: var(--text-primary); font-weight: 600;
+  }
+
+  .intro-quote {
+    text-align: center; padding: 40px 20px; margin-bottom: 50px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+  }
+  .intro-quote .label {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold-accent); margin-bottom: 12px; font-weight: 700;
+  }
+  .intro-quote .title {
+    font-family: 'Playfair Display', serif; font-size: 26px; color: var(--text-primary); margin-bottom: 16px; font-weight: 600;
+  }
+  .intro-quote p { font-size: 16px; color: var(--text-secondary); max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+  .content-section {
+    margin-bottom: 40px; padding: 30px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+    transition: all 0.3s; box-shadow: var(--shadow-soft);
+  }
+  .content-section:hover {
+    border-color: var(--yellow-accent); box-shadow: 0 0 20px rgba(234, 179, 8, 0.15); transform: translateY(-4px);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text-primary);
+    margin-bottom: 20px; display: flex; align-items: center; gap: 12px; font-weight: 600;
+  }
+  .section-title::before {
+    content: ""; width: 4px; height: 24px; background: var(--yellow-accent); border-radius: 2px;
+  }
+  p { margin-bottom: 16px; color: var(--text-secondary); }
+  
+  .highlight-box {
+    background: rgba(59, 130, 246, 0.08); border-left: 4px solid var(--blue-glow);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .highlight-box h4 { color: var(--blue-accent); margin-bottom: 8px; font-family: 'Playfair Display', serif; font-weight: 600; }
+  
+  .formula-box {
+    background: linear-gradient(135deg, var(--blue-royal), var(--navy-light));
+    padding: 24px; border-radius: 12px; text-align: center;
+    font-family: 'Playfair Display', serif; font-size: 20px; color: var(--text-primary);
+    margin: 20px 0; font-weight: 600; letter-spacing: 0.5px; border: 1px solid var(--glass-border);
+  }
+  .formula-box .main-formula {
+    font-size: 26px;
+    color: var(--yellow-accent);
+    margin: 12px 0;
+    font-weight: 700;
+  }
+
+  .example-box {
+    background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(234, 179, 8, 0.4);
+    padding: 24px; border-radius: 12px; margin: 20px 0;
+  }
+  .example-box strong { color: var(--gold-accent); }
+
+  .warning-box {
+    background: rgba(239, 68, 68, 0.08); border-left: 4px solid var(--red-accent);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .warning-box h4 { color: var(--red-accent); margin-bottom: 8px; font-family: 'Playfair Display', serif; font-weight: 600; }
+
+  .info-box {
+    background: rgba(16, 185, 129, 0.08); border-left: 4px solid var(--green-accent);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .info-box h4 { color: var(--green-accent); margin-bottom: 8px; font-family: 'Playfair Display', serif; font-weight: 600; }
+
+  .magnet-box {
+    background: rgba(234, 179, 8, 0.08); border-left: 4px solid var(--yellow-accent);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .magnet-box h4 { color: var(--yellow-accent); margin-bottom: 8px; font-family: 'Playfair Display', serif; font-weight: 600; }
+
+  .comparison-box { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .triple-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+  .comparison-item {
+    padding: 24px; border-radius: 12px; background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border); transition: all 0.3s;
+  }
+  .comparison-item:hover { transform: translateY(-4px); border-color: var(--yellow-accent); }
+  .comparison-item h4 { color: var(--yellow-accent); font-family: 'Playfair Display', serif; margin-bottom: 12px; font-size: 18px; font-weight: 600; }
+  .comparison-item p, .comparison-item li { font-size: 14px; margin: 0; color: var(--text-secondary); line-height: 1.6; }
+  .comparison-item ul { margin-left: 20px; margin-top: 8px; }
+
+  .table-wrapper { overflow-x: auto; margin: 20px 0; border-radius: 12px; border: 1px solid var(--glass-border); background: rgba(255, 255, 255, 0.02); }
+  .luxury-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+  .luxury-table th {
+    background: var(--blue-royal); color: var(--text-primary); padding: 14px 16px; text-align: center;
+    font-family: 'Playfair Display', serif; font-weight: 600; font-size: 15px;
+  }
+  .luxury-table td {
+    padding: 14px 16px; border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); font-size: 14px; text-align: center;
+  }
+  .luxury-table td:first-child { text-align: left; font-weight: 600; color: var(--blue-accent); }
+  .luxury-table tr:last-child td { border-bottom: none; }
+  .luxury-table tr:hover td { background: rgba(234, 179, 8, 0.05); }
+
+  .step-box {
+    display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start;
+  }
+  .step-num {
+    background: linear-gradient(135deg, var(--yellow-accent), var(--gold-accent)); color: var(--navy-deep);
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0;
+  }
+  .step-content h4 { color: var(--yellow-accent); margin-bottom: 4px; font-size: 16px; font-weight: 700; }
+  .step-content p { margin: 0; font-size: 14px; }
+
+  .islamic-quote {
+    text-align: center; padding: 40px 20px; margin: 40px 0;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+  }
+  .islamic-quote .arabic {
+    font-size: 26px; color: var(--gold-accent); margin-bottom: 16px;
+    font-family: 'Traditional Arabic', 'Arial', sans-serif; line-height: 1.6; font-weight: 600;
+  }
+  .islamic-quote .translation {
+    font-style: italic; font-size: 16px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-weight: 400;
+  }
+  .islamic-quote .source { font-size: 12px; color: var(--yellow-accent); margin-top: 12px; letter-spacing: 2px; font-weight: 600; }
+
+  .keywords { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 30px 0; }
+  .keyword-tag {
+    padding: 6px 14px; background: rgba(234, 179, 8, 0.1); border: 1px solid rgba(234, 179, 8, 0.2);
+    border-radius: 50px; font-size: 12px; color: var(--yellow-accent); letter-spacing: 0.5px; font-weight: 600;
+    transition: all 0.3s;
+  }
+  .keyword-tag:hover { background: var(--yellow-accent); color: var(--navy-deep); transform: translateY(-2px); }
+
+  .quiz-container {
+    margin-top: 60px; padding: 40px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px; box-shadow: var(--shadow-soft);
+  }
+  .quiz-header { text-align: center; margin-bottom: 30px; }
+  .quiz-header h2 { 
+    font-family: 'Playfair Display', serif; font-size: 26px; 
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--yellow-accent) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700;
+  }
+  .quiz-header p { color: var(--text-secondary); font-size: 14px; }
+
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--yellow-accent); margin-bottom: 8px; font-weight: 700;
+  }
+  .form-group input, .form-group select {
+    width: 100%; padding: 12px 16px; background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-primary); 
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; transition: all 0.3s;
+  }
+  .form-group input:focus, .form-group select:focus {
+    outline: none; border-color: var(--yellow-accent); background: rgba(255, 255, 255, 0.08);
+  }
+
+  .question-block { margin-bottom: 30px; padding: 24px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 12px; }
+  .question-text { font-weight: 600; margin-bottom: 16px; color: var(--text-primary); display: flex; gap: 10px; font-size: 15px; }
+  .question-num { color: var(--yellow-accent); font-weight: 800; font-size: 16px; flex-shrink: 0; }
+  .question-points {
+    padding: 4px 12px; background: var(--blue-royal); color: var(--text-primary);
+    border-radius: 50px; font-size: 11px; font-weight: 700; white-space: nowrap; margin-left: auto;
+  }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option-label {
+    display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 8px;
+    cursor: pointer; transition: all 0.3s;
+  }
+  .option-label:hover { background: rgba(234, 179, 8, 0.1); border-color: var(--yellow-accent); transform: translateX(4px); }
+  .option-label input[type="radio"] { accent-color: var(--yellow-accent); width: 18px; height: 18px; }
+  .option-label.correct { background: rgba(16, 185, 129, 0.15); border-color: #10b981; }
+  .option-label.incorrect { background: rgba(239, 68, 68, 0.15); border-color: #ef4444; }
+
+  textarea {
+    width: 100%; padding: 16px; min-height: 120px; background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-primary); 
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; resize: vertical; transition: all 0.3s;
+  }
+  textarea:focus { outline: none; border-color: var(--yellow-accent); background: rgba(255, 255, 255, 0.08); }
+
+  .action-bar { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; justify-content: center; }
+  .btn {
+    padding: 14px 24px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    border: none; border-radius: 6px; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; transition: all 0.4s; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--yellow-accent), var(--gold-accent)); color: var(--navy-deep);
+    box-shadow: 0 8px 20px rgba(234, 179, 8, 0.3);
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(234, 179, 8, 0.5); }
+  .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border: 1px solid var(--glass-border); }
+  .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--yellow-accent); }
+  .btn-outline { background: transparent; color: var(--yellow-accent); border: 1px solid var(--yellow-accent); }
+  .btn-outline:hover { background: rgba(234, 179, 8, 0.1); }
+
+  .results-panel {
+    display: none; margin-top: 30px; padding: 30px;
+    background: rgba(234, 179, 8, 0.08); border: 1px solid var(--yellow-accent);
+    border-radius: 12px; text-align: center;
+  }
+  .results-panel.show { display: block; animation: fadeIn 0.5s; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  
+  .score-display { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px 0; }
+  .score-item { padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 8px; }
+  .score-item .label { font-size: 11px; letter-spacing: 1px; color: var(--text-secondary); text-transform: uppercase; font-weight: 700; }
+  .score-item .value {
+    font-family: 'Playfair Display', serif; font-size: 32px;
+    background: linear-gradient(135deg, var(--text-primary), var(--yellow-accent));
+    -webkit-background-clip: text; background-clip: text; color: transparent; margin-top: 8px; font-weight: 700;
+  }
+
+  .nav-footer {
+    display: flex; justify-content: space-between; margin-top: 40px; padding: 20px;
+    background: var(--glass-bg); border-radius: 12px; border: 1px solid var(--glass-border);
+  }
+  .nav-footer a {
+    color: var(--blue-accent); text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 600;
+    transition: color 0.3s;
+  }
+  .nav-footer a:hover { color: var(--yellow-accent); }
+
+  footer {
+    border-top: 1px solid var(--glass-border); padding: 40px 24px; text-align: center;
+    background: rgba(5, 11, 20, 0.9); margin-top: 60px;
+  }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--text-primary); margin-bottom: 8px; }
+  .footer-brand span { color: var(--yellow-accent); }
+  .footer-contact { color: var(--text-secondary); font-size: 13px; margin-bottom: 16px; }
+  .footer-contact a { color: var(--yellow-accent); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+  .footer-contact a:hover { color: var(--text-primary); }
+  .copyright { font-size: 11px; letter-spacing: 1px; color: var(--text-secondary); text-transform: uppercase; opacity: 0.6; }
+
+  @media print {
+    nav, .action-bar, footer, .nav-footer { display: none !important; }
+    body { background: #fff; color: #000; }
+    .container { max-width: 100%; padding: 0; }
+    .content-section, .quiz-container { background: #fff; border: 1px solid #ccc; color: #000; break-inside: avoid; }
+    .section-title, .chapter-header h1 { color: #000 !important; -webkit-text-fill-color: #000 !important; }
+    p, .question-text { color: #000 !important; }
+    .luxury-table th { background: #e0e0e0; color: #000; }
+    .luxury-table td { color: #000; border-bottom: 1px solid #ccc; }
+  }
+
+  @media (max-width: 600px) {
+    .score-display { grid-template-columns: 1fr; }
+    .action-bar { flex-direction: column; }
+    .btn { width: 100%; justify-content: center; }
+    .comparison-box, .triple-box { grid-template-columns: 1fr; }
+    .nav-footer { flex-direction: column; gap: 16px; text-align: center; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <div class="nav-inner">
+    <div class="brand">SCIENTIA <span>IX</span></div>
+    <ul class="nav-links">
+      <li><a href="21.html">← Bab 21: Rangkaian Listrik</a></li>
+      <li><a href="index.html"> Daftar Isi</a></li>
+      <li><a href="23.html">Bab 23: Induksi Elektromagnetik →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="container">
+
+  <!-- Chapter Header -->
+  <header class="chapter-header">
+    <div class="eyebrow">Pertemuan 22 • IPA Kelas IX Semester 1</div>
+    <h1>Sifat-sifat Magnet & Medan Magnet</h1>
+    <p class="subtitle">Menganalisis sifat-sifat magnet, kutub magnet, medan magnet, dan penerapannya dalam teknologi modern.</p>
+    <div class="author-badge">
+      <span>👨‍🏫 Medy Candra, S.Pd</span>
+      <span>•</span>
+      <span>MTsN 10 Agam</span>
+    </div>
+  </header>
+
+  <!-- Intro Quote -->
+  <div class="intro-quote">
+    <div class="label">◆ — Pertemuan Kedua Puluh Dua — ◆</div>
+    <div class="title">🧲 Dunia Kemagnetan</div>
+    <p>Magnet adalah salah satu fenomena fisika paling misterius dan bermanfaat. Dari kompas yang menunjukkan arah hingga motor listrik yang menggerakkan dunia modern, kemagnetan ada di mana-mana. Mari kita selami sifat-sifat menakjubkan magnet dan medan magnet yang vô hình namun sangat nyata!</p>
+  </div>
+
+  <!-- Section A -->
+  <section class="content-section">
+    <h3 class="section-title">🧲 A. Pengertian dan Sifat-sifat Magnet</h3>
+    <p><strong>Magnet</strong> adalah benda yang dapat menarik benda-benda tertentu (seperti besi, nikel, kobalt) dan memiliki dua kutub yang menghasilkan <strong>medan magnet</strong> di sekitarnya. Kata "magnet" berasal dari nama daerah <strong>Magnesia</strong> di Yunani kuno, tempat pertama kali ditemukan batuan yang dapat menarik besi.</p>
+    
+    <div class="highlight-box">
+      <h4> Sifat-sifat Utama Magnet</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        <strong>1. Memiliki Dua Kutub:</strong> Setiap magnet selalu memiliki kutub Utara (U/N) dan kutub Selatan (S). Tidak ada magnet yang hanya memiliki satu kutub (monopole magnet belum pernah ditemukan).<br><br>
+        <strong>2. Kutub Senama Tolak-menolak:</strong> Jika dua kutub Utara atau dua kutub Selatan didekatkan, mereka akan saling menolak.<br><br>
+        <strong>3. Kutub Berlawanan Tarik-menarik:</strong> Kutub Utara dan kutub Selatan akan saling menarik ketika didekatkan.<br><br>
+        <strong>4. Dapat Menarik Benda Feromagnetik:</strong> Magnet dapat menarik benda yang terbuat dari besi, nikel, kobalt, dan paduannya.<br><br>
+        <strong>5. Gaya Magnet Menembus Benda:</strong> Gaya magnet dapat bekerja melalui benda-benda non-magnetik seperti kertas, kayu, plastik, dan air.
+      </p>
+    </div>
+
+    <div class="magnet-box">
+      <h4>⚡ Hukum Coulomb untuk Magnet</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Gaya tarik atau tolak antara dua kutub magnet berbanding lurus dengan kekuatan kutub dan berbanding terbalik dengan kuadrat jaraknya:<br><br>
+        <strong style="color: var(--yellow-accent); font-size: 20px;">F = k × (m₁ × m₂) / r²</strong><br><br>
+        di mana:<br>
+        • F = Gaya magnet (Newton)<br>
+        • k = Konstanta (10⁻⁷ Wb/A·m)<br>
+        • m₁, m₂ = Kekuatan kutub magnet (Ampere-meter)<br>
+        • r = Jarak antara kutub (meter)
+      </p>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Sifat Magnet</th>
+            <th>Penjelasan</th>
+            <th>Contoh Aplikasi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dua Kutub</td>
+            <td>Setiap magnet memiliki kutub U dan S</td>
+            <td>Kompas, motor listrik</td>
+          </tr>
+          <tr>
+            <td>Tarik-menarik</td>
+            <td>Kutub berlawanan saling menarik</td>
+            <td>Pintu kulkas, pengunci lemari</td>
+          </tr>
+          <tr>
+            <td>Tolak-menolak</td>
+            <td>Kutub senama saling menolak</td>
+            <td>Kereta maglev, bantalan magnet</td>
+          </tr>
+          <tr>
+            <td>Menembus benda</td>
+            <td>Gaya magnet bekerja melalui penghalang</td>
+            <td>MRI, pemisahan logam</td>
+          </tr>
+          <tr>
+            <td>Medan magnet</td>
+            <td>Area di sekitar magnet yang masih dipengaruhi gaya magnet</td>
+            <td>Transformator, generator</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section B -->
+  <section class="content-section">
+    <h3 class="section-title">🌍 B. Medan Magnet dan Garis Gaya Magnet</h3>
+    <p><strong>Medan magnet</strong> adalah daerah di sekitar magnet di mana gaya magnet masih dapat dirasakan. Medan magnet tidak terlihat oleh mata, tetapi dapat divisualisasikan menggunakan <strong>garis-garis gaya magnet</strong>.</p>
+    
+    <div class="highlight-box">
+      <h4> Sifat-sifat Garis Gaya Magnet</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        <strong>1.</strong> Garis gaya magnet keluar dari kutub <strong>Utara</strong> dan masuk ke kutub <strong>Selatan</strong>.<br>
+        <strong>2.</strong> Garis gaya magnet <strong>tidak pernah berpotongan</strong>.<br>
+        <strong>3.</strong> Garis gaya magnet membentuk <strong>loop tertutup</strong> (dari U ke S di luar magnet, dari S ke U di dalam magnet).<br>
+        <strong>4.</strong> Semakin <strong>rapat</strong> garis gaya magnet, semakin <strong>kuat</strong> medan magnet di daerah tersebut.<br>
+        <strong>5.</strong> Garis gaya magnet paling rapat di sekitar <strong>kutub-kutub magnet</strong>.
+      </p>
+    </div>
+
+    <div class="formula-box">
+       Kuat Medan Magnet (B):<br>
+      <div class="main-formula">B = F / (I × L)</div>
+      <div style="font-size: 14px; margin-top: 10px;">
+        B = Kuat medan magnet (Tesla, T)<br>
+        F = Gaya magnet (Newton, N)<br>
+        I = Kuat arus (Ampere, A)<br>
+        L = Panjang kawat (meter, m)
+      </div>
+    </div>
+
+    <div class="comparison-box">
+      <div class="comparison-item">
+        <h4>🧲 Medan Magnet Batang Magnet</h4>
+        <p>Garis gaya magnet membentuk pola simetris dari kutub Utara ke kutub Selatan. Di tengah magnet (daerah netral), garis gaya hampir sejajar dan lemah. Di kutub, garis gaya sangat rapat dan kuat.</p>
+      </div>
+      <div class="comparison-item">
+        <h4>🔄 Medan Magnet U (Tapal Kuda)</h4>
+        <p>Garis gaya magnet terkonsentrasi di antara dua kutub yang berhadapan. Medan magnet di daerah ini sangat kuat dan seragam, cocok untuk mengangkat benda berat.</p>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h4>🔬 Cara Memvisualisasikan Medan Magnet</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        <strong>1. Serbuk Besi:</strong> Taburkan serbuk besi di atas kertas yang diletakkan di atas magnet. Ketuk kertas perlahan, serbuk besi akan membentuk pola garis gaya magnet.<br><br>
+        <strong>2. Kompas:</strong> Letakkan kompas kecil di sekitar magnet. Jarum kompas akan menunjuk arah garis gaya magnet (dari U ke S).<br><br>
+        <strong>3. Software Simulasi:</strong> Gunakan aplikasi seperti PhET Interactive Simulations untuk melihat medan magnet secara digital.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section C -->
+  <section class="content-section">
+    <h3 class="section-title">🔬 C. Jenis-jenis Magnet</h3>
+    <p>Magnet dapat diklasifikasikan berdasarkan bentuk, asal-usul, dan sifat kemagnetannya:</p>
+    
+    <div class="triple-box">
+      <div class="comparison-item" style="border-color: var(--yellow-accent);">
+        <h4 style="color: var(--yellow-accent);">📏 Berdasarkan Bentuk</h4>
+        <ul>
+          <li><strong>Magnet Batang:</strong> Berbentuk balok panjang, kutub di ujung</li>
+          <li><strong>Magnet U (Tapal Kuda):</strong> Berbentuk U, medan magnet kuat di antara kutub</li>
+          <li><strong>Magnet Jarum:</strong> Tipis dan panjang, digunakan pada kompas</li>
+          <li><strong>Magnet Cincin:</strong> Berbentuk donat, digunakan pada speaker</li>
+          <li><strong>Magnet Silinder:</strong> Berbentuk tabung, digunakan pada motor</li>
+        </ul>
+      </div>
+      <div class="comparison-item" style="border-color: var(--blue-accent);">
+        <h4 style="color: var(--blue-accent);">🌍 Berdasarkan Asal</h4>
+        <ul>
+          <li><strong>Magnet Alam:</strong> Ditemukan di alam (batuan magnetit/lodestone)</li>
+          <li><strong>Magnet Buatan:</strong> Dibuat manusia dari bahan feromagnetik</li>
+          <li><strong>Elektromagnet:</strong> Magnet yang dihasilkan oleh arus listrik (dapat dinyalakan/dimatikan)</li>
+        </ul>
+      </div>
+      <div class="comparison-item" style="border-color: var(--green-accent);">
+        <h4 style="color: var(--green-accent);">💪 Berdasarkan Sifat</h4>
+        <ul>
+          <li><strong>Magnet Permanen (Tetap):</strong> Sifat kemagnetannya sulit hilang (baja, alnico, neodymium)</li>
+          <li><strong>Magnet Sementara:</strong> Sifat kemagnetannya mudah hilang (besi lunak)</li>
+          <li><strong>Superkonduktor:</strong> Menghasilkan medan magnet sangat kuat pada suhu sangat rendah</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Jenis Magnet</th>
+            <th>Bahan</th>
+            <th>Kekuatan</th>
+            <th>Penggunaan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Magnet Neodymium</td>
+            <td>Paduan NdFeB</td>
+            <td>Sangat kuat (terkuat)</td>
+            <td>Motor listrik, hard disk, headphone</td>
+          </tr>
+          <tr>
+            <td>Magnet Samarium-Cobalt</td>
+            <td>Paduan SmCo</td>
+            <td>Kuat, tahan panas</td>
+            <td>Aerospace, motor suhu tinggi</td>
+          </tr>
+          <tr>
+            <td>Magnet Alnico</td>
+            <td>Aluminium-Nikel-Kobalt</td>
+            <td>Sedang-kuat</td>
+            <td>Speaker, sensor, motor</td>
+          </tr>
+          <tr>
+            <td>Magnet Ferit</td>
+            <td>Besi oksida (keramik)</td>
+            <td>Lemah-sedang</td>
+            <td>Kulkas, mainan, transformator</td>
+          </tr>
+          <tr>
+            <td>Elektromagnet</td>
+            <td>Kawat + inti besi</td>
+            <td>Dapat diatur</td>
+            <td>Crane, MRI, relay, bel listrik</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section D -->
+  <section class="content-section">
+    <h3 class="section-title">🛠️ D. Cara Membuat Magnet</h3>
+    <p>Benda feromagnetik (besi, baja, nikel, kobalt) dapat dibuat menjadi magnet dengan beberapa cara:</p>
+    
+    <div class="step-box">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Digosok (Stroke Method)</h4>
+        <p>Sebuah magnet permanen digosokkan searah pada benda feromagnetik berulang-ulang. Domain magnetik dalam benda akan sejajar dan benda menjadi magnet. <strong>Cocok untuk membuat magnet sementara dari besi lunak.</strong></p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Induksi Magnet (Induction Method)</h4>
+        <p>Benda feromagnetik didekatkan pada magnet permanen tanpa kontak langsung. Benda akan menjadi magnet sementara selama masih berada dalam medan magnet. <strong>Prinsip: medan magnet menginduksi kutub berlawanan pada benda.</strong></p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Arus Listrik (Elektromagnet)</h4>
+        <p>Kawat penghantar dililitkan pada inti besi (disebut solenoida) dan dialiri arus listrik DC. Inti besi akan menjadi magnet selama arus mengalir. <strong>Keuntungan: kekuatan magnet dapat diatur dengan mengubah arus, dan dapat dimatikan.</strong></p>
+      </div>
+    </div>
+
+    <div class="magnet-box">
+      <h4>⚡ Rumus Elektromagnet</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Kuat medan magnet solenoida:<br><br>
+        <strong style="color: var(--yellow-accent); font-size: 20px;">B = μ₀ × (N/L) × I</strong><br><br>
+        di mana:<br>
+        • B = Kuat medan magnet (Tesla)<br>
+        • μ₀ = Permeabilitas ruang hampa (4π × 10⁻⁷ T·m/A)<br>
+        • N = Jumlah lilitan<br>
+        • L = Panjang solenoida (meter)<br>
+        • I = Kuat arus (Ampere)
+      </p>
+    </div>
+
+    <div class="example-box">
+      <strong>📝 Contoh Soal: Elektromagnet</strong><br>
+      Sebuah solenoida memiliki 500 lilitan dengan panjang 0,5 m. Jika dialiri arus 2 A, berapakah kuat medan magnet di dalam solenoida?<br><br>
+      <strong>Diketahui:</strong> N = 500, L = 0,5 m, I = 2 A, μ₀ = 4π × 10⁻⁷ T·m/A<br>
+      <strong>Penyelesaian:</strong><br>
+      B = μ₀ × (N/L) × I<br>
+      B = (4π × 10⁻⁷) × (500/0,5) × 2<br>
+      B = (4π × 10⁻⁷) × 1000 × 2<br>
+      B = 8π × 10⁻⁴ ≈ <strong style="color: var(--yellow-accent);">2,51 × 10⁻³ T</strong> atau <strong style="color: var(--yellow-accent);">2,51 mT</strong>
+    </div>
+  </section>
+
+  <!-- Section E -->
+  <section class="content-section">
+    <h3 class="section-title"> E. Kemagnetan Bumi</h3>
+    <p>Bumi kita sendiri adalah <strong>magnet raksasa</strong>! Inti bumi yang terdiri dari besi dan nikel cair menghasilkan medan magnet yang melindungi kita dari radiasi matahari berbahaya.</p>
+    
+    <div class="highlight-box">
+      <h4>🌍 Sifat-sifat Magnet Bumi</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        <strong>1. Kutub Magnet Bumi:</strong> Kutub Utara magnet bumi terletak di dekat kutub Selatan geografis, dan sebaliknya. Ini mengapa jarum kompas (kutub Utara magnet) menunjuk ke Utara geografis.<br><br>
+        <strong>2. Deklinasi Magnetik:</strong> Sudut penyimpangan antara Utara magnetik dan Utara geografis. Nilainya berbeda di setiap lokasi.<br><br>
+        <strong>3. Inklinasi Magnetik:</strong> Sudut kemiringan jarum kompas terhadap bidang horizontal. Di khatulistiwa inklinasi = 0°, di kutub = 90°.<br><br>
+        <strong>4. Sabuk Van Allen:</strong> Medan magnet bumi menjebak partikel bermuatan dari matahari, membentuk sabuk radiasi yang melindungi bumi.<br><br>
+        <strong>5. Aurora:</strong> Partikel matahari yang masuk melalui kutub magnet berinteraksi dengan atmosfer, menghasilkan cahaya indah (aurora borealis/australis).
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h4> Cara Kerja Kompas</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Kompas berisi jarum magnet kecil yang dapat berputar bebas. Jarum ini sejajar dengan medan magnet bumi, dengan kutub Utara jarum menunjuk ke kutub Selatan magnet bumi (yang berada di dekat kutub Utara geografis). Inilah mengapa kompas selalu menunjuk arah Utara!
+      </p>
+    </div>
+
+    <div class="warning-box">
+      <h4>️ Anomali Medan Magnet Bumi</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Medan magnet bumi tidak stabil — ia berfluktuasi dan bahkan <strong>berbalik arah</strong> setiap beberapa ratus ribu tahun! Saat ini, kutub Utara magnet bumi bergerak sekitar <strong>55 km per tahun</strong> dari Kanada menuju Siberia. Para ilmuwan khawatir kita mungkin memasuki periode <strong>pembalikan kutub magnet</strong>, yang dapat melemahkan perlindungan bumi dari radiasi matahari.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section F -->
+  <section class="content-section">
+    <h3 class="section-title">🔧 F. Penerapan Magnet dalam Teknologi</h3>
+    <p>Magnet memiliki peran krusial dalam teknologi modern. Berikut adalah beberapa aplikasi penting:</p>
+    
+    <div class="comparison-box">
+      <div class="comparison-item">
+        <h4>🚄 1. Kereta Maglev (Magnetic Levitation)</h4>
+        <p>Kereta yang <strong>melayang di atas rel</strong> menggunakan gaya tolak magnet. Tanpa gesekan dengan rel, kereta dapat mencapai kecepatan <strong>600+ km/jam</strong>! Contoh: Kereta Maglev di Jepang (Chuo Shinkansen).</p>
+      </div>
+      <div class="comparison-item">
+        <h4>🏥 2. MRI (Magnetic Resonance Imaging)</h4>
+        <p>Mesin MRI menggunakan <strong>magnet superkonduktor</strong> sangat kuat (1,5-3 Tesla) untuk menghasilkan gambar detail organ dalam tubuh tanpa radiasi berbahaya. Pasien harus melepas semua benda logam sebelum masuk!</p>
+      </div>
+      <div class="comparison-item">
+        <h4>💾 3. Penyimpanan Data</h4>
+        <p>Hard disk, kartu kredit, kaset, dan floppy disk menyimpan data menggunakan <strong>partikel magnetik</strong> yang dapat diatur kutubnya (0 atau 1). Teknologi ini adalah dasar dari era digital!</p>
+      </div>
+      <div class="comparison-item">
+        <h4>🔊 4. Speaker & Microphone</h4>
+        <p>Speaker mengubah sinyal listrik menjadi suara menggunakan <strong>elektromagnet</strong> yang menggetarkan membran. Microphone bekerja sebaliknya: suara menggetarkan membran yang menghasilkan sinyal listrik.</p>
+      </div>
+      <div class="comparison-item">
+        <h4>⚡ 5. Generator & Motor Listrik</h4>
+        <p><strong>Generator:</strong> Mengubah energi gerak menjadi listrik dengan memutar kumparan dalam medan magnet (induksi elektromagnetik).<br><br>
+        <strong>Motor Listrik:</strong> Mengubah listrik menjadi gerak dengan memanfaatkan gaya Lorentz pada kawat berarus dalam medan magnet.</p>
+      </div>
+      <div class="comparison-item">
+        <h4>♻️ 6. Pemisahan Logam</h4>
+        <p>Di industri daur ulang, <strong>elektromagnet besar</strong> digunakan untuk memisahkan logam feromagnetik (besi, baja) dari sampah non-logam. Ini adalah aplikasi sederhana namun sangat efektif!</p>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <strong>📝 Studi Kasus: Bel Listrik Elektromagnetik</strong><br>
+      Bel listrik bekerja dengan prinsip elektromagnet:<br>
+      1. Saat tombol ditekan, arus mengalir melalui kumparan → inti besi menjadi magnet<br>
+      2. Magnet menarik plat besi (armature) yang terhubung dengan pemukul<br>
+      3. Pemukul memukul lonceng → bunyi "ting!"<br>
+      4. Saat armature bergerak, kontak terputus → arus mati → magnet hilang<br>
+      5. Pegas mengembalikan armature → kontak tersambung lagi → siklus berulang<br><br>
+      <strong>Hasil:</strong> Bel berbunyi "ting-ting-ting" terus-menerus selama tombol ditekan!
+    </div>
+  </section>
+
+  <!-- Section G -->
+  <section class="content-section">
+    <h3 class="section-title">⚠️ G. Bahaya dan Pencegahan Medan Magnet</h3>
+    <p>Medan magnet yang kuat dapat berbahaya bagi kesehatan dan peralatan elektronik:</p>
+    
+    <div class="warning-box">
+      <h4>🚨 Bahaya Medan Magnet Kuat</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        • <strong>Alat Pacu Jantung:</strong> Medan magnet kuat dapat mengganggu kerja alat pacu jantung. Penderita harus menghindari MRI dan detektor logam.<br>
+        • <strong>Perangkat Elektronik:</strong> Magnet dapat menghapus data di hard disk, kartu kredit, dan kaset. Jauhkan magnet dari perangkat ini!<br>
+        • <strong>Jam Tangan Mekanik:</strong> Medan magnet dapat membuat jam tangan mekanik berjalan tidak akurat.<br>
+        • <strong>Tabung CRT (TV Lama):</strong> Magnet dapat mengubah warna gambar di TV tabung (degaussing diperlukan untuk memperbaiki).<br>
+        • <strong>Kesehatan:</strong> Paparan medan magnet sangat kuat (>2 Tesla) dalam waktu lama dapat menyebabkan pusing, mual, dan gangguan saraf.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h4>🛡️ Cara Melindungi Diri dari Medan Magnet</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        • <strong>Perisai Magnetik:</strong> Gunakan bahan dengan permeabilitas tinggi (mu-metal, besi lunak) untuk membelokkan garis gaya magnet.<br>
+        • <strong>Jarak Aman:</strong> Kekuatan medan magnet berkurang drastis dengan jarak (berbanding terbalik dengan pangkat tiga jarak).<br>
+        • <strong>Waktu Paparan:</strong> Batasi waktu berada di dekat sumber magnet kuat.<br>
+        • <strong>Regulasi:</strong> Ikuti standar keselamatan kerja untuk pekerja yang berurusan dengan magnet kuat (MRI, industri).
+      </p>
+    </div>
+  </section>
+
+  <!-- Keywords -->
+  <div class="keywords">
+    <span class="keyword-tag">🧲 Magnet</span>
+    <span class="keyword-tag"> Medan Magnet</span>
+    <span class="keyword-tag">📏 Garis Gaya Magnet</span>
+    <span class="keyword-tag"> Elektromagnet</span>
+    <span class="keyword-tag">🧭 Kompas</span>
+    <span class="keyword-tag">🌐 Kemagnetan Bumi</span>
+    <span class="keyword-tag">🚄 Maglev</span>
+    <span class="keyword-tag">🏥 MRI</span>
+    <span class="keyword-tag">💾 Hard Disk</span>
+    <span class="keyword-tag">🔊 Speaker</span>
+    <span class="keyword-tag">⚙️ Motor Listrik</span>
+    <span class="keyword-tag">🔬 Generator</span>
+  </div>
+
+  <!-- Islamic Quote -->
+  <div class="islamic-quote">
+    <div class="arabic">وَسَخَّرَ لَكُم مَّا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ جَمِيعًا مِّنْهُ ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ</div>
+    <div class="translation">"Dan Dia menundukkan untukmu apa yang ada di langit dan apa yang ada di bumi semuanya, (sebagai rahmat) dari-Nya. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda (kekuasaan Allah) bagi kaum yang berfikir."</div>
+    <div class="source">— QS. Al-Jatsiyah [45]: 13</div>
+  </div>
+  <p style="text-align: center; color: var(--text-secondary); font-style: italic; margin-top: -20px; margin-bottom: 30px;">
+    Ayat ini mengajak kita untuk memikirkan keajaiban alam, termasuk fenomena kemagnetan. Magnet yang memungkinkan kompas menunjukkan arah, motor listrik menggerakkan mesin, dan MRI menyelamatkan nyawa — semua adalah tanda kebesaran Allah yang dapat dipelajari melalui sains.
+  </p>
+
+  <!-- Section H: Referensi -->
+  <section class="content-section">
+    <h3 class="section-title">📚 H. Referensi Pendukung</h3>
+    <ul style="margin-left: 20px; color: var(--text-secondary); line-height: 1.8;">
+      <li>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi. (2021). <em>Ilmu Pengetahuan Alam Kelas IX SMP/MTs</em>. Jakarta: Pusat Perbukuan, Kemendikbudristek.</li>
+      <li>Halliday, D., Resnick, R., & Walker, J. (2018). <em>Fundamentals of Physics</em> (11th ed.). Wiley. (Bab 28-32: Magnetic Fields & Electromagnetism)</li>
+      <li>Serway, R. A., & Jewett, J. W. (2018). <em>Physics for Scientists and Engineers</em> (10th ed.). Cengage Learning.</li>
+      <li>Young, H. D., & Freedman, R. A. (2019). <em>Sears and Zemansky's University Physics</em> (15th ed.). Pearson.</li>
+      <li>NASA. (2023). <em>Earth's Magnetic Field</em>. Goddard Space Flight Center.</li>
+    </ul>
+  </section>
+
+  <!-- ===== UJI FORMATIF ===== -->
+  <div class="quiz-container" id="quizSection">
+    <div class="quiz-header">
+      <h2> Uji Formatif Bab 22</h2>
+      <p>Sifat-sifat Magnet dan Konsep Medan Magnet<br>
+       Bagian A: Pilihan Ganda (10 soal, skor 10/soal) | ✍️ Bagian B: Essay (5 soal, skor 20/soal)</p>
+    </div>
+
+    <form id="quizForm">
+      <!-- Identitas -->
+      <div class="content-section" style="background: rgba(255,255,255,0.03);">
+        <h4 style="color: var(--yellow-accent); margin-bottom: 16px; font-family: 'Playfair Display', serif;"> Identitas Siswa</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+          <div class="form-group">
+            <label>Nama Lengkap *</label>
+            <input type="text" id="studentName" required placeholder="Masukkan nama lengkap">
+          </div>
+          <div class="form-group">
+            <label>No. Absen / NIS *</label>
+            <input type="text" id="studentNIS" required placeholder="Masukkan NIS">
+          </div>
+          <div class="form-group">
+            <label> Tanggal Ujian</label>
+            <input type="date" id="quizDate" required>
+          </div>
+          <div class="form-group">
+            <label>Kelas</label>
+            <select id="studentClass" required>
+              <option value="">Pilih Kelas</option>
+              <option value="IX-A">IX-A</option>
+              <option value="IX-B">IX-B</option>
+              <option value="IX-C">IX-C</option>
+              <option value="IX-D">IX-D</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Semester</label>
+            <input type="text" value="1 (Satu)" readonly style="background: rgba(255,255,255,0.02); color: var(--text-secondary);">
+          </div>
+        </div>
+      </div>
+
+      <!-- Bagian A: Pilihan Ganda -->
+      <h3 style="color: var(--yellow-accent); font-family: 'Playfair Display', serif; margin: 30px 0 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">📋 Bagian A: Pilihan Ganda</h3>
+      <div id="mcqContainer"></div>
+
+      <!-- Bagian B: Essay -->
+      <h3 style="color: var(--yellow-accent); font-family: 'Playfair Display', serif; margin: 40px 0 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">✍️ Bagian B: Essay</h3>
+      <div id="essayContainer"></div>
+
+      <!-- Action Buttons -->
+      <div class="action-bar">
+        <button type="button" class="btn btn-primary" onclick="submitQuiz()">✉️ KIRIM JAWABAN & LIHAT HASIL</button>
+        <button type="button" class="btn btn-secondary" onclick="downloadPDF()">📄 UNDUH PDF LENGKAP</button>
+        <button type="button" class="btn btn-secondary" onclick="downloadTXT()"> UNDUH SKOR (TXT)</button>
+        <button type="button" class="btn btn-outline" onclick="resetQuiz()">🔄 MULAI ULANG</button>
+        <a id="emailLink" href="#" class="btn btn-outline" style="display:none;">📧 Kirim ke Email Guru</a>
+      </div>
+    </form>
+
+    <!-- Results Panel -->
+    <div class="results-panel" id="resultsPanel">
+      <h3 style="font-family: 'Playfair Display', serif; color: var(--yellow-accent); margin-bottom: 10px;">📊 Hasil Uji Formatif</h3>
+      <p id="resultMessage" style="color: var(--text-primary); margin-bottom: 20px;"></p>
+      <div class="score-display">
+        <div class="score-item">
+          <div class="label">📋 Pilihan Ganda</div>
+          <div class="value" id="scoreMCQ">0</div>
+        </div>
+        <div class="score-item">
+          <div class="label">✍️ Essay</div>
+          <div class="value" id="scoreEssay">0</div>
+        </div>
+        <div class="score-item">
+          <div class="label">Skor Akhir</div>
+          <div class="value" id="scoreTotal">0</div>
+        </div>
+      </div>
+      <p style="font-size: 12px; color: var(--text-secondary); margin-top: 16px;">
+        *Penilaian Essay bersifat otomatis berdasarkan kelengkapan jawaban (minimal 30 karakter). Guru akan melakukan penilaian ulang secara manual.
+      </p>
+    </div>
+  </div>
+
+  <!-- Navigation Footer -->
+  <div class="nav-footer">
+    <a href="21.html">
+      <span>←</span> Bab 21: Rangkaian Listrik
+    </a>
+    <a href="23.html">
+      Selanjutnya → <span>Bab 23: Induksi Elektromagnetik</span>
+    </a>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-brand">🔬 IPA <span>Kelas IX</span></div>
+  <div class="footer-contact">
+    MTsN 10 Agam • <a href="mailto:medycandra514@gmail.com">medycandra514@gmail.com</a>
+  </div>
+  <div class="copyright">© 2026 Medy Candra, S.Pd — MTsN 10 Agam. Hak Cipta Dilindungi Undang-Undang</div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  document.getElementById('quizDate').valueAsDate = new Date();
+
+  const mcqQuestions = [
+    { q: "Sifat magnet yang benar adalah...", options: ["Kutub senama tarik-menarik", "Kutub berlawanan tolak-menolak", "Kutub senama tolak-menolak", "Magnet hanya memiliki satu kutub"], answer: 2 },
+    { q: "Garis gaya magnet keluar dari kutub...", options: ["Selatan", "Utara", "Timur", "Barat"], answer: 1 },
+    { q: "Benda yang dapat ditarik magnet dengan kuat disebut benda...", options: ["Diamagnetik", "Paramagnetik", "Feromagnetik", "Nonmagnetik"], answer: 2 },
+    { q: "Cara membuat magnet dengan cara menggosokkan magnet permanen searah pada benda feromagnetik disebut...", options: ["Induksi", "Elektromagnet", "Digosok", "Dipanaskan"], answer: 2 },
+    { q: "Elektromagnet adalah magnet yang...", options: ["Selalu aktif", "Dihasilkan oleh arus listrik", "Terbuat dari batu alam", "Tidak dapat dimatikan"], answer: 1 },
+    { q: "Kutub Utara magnet bumi terletak di dekat...", options: ["Kutub Utara geografis", "Kutub Selatan geografis", "Khatulistiwa", "Pusat bumi"], answer: 1 },
+    { q: "Alat yang digunakan untuk menunjukkan arah Utara-Selatan magnet bumi adalah...", options: ["Termometer", "Barometer", "Kompas", "Amperemeter"], answer: 2 },
+    { q: "Kereta Maglev bekerja dengan prinsip...", options: ["Gaya gravitasi", "Gaya tolak magnet", "Gaya gesek", "Gaya pegas"], answer: 1 },
+    { q: "MRI menggunakan magnet dengan kekuatan...", options: ["Sangat lemah", "Sedang", "Sangat kuat (1,5-3 Tesla)", "Tidak menggunakan magnet"], answer: 2 },
+    { q: "Jika sebuah magnet batang dipotong menjadi dua, maka...", options: ["Menghasilkan satu kutub U dan satu kutub S", "Menghasilkan dua magnet kecil masing-masing memiliki kutub U dan S", "Kedua potongan kehilangan sifat magnet", "Hanya satu potongan yang menjadi magnet"], answer: 1 }
+  ];
+
+  const essayQuestions = [
+    "Jelaskan tiga sifat utama magnet! Berikan contoh aplikasi masing-masing sifat dalam kehidupan sehari-hari!",
+    "Apa yang dimaksud dengan medan magnet dan garis gaya magnet? Jelaskan sifat-sifat garis gaya magnet dan cara memvisualisasikannya!",
+    "Jelaskan tiga cara membuat magnet (digosok, induksi, elektromagnet)! Apa kelebihan elektromagnet dibanding magnet permanen?",
+    "Mengapa kutub Utara magnet bumi terletak di dekat kutub Selatan geografis? Jelaskan bagaimana kompas bekerja berdasarkan prinsip ini!",
+    "Sebutkan dan jelaskan 4 aplikasi magnet dalam teknologi modern! Bagaimana prinsip kemagnetan dimanfaatkan dalam masing-masing aplikasi?"
+  ];
+
+  const mcqContainer = document.getElementById('mcqContainer');
+  mcqQuestions.forEach((item, index) => {
+    const qDiv = document.createElement('div');
+    qDiv.className = 'question-block';
+    qDiv.innerHTML = `
+      <div class="question-text">
+        <span class="question-num">Soal ${index + 1}</span>
+        <span>${item.q}</span>
+        <span class="question-points">10 POIN</span>
+      </div>
+      <div class="options">
+        ${item.options.map((opt, optIndex) => `
+          <label class="option-label" id="label_${index}_${optIndex}">
+            <input type="radio" name="q${index}" value="${optIndex}">
+            <span>${String.fromCharCode(65 + optIndex)}. ${opt}</span>
+          </label>
+        `).join('')}
+      </div>
+    `;
+    mcqContainer.appendChild(qDiv);
+  });
+
+  const essayContainer = document.getElementById('essayContainer');
+  essayQuestions.forEach((item, index) => {
+    const qDiv = document.createElement('div');
+    qDiv.className = 'question-block';
+    qDiv.innerHTML = `
+      <div class="question-text">
+        <span class="question-num">Essay ${index + 1}</span>
+        <span>${item}</span>
+        <span class="question-points">20 POIN</span>
+      </div>
+      <textarea id="essay${index}" placeholder="Tulis jawaban Anda di sini... (Minimal 30 karakter untuk mendapatkan poin)"></textarea>
+    `;
+    essayContainer.appendChild(qDiv);
+  });
+
+  let finalScores = { mcq: 0, essay: 0, total: 0 };
+
+  function submitQuiz() {
+    const name = document.getElementById('studentName').value;
+    const nis = document.getElementById('studentNIS').value;
+    const cls = document.getElementById('studentClass').value;
+    
+    if (!name || !nis || !cls) {
+      alert("Harap lengkapi identitas siswa (Nama, NIS, dan Kelas) sebelum mengirim jawaban!");
+      return;
+    }
+
+    let mcqScore = 0;
+    mcqQuestions.forEach((item, index) => {
+      const selected = document.querySelector(`input[name="q${index}"]:checked`);
+      const labels = document.querySelectorAll(`[id^="label_${index}_"]`);
+      labels.forEach(l => { l.classList.remove('correct', 'incorrect'); l.style.pointerEvents = 'none'; });
+
+      if (selected) {
+        const val = parseInt(selected.value);
+        if (val === item.answer) {
+          mcqScore += 10;
+          document.getElementById(`label_${index}_${val}`).classList.add('correct');
+        } else {
+          document.getElementById(`label_${index}_${val}`).classList.add('incorrect');
+          document.getElementById(`label_${index}_${item.answer}`).classList.add('correct');
+        }
+      } else {
+        document.getElementById(`label_${index}_${item.answer}`).classList.add('correct');
+      }
+    });
+
+    let essayScore = 0;
+    for (let i = 0; i < 5; i++) {
+      const text = document.getElementById(`essay${i}`).value.trim();
+      if (text.length >= 30) essayScore += 20;
+      else if (text.length > 0) essayScore += 10;
+      document.getElementById(`essay${i}`).disabled = true;
+    }
+
+    finalScores = { mcq: mcqScore, essay: essayScore, total: mcqScore + essayScore };
+
+    document.getElementById('scoreMCQ').textContent = finalScores.mcq;
+    document.getElementById('scoreEssay').textContent = finalScores.essay;
+    document.getElementById('scoreTotal').textContent = finalScores.total;
+    
+    let msg = `Terima kasih, ${name}! Jawaban Anda telah berhasil dikumpulkan.`;
+    if (finalScores.total >= 160) msg += " 🌟 Luar biasa! Pemahamanmu tentang magnet dan medan magnet sangat baik.";
+    else if (finalScores.total >= 100) msg += " 👍 Bagus! Tingkatkan lagi pemahaman tentang sifat-sifat magnet.";
+    else msg += " 📚 Jangan menyerah! Pelajari kembali materi kemagnetan.";
+    
+    document.getElementById('resultMessage').textContent = msg;
+    document.getElementById('resultsPanel').classList.add('show');
+    
+    document.querySelector('.btn-primary').disabled = true;
+    document.querySelector('.btn-primary').textContent = "✓ SUDAH DIKIRIM";
+    document.querySelector('.btn-primary').style.opacity = "0.6";
+
+    const emailBody = `Hasil Uji Formatif Bab 22 (Sifat Magnet & Medan Magnet)%0D%0A%0D%0ANama: ${name}%0D%0ANIS: ${nis}%0D%0AKelas: ${cls}%0D%0ATanggal: ${document.getElementById('quizDate').value}%0D%0A%0D%0ASKOR:%0D%0A- Pilihan Ganda: ${finalScores.mcq}/100%0D%0A- Essay: ${finalScores.essay}/100 (Perlu validasi guru)%0D%0A- Total: ${finalScores.total}/200%0D%0A%0D%0ACatatan: Jawaban detail dapat dilihat pada file PDF yang dilampirkan.`;
+    document.getElementById('emailLink').href = `mailto:medycandra514@gmail.com?subject=Hasil Uji Formatif Bab 22 - ${name} (${cls})&body=${emailBody}`;
+    document.getElementById('emailLink').style.display = 'inline-flex';
+
+    document.getElementById('resultsPanel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function downloadPDF() { window.print(); }
+
+  function downloadTXT() {
+    const name = document.getElementById('studentName').value || "Siswa";
+    const nis = document.getElementById('studentNIS').value || "-";
+    const cls = document.getElementById('studentClass').value || "-";
+    const date = document.getElementById('quizDate').value || new Date().toLocaleDateString('id-ID');
+
+    let content = `HASIL UJI FORMATIF BAB 22: SIFAT MAGNET & MEDAN MAGNET\n`;
+    content += `====================================================\n`;
+    content += `Nama  : ${name}\nNIS   : ${nis}\nKelas : ${cls}\nTanggal: ${date}\n`;
+    content += `====================================================\n`;
+    content += `SKOR PILIHAN GANDA : ${finalScores.mcq} / 100\n`;
+    content += `SKOR ESSAY (Simulasi): ${finalScores.essay} / 100\n`;
+    content += `TOTAL SKOR         : ${finalScores.total} / 200\n`;
+    content += `====================================================\n\nJAWABAN ESSAY:\n`;
+    for (let i = 0; i < 5; i++) {
+      content += `\nEssay ${i+1}:\n${document.getElementById(`essay${i}`).value || "(Tidak dijawab)"}\n`;
+    }
+    content += `\n====================================================\nDikirim otomatis dari Sistem Pembelajaran IPA\nMTsN 10 Agam | Penulis: Medy Candra, S.Pd`;
+
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Skor_UjiFormatif_Bab22_${name.replace(/\s+/g, '_')}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function resetQuiz() {
+    if (confirm("Apakah Anda yakin ingin mengulang ujian? Semua jawaban akan dihapus.")) {
+      document.getElementById('quizForm').reset();
+      document.getElementById('quizDate').valueAsDate = new Date();
+      document.getElementById('resultsPanel').classList.remove('show');
+      document.querySelectorAll('.option-label').forEach(l => { l.classList.remove('correct', 'incorrect'); l.style.pointerEvents = 'auto'; });
+      document.querySelectorAll('textarea').forEach(t => t.disabled = false);
+      
+      const btn = document.querySelector('.btn-primary');
+      btn.disabled = false; btn.textContent = "✉️ KIRIM JAWABAN & LIHAT HASIL"; btn.style.opacity = "1";
+      document.getElementById('emailLink').style.display = 'none';
+      finalScores = { mcq: 0, essay: 0, total: 0 };
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+</script>
+
+</body>
+</html>

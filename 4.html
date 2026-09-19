@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pertemuan 4: Metamorfosis Hewan | IPA Kelas IX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy-deep: #050b14;
+    --navy: #0a192f;
+    --navy-light: #112240;
+    --blue-royal: #1e3a8a;
+    --blue-glow: #3b82f6;
+    --blue-accent: #60a5fa;
+    --gold-accent: #fbbf24;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --glass-bg: rgba(17, 34, 64, 0.6);
+    --glass-border: rgba(96, 165, 250, 0.15);
+    --shadow-soft: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+    --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--navy-deep);
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(30, 58, 138, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 40%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  .orb {
+    position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.4;
+    animation: floatOrb 20s ease-in-out infinite alternate;
+  }
+  .orb-1 { width: 500px; height: 500px; background: var(--blue-royal); top: -10%; right: -5%; }
+  .orb-2 { width: 400px; height: 400px; background: var(--navy-light); bottom: 10%; left: -5%; animation-delay: -5s; }
+  
+  @keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, -40px) scale(1.1); }
+  }
+
+  .accent-line {
+    height: 2px; background: linear-gradient(90deg, transparent, var(--blue-glow), var(--gold-accent), transparent);
+    margin: 0 auto; opacity: 0.8;
+  }
+  .accent-line.thick { height: 3px; max-width: 1200px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    background: rgba(5, 11, 20, 0.9); border-bottom: 1px solid var(--glass-border);
+  }
+  .nav-inner {
+    max-width: 1000px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; padding: 16px 24px;
+  }
+  .brand {
+    font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px;
+    color: var(--text-primary); display: flex; align-items: center; gap: 12px;
+  }
+  .brand span { color: var(--blue-accent); }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a {
+    color: var(--text-secondary); text-decoration: none; font-size: 12px;
+    font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s;
+  }
+  .nav-links a:hover { color: var(--blue-accent); }
+
+  .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .chapter-header {
+    text-align: center; margin-bottom: 50px; padding: 40px 30px; border-radius: 16px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft);
+  }
+  .chapter-header .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--blue-accent); margin-bottom: 12px; display: inline-block;
+    background: rgba(59, 130, 246, 0.1); padding: 6px 16px; border-radius: 50px;
+  }
+  .chapter-header h1 {
+    font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 48px); font-weight: 700;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--blue-accent) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    margin-bottom: 16px; line-height: 1.2;
+  }
+  .chapter-header .subtitle {
+    font-size: 16px; color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-weight: 400;
+  }
+  .author-badge {
+    display: inline-flex; align-items: center; gap: 12px; margin-top: 20px; padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); border-radius: 50px;
+    font-size: 13px; color: var(--text-primary); font-weight: 600;
+  }
+
+  .intro-quote {
+    text-align: center; padding: 40px 20px; margin-bottom: 50px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+  }
+  .intro-quote .label {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold-accent); margin-bottom: 12px; font-weight: 700;
+  }
+  .intro-quote .title {
+    font-family: 'Playfair Display', serif; font-size: 26px; color: var(--text-primary); margin-bottom: 16px; font-weight: 600;
+  }
+  .intro-quote p { font-size: 16px; color: var(--text-secondary); max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+  .content-section {
+    margin-bottom: 40px; padding: 30px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+    transition: all 0.3s; box-shadow: var(--shadow-soft);
+  }
+  .content-section:hover {
+    border-color: var(--blue-glow); box-shadow: var(--shadow-glow); transform: translateY(-4px);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text-primary);
+    margin-bottom: 20px; display: flex; align-items: center; gap: 12px; font-weight: 600;
+  }
+  .section-title::before {
+    content: ""; width: 4px; height: 24px; background: var(--blue-glow); border-radius: 2px;
+  }
+  p { margin-bottom: 16px; color: var(--text-secondary); }
+  
+  .highlight-box {
+    background: rgba(59, 130, 246, 0.08); border-left: 4px solid var(--blue-glow);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .highlight-box h4 { color: var(--blue-accent); margin-bottom: 8px; font-family: 'Playfair Display', serif; font-weight: 600; }
+  
+  .formula-box {
+    background: linear-gradient(135deg, var(--blue-royal), var(--navy-light));
+    padding: 20px; border-radius: 12px; text-align: center;
+    font-family: 'Playfair Display', serif; font-size: 18px; color: var(--text-primary);
+    margin: 20px 0; font-weight: 600; letter-spacing: 0.5px; border: 1px solid var(--glass-border);
+  }
+
+  .example-box {
+    background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(251, 191, 36, 0.4);
+    padding: 24px; border-radius: 12px; margin: 20px 0;
+  }
+  .example-box strong { color: var(--gold-accent); }
+
+  .comparison-box { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .comparison-item {
+    padding: 24px; border-radius: 12px; background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border); transition: all 0.3s;
+  }
+  .comparison-item:hover { transform: translateY(-4px); border-color: var(--blue-glow); }
+  .comparison-item h4 { color: var(--blue-accent); font-family: 'Playfair Display', serif; margin-bottom: 12px; font-size: 18px; font-weight: 600; }
+  .comparison-item p, .comparison-item li { font-size: 14px; margin: 0; color: var(--text-secondary); line-height: 1.6; }
+  .comparison-item ul { margin-left: 20px; margin-top: 8px; }
+
+  .table-wrapper { overflow-x: auto; margin: 20px 0; border-radius: 12px; border: 1px solid var(--glass-border); background: rgba(255, 255, 255, 0.02); }
+  .luxury-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+  .luxury-table th {
+    background: var(--blue-royal); color: var(--text-primary); padding: 14px 16px; text-align: center;
+    font-family: 'Playfair Display', serif; font-weight: 600; font-size: 15px;
+  }
+  .luxury-table td {
+    padding: 14px 16px; border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); font-size: 14px; text-align: center;
+  }
+  .luxury-table td:first-child { text-align: left; font-weight: 600; color: var(--blue-accent); }
+  .luxury-table tr:last-child td { border-bottom: none; }
+  .luxury-table tr:hover td { background: rgba(59, 130, 246, 0.05); }
+
+  .islamic-quote {
+    text-align: center; padding: 40px 20px; margin: 40px 0;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+  }
+  .islamic-quote .arabic {
+    font-size: 26px; color: var(--gold-accent); margin-bottom: 16px;
+    font-family: 'Traditional Arabic', 'Arial', sans-serif; line-height: 1.6; font-weight: 600;
+  }
+  .islamic-quote .translation {
+    font-style: italic; font-size: 16px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-weight: 400;
+  }
+  .islamic-quote .source { font-size: 12px; color: var(--blue-accent); margin-top: 12px; letter-spacing: 2px; font-weight: 600; }
+
+  .keywords { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 30px 0; }
+  .keyword-tag {
+    padding: 6px 14px; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 50px; font-size: 12px; color: var(--blue-accent); letter-spacing: 0.5px; font-weight: 600;
+    transition: all 0.3s;
+  }
+  .keyword-tag:hover { background: var(--blue-glow); color: white; transform: translateY(-2px); }
+
+  .quiz-container {
+    margin-top: 60px; padding: 40px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px; box-shadow: var(--shadow-soft);
+  }
+  .quiz-header { text-align: center; margin-bottom: 30px; }
+  .quiz-header h2 { 
+    font-family: 'Playfair Display', serif; font-size: 26px; 
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--blue-accent) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700;
+  }
+  .quiz-header p { color: var(--text-secondary); font-size: 14px; }
+
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--blue-accent); margin-bottom: 8px; font-weight: 700;
+  }
+  .form-group input, .form-group select {
+    width: 100%; padding: 12px 16px; background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-primary); 
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; transition: all 0.3s;
+  }
+  .form-group input:focus, .form-group select:focus {
+    outline: none; border-color: var(--blue-glow); background: rgba(255, 255, 255, 0.08);
+  }
+
+  .question-block { margin-bottom: 30px; padding: 24px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 12px; }
+  .question-text { font-weight: 600; margin-bottom: 16px; color: var(--text-primary); display: flex; gap: 10px; font-size: 15px; }
+  .question-num { color: var(--blue-accent); font-weight: 800; font-size: 16px; flex-shrink: 0; }
+  .question-points {
+    padding: 4px 12px; background: var(--blue-royal); color: var(--text-primary);
+    border-radius: 50px; font-size: 11px; font-weight: 700; white-space: nowrap; margin-left: auto;
+  }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option-label {
+    display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 8px;
+    cursor: pointer; transition: all 0.3s;
+  }
+  .option-label:hover { background: rgba(59, 130, 246, 0.1); border-color: var(--blue-glow); transform: translateX(4px); }
+  .option-label input[type="radio"] { accent-color: var(--blue-glow); width: 18px; height: 18px; }
+  .option-label.correct { background: rgba(16, 185, 129, 0.15); border-color: #10b981; }
+  .option-label.incorrect { background: rgba(239, 68, 68, 0.15); border-color: #ef4444; }
+
+  textarea {
+    width: 100%; padding: 16px; min-height: 120px; background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-primary); 
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; resize: vertical; transition: all 0.3s;
+  }
+  textarea:focus { outline: none; border-color: var(--blue-glow); background: rgba(255, 255, 255, 0.08); }
+
+  .action-bar { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; justify-content: center; }
+  .btn {
+    padding: 14px 24px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    border: none; border-radius: 6px; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; transition: all 0.4s; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--blue-royal), var(--blue-glow)); color: white;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(59, 130, 246, 0.5); }
+  .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border: 1px solid var(--glass-border); }
+  .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--blue-accent); }
+  .btn-outline { background: transparent; color: var(--blue-accent); border: 1px solid var(--blue-accent); }
+  .btn-outline:hover { background: rgba(59, 130, 246, 0.1); }
+
+  .results-panel {
+    display: none; margin-top: 30px; padding: 30px;
+    background: rgba(59, 130, 246, 0.08); border: 1px solid var(--blue-glow);
+    border-radius: 12px; text-align: center;
+  }
+  .results-panel.show { display: block; animation: fadeIn 0.5s; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  
+  .score-display { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px 0; }
+  .score-item { padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 8px; }
+  .score-item .label { font-size: 11px; letter-spacing: 1px; color: var(--text-secondary); text-transform: uppercase; font-weight: 700; }
+  .score-item .value {
+    font-family: 'Playfair Display', serif; font-size: 32px;
+    background: linear-gradient(135deg, var(--text-primary), var(--blue-accent));
+    -webkit-background-clip: text; background-clip: text; color: transparent; margin-top: 8px; font-weight: 700;
+  }
+
+  .nav-footer {
+    display: flex; justify-content: space-between; margin-top: 40px; padding: 20px;
+    background: var(--glass-bg); border-radius: 12px; border: 1px solid var(--glass-border);
+  }
+  .nav-footer a {
+    color: var(--blue-accent); text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 600;
+    transition: color 0.3s;
+  }
+  .nav-footer a:hover { color: var(--gold-accent); }
+
+  footer {
+    border-top: 1px solid var(--glass-border); padding: 40px 24px; text-align: center;
+    background: rgba(5, 11, 20, 0.9); margin-top: 60px;
+  }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--text-primary); margin-bottom: 8px; }
+  .footer-brand span { color: var(--blue-accent); }
+  .footer-contact { color: var(--text-secondary); font-size: 13px; margin-bottom: 16px; }
+  .footer-contact a { color: var(--blue-accent); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+  .footer-contact a:hover { color: var(--text-primary); }
+  .copyright { font-size: 11px; letter-spacing: 1px; color: var(--text-secondary); text-transform: uppercase; opacity: 0.6; }
+
+  @media print {
+    nav, .action-bar, footer, .nav-footer { display: none !important; }
+    body { background: #fff; color: #000; }
+    .container { max-width: 100%; padding: 0; }
+    .content-section, .quiz-container { background: #fff; border: 1px solid #ccc; color: #000; break-inside: avoid; }
+    .section-title, .chapter-header h1 { color: #000 !important; -webkit-text-fill-color: #000 !important; }
+    p, .question-text { color: #000 !important; }
+    .luxury-table th { background: #e0e0e0; color: #000; }
+    .luxury-table td { color: #000; border-bottom: 1px solid #ccc; }
+  }
+
+  @media (max-width: 600px) {
+    .score-display { grid-template-columns: 1fr; }
+    .action-bar { flex-direction: column; }
+    .btn { width: 100%; justify-content: center; }
+    .comparison-box { grid-template-columns: 1fr; }
+    .nav-footer { flex-direction: column; gap: 16px; text-align: center; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <div class="nav-inner">
+    <div class="brand">SCIENTIA <span>IX</span></div>
+    <ul class="nav-links">
+      <li><a href="3.html">← Bab 3: Embrio</a></li>
+      <li><a href="index.html"> Daftar Isi</a></li>
+      <li><a href="5.html">Bab 5: Tumbuhan →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="container">
+
+  <!-- Chapter Header -->
+  <header class="chapter-header">
+    <div class="eyebrow">Pertemuan 04 • IPA Kelas IX Semester 1</div>
+    <h1>Metamorfosis Sempurna & Tidak Sempurna</h1>
+    <p class="subtitle">Membandingkan proses metamorfosis sempurna dan tidak sempurna pada hewan serta memahami transformasi biologis yang menakjubkan.</p>
+    <div class="author-badge">
+      <span>👨🏫 Medy Candra, S.Pd</span>
+      <span>•</span>
+      <span>MTsN 10 Agam</span>
+    </div>
+  </header>
+
+  <!-- Intro Quote -->
+  <div class="intro-quote">
+    <div class="label">◆ — Pertemuan Keempat — ◆</div>
+    <div class="title">🦋 Transformasi Kehidupan Hewan</div>
+    <p>Metamorfosis adalah salah satu fenomena biologis paling menakjubkan di alam. Dari ulat yang merayap menjadi kupu-kupu yang terbang, dari kecebong yang berenang menjadi katak yang melompat — setiap transformasi mencerminkan keajaiban desain alam yang sempurna.</p>
+  </div>
+
+  <!-- Section A -->
+  <section class="content-section">
+    <h3 class="section-title">🔬 A. Pengertian Metamorfosis</h3>
+    <p><strong>Metamorfosis</strong> (dari bahasa Yunani: <em>meta</em> = perubahan, <em>morphe</em> = bentuk) adalah proses perubahan bentuk dan struktur tubuh hewan secara bertahap sejak menetas dari telur hingga mencapai bentuk dewasa (imago). Proses ini melibatkan perubahan morfologi, fisiologi, dan perilaku yang dramatis.</p>
+    
+    <div class="highlight-box">
+      <h4>📌 Definisi Ilmiah</h4>
+      <p style="margin:0; color: var(--text-primary);">Metamorfosis adalah serangkaian perubahan perkembangan postembrionik yang melibatkan transformasi struktur tubuh, organ, dan sistem fisiologi hewan dari bentuk larva/nimfa menuju bentuk dewasa yang siap bereproduksi.</p>
+    </div>
+
+    <div class="formula-box">
+      Tiga Jenis Metamorfosis pada Hewan:<br>
+      🦋 Holometabola (Sempurna) &nbsp;|&nbsp; 🦗 Hemimetabola (Tidak Sempurna) &nbsp;|&nbsp; 🐛 Ametabola (Tanpa Metamorfosis)
+    </div>
+
+    <div class="highlight-box">
+      <h4> Mengapa Metamorfosis Penting?</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        <strong>1. Mengurangi Kompetisi:</strong> Larva dan dewasa sering memiliki habitat dan makanan berbeda, mengurangi persaingan dalam satu spesies.<br>
+        <strong>2. Adaptasi Lingkungan:</strong> Memungkinkan hewan menempati berbagai niche ekologis.<br>
+        <strong>3. Kelangsungan Hidup:</strong> Tahap pupa/kepompong melindungi hewan dari kondisi lingkungan yang buruk.<br>
+        <strong>4. Evolusi:</strong> Metamorfosis merupakan hasil seleksi alam selama jutaan tahun.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section B -->
+  <section class="content-section">
+    <h3 class="section-title">🦋 B. Metamorfosis Sempurna (Holometabola)</h3>
+    <p>Metamorfosis sempurna adalah proses perubahan bentuk tubuh hewan yang melalui <strong>empat tahap berbeda</strong> dengan penampilan yang sangat berbeda antara satu tahap dengan tahap lainnya. Hewan yang mengalami metamorfosis sempurna disebut <strong>holometabola</strong>.</p>
+    
+    <div class="formula-box">
+      Telur → Larva → Pupa (Kepompong) → Imago (Dewasa)
+    </div>
+
+    <div class="highlight-box">
+      <h4> Tahap 1: Telur (Egg)</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Induk betina meletakkan telur di tempat yang aman dan sesuai untuk perkembangan larva. Telur mengandung embrio yang mendapat nutrisi dari kuning telur. Masa inkubasi bervariasi tergantung spesies dan suhu lingkungan.
+      </p>
+    </div>
+
+    <div class="highlight-box">
+      <h4>🐛 Tahap 2: Larva</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Larva adalah bentuk muda yang aktif makan dan tumbuh. Larva <strong>tidak memiliki sayap</strong> dan bentuknya sangat berbeda dari induk dewasa. Larva mengalami beberapa kali pergantian kulit (<em>molting/ekdisis</em>) karena tubuhnya tumbuh lebih cepat daripada kutikula (kulit luar). Contoh: ulat (larva kupu-kupu), belatung (larva lalat), tempayak (larva kumbang).
+      </p>
+    </div>
+
+    <div class="highlight-box">
+      <h4>🫙 Tahap 3: Pupa (Kepompong)</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Pupa adalah <strong>tahap transisi</strong> di mana larva membungkus diri dalam kepompong (kokon) atau cangkang pupa. Di dalam pupa, terjadi <strong>histolisis</strong> (penghancuran jaringan larva) dan <strong>histogenesis</strong> (pembentukan jaringan dewasa). Pupa <strong>tidak makan dan tidak bergerak</strong>, tetapi secara internal terjadi perubahan dramatis. Tahap ini bisa berlangsung beberapa hari hingga beberapa bulan.
+      </p>
+    </div>
+
+    <div class="highlight-box">
+      <h4>🦋 Tahap 4: Imago (Dewasa)</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Imago adalah bentuk dewasa yang keluar dari pupa. Imago memiliki <strong>organ reproduksi yang matang</strong>, sayap (pada serangga bersayap), dan struktur tubuh yang lengkap. Imago fokus pada reproduksi untuk melanjutkan siklus hidup.
+      </p>
+    </div>
+
+    <div class="example-box">
+      <strong>📝 Contoh Hewan Holometabola:</strong><br>
+      <strong>🦋 Kupu-kupu:</strong> Telur → Ulat (larva) → Kepompong (pupa) → Kupu-kupu dewasa<br>
+      <strong> Kumbang:</strong> Telur → Belatung/Tempayak → Pupa → Kumbang dewasa<br>
+      <strong> Lalat:</strong> Telur → Belatung → Pupa → Lalat dewasa<br>
+      <strong>🦟 Nyamuk:</strong> Telur → Jentik (larva) → Kepompong (pupa) → Nyamuk dewasa<br>
+      <strong> Lebah:</strong> Telur → Larva → Pupa → Lebah dewasa<br>
+      <strong>🦋 Ngengat:</strong> Telur → Ulat → Kokon → Ngengat dewasa
+    </div>
+
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Hewan</th>
+            <th>Larva</th>
+            <th>Pupa</th>
+            <th>Imago</th>
+            <th>Durasi Siklus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Kupu-kupu Monarch</td>
+            <td>Ulat (caterpillar)</td>
+            <td>Kepompong (chrysalis)</td>
+            <td>Kupu-kupu bersayap</td>
+            <td>1-2 bulan</td>
+          </tr>
+          <tr>
+            <td>Nyamuk Aedes</td>
+            <td>Jentik (wriggler)</td>
+            <td>Kepong-pong (tumbler)</td>
+            <td>Nyamuk dewasa</td>
+            <td>7-14 hari</td>
+          </tr>
+          <tr>
+            <td>Kumbang Tanduk</td>
+            <td>Tempayak (grub)</td>
+            <td>Pupa</td>
+            <td>Kumbang bertanduk</td>
+            <td>6-12 bulan</td>
+          </tr>
+          <tr>
+            <td>Lebah Madu</td>
+            <td>Larva putih</td>
+            <td>Pupa dalam sel</td>
+            <td>Lebah bersayap</td>
+            <td>21 hari</td>
+          </tr>
+          <tr>
+            <td>Lalat Rumah</td>
+            <td>Belatung (maggot)</td>
+            <td>Pupa (coklat)</td>
+            <td>Lalat bersayap</td>
+            <td>8-10 hari</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section C -->
+  <section class="content-section">
+    <h3 class="section-title">🦗 C. Metamorfosis Tidak Sempurna (Hemimetabola)</h3>
+    <p>Metamorfosis tidak sempurna adalah proses perubahan bentuk tubuh hewan yang hanya melalui <strong>tiga tahap</strong>, tanpa tahap pupa/kepompong. Bentuk muda (nimfa) <strong>mirip dengan induk dewasa</strong> tetapi berukuran lebih kecil dan belum memiliki sayap atau organ reproduksi yang matang. Hewan yang mengalami metamorfosis tidak sempurna disebut <strong>hemimetabola</strong>.</p>
+    
+    <div class="formula-box">
+      Telur → Nimfa → Imago (Dewasa)
+    </div>
+
+    <div class="highlight-box">
+      <h4> Tahap 1: Telur</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Induk betina meletakkan telur di tempat yang sesuai. Telur menetas menjadi nimfa setelah masa inkubasi tertentu.
+      </p>
+    </div>
+
+    <div class="highlight-box">
+      <h4>🦗 Tahap 2: Nimfa</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Nimfa adalah bentuk muda yang <strong>mirip dengan induk dewasa</strong> tetapi berukuran lebih kecil, belum memiliki sayap (atau sayap belum berkembang sempurna), dan organ reproduksi belum matang. Nimfa mengalami beberapa kali pergantian kulit (<em>instar</em>) sebelum menjadi dewasa. <strong>Nimfa aktif makan dan bergerak</strong> seperti induknya.
+      </p>
+    </div>
+
+    <div class="highlight-box">
+      <h4>🦗 Tahap 3: Imago (Dewasa)</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Setelah pergantian kulit terakhir, nimfa berubah menjadi imago yang memiliki sayap penuh dan organ reproduksi matang. Imago siap untuk kawin dan menghasilkan keturunan.
+      </p>
+    </div>
+
+    <div class="example-box">
+      <strong>📝 Contoh Hewan Hemimetabola:</strong><br>
+      <strong>🦗 Belalang:</strong> Telur → Nimfa belalang (tanpa sayap) → Belalang dewasa (bersayap)<br>
+      <strong>🪳 Kecoa:</strong> Telur → Nimfa kecoa → Kecoa dewasa<br>
+      <strong>🦟 Capung:</strong> Telur → Nimfa air (tempayak) → Capung dewasa bersayap<br>
+      <strong>🦗 Jangkrik:</strong> Telur → Nimfa jangkrik → Jangkrik dewasa<br>
+      <strong>🦗 Walang sangit:</strong> Telur → Nimfa → Walang sangit dewasa<br>
+      <strong> Rayap:</strong> Telur → Nimfa → Rayap dewasa (dengan kasta berbeda)
+    </div>
+
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Hewan</th>
+            <th>Habitat Nimfa</th>
+            <th>Jumlah Instar</th>
+            <th>Durasi Siklus</th>
+            <th>Ciri Khas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Belalang</td>
+            <td>Darat (sama dengan dewasa)</td>
+            <td>5-6 kali</td>
+            <td>2-6 bulan</td>
+            <td>Nimfa mirip dewasa, tanpa sayap</td>
+          </tr>
+          <tr>
+            <td>Kecoa</td>
+            <td>Darat (tempat gelap)</td>
+            <td>6-7 kali</td>
+            <td>2-6 bulan</td>
+            <td>Nimfa tanpa sayap, warna lebih terang</td>
+          </tr>
+          <tr>
+            <td>Capung</td>
+            <td>Air (nimfa hidup di air)</td>
+            <td>10-15 kali</td>
+            <td>6 bulan - 5 tahun</td>
+            <td>Nimfa air bernapas dengan insang</td>
+          </tr>
+          <tr>
+            <td>Jangkrik</td>
+            <td>Darat (tanah)</td>
+            <td>8-10 kali</td>
+            <td>2-3 bulan</td>
+            <td>Nimfa mirip dewasa, belum bersuara</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section D -->
+  <section class="content-section">
+    <h3 class="section-title">📊 D. Tabel Perbandingan Mendalam</h3>
+    <p>Berikut adalah perbandingan komprehensif antara metamorfosis sempurna dan tidak sempurna:</p>
+    
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Aspek Pembeda</th>
+            <th>🦋 Holometabola (Sempurna)</th>
+            <th>🦗 Hemimetabola (Tidak Sempurna)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Jumlah Tahap</td>
+            <td>4 tahap (Telur, Larva, Pupa, Imago)</td>
+            <td>3 tahap (Telur, Nimfa, Imago)</td>
+          </tr>
+          <tr>
+            <td>Tahap Pupa/Kepompong</td>
+            <td>Ada</td>
+            <td>Tidak ada</td>
+          </tr>
+          <tr>
+            <td>Bentuk Muda</td>
+            <td>Larva (sangat berbeda dari dewasa)</td>
+            <td>Nimfa (mirip dengan dewasa)</td>
+          </tr>
+          <tr>
+            <td>Sayap</td>
+            <td>Tumbuh saat tahap pupa</td>
+            <td>Tumbuh bertahap pada nimfa</td>
+          </tr>
+          <tr>
+            <td>Habitat</td>
+            <td>Larva dan dewasa sering berbeda habitat</td>
+            <td>Nimfa dan dewasa habitat sama</td>
+          </tr>
+          <tr>
+            <td>Makanan</td>
+            <td>Larva dan dewasa sering berbeda jenis makanan</td>
+            <td>Nimfa dan dewasa makanan sama</td>
+          </tr>
+          <tr>
+            <td>Kompetisi</td>
+            <td>Rendah (beda niche)</td>
+            <td>Tinggi (niche sama)</td>
+          </tr>
+          <tr>
+            <td>Contoh Ordo</td>
+            <td>Lepidoptera, Coleoptera, Diptera, Hymenoptera</td>
+            <td>Orthoptera, Blattodea, Odonata, Hemiptera</td>
+          </tr>
+          <tr>
+            <td>Persentase Serangga</td>
+            <td>±85% spesies serangga</td>
+            <td>±15% spesies serangga</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="comparison-box">
+      <div class="comparison-item">
+        <h4>🦋 Keuntungan Holometabola</h4>
+        <ul>
+          <li>Larva dan dewasa tidak bersaing makanan</li>
+          <li>Tahap pupa melindungi dari kondisi buruk</li>
+          <li>Spesialisasi tinggi di setiap tahap</li>
+          <li>Lebih adaptif terhadap perubahan lingkungan</li>
+        </ul>
+      </div>
+      <div class="comparison-item">
+        <h4> Keuntungan Hemimetabola</h4>
+        <ul>
+          <li>Siklus hidup lebih cepat (tanpa tahap pupa)</li>
+          <li>Nimfa bisa langsung mencari makan sendiri</li>
+          <li>Tidak rentan saat tahap pupa yang tidak berdaya</li>
+          <li>Energi tidak terbuang untuk membentuk kepompong</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section E -->
+  <section class="content-section">
+    <h3 class="section-title">🐛 E. Ametabola (Tanpa Metamorfosis)</h3>
+    <p>Selain kedua jenis metamorfosis di atas, terdapat juga kelompok hewan yang <strong>tidak mengalami metamorfosis</strong> (ametabola). Pada hewan ametabola, bentuk anak yang baru menetas <strong>sudah mirip dengan induk dewasa</strong>, hanya berbeda ukuran. Pertumbuhan terjadi melalui pergantian kulit secara berkala.</p>
+    
+    <div class="highlight-box">
+      <h4>📌 Ciri-ciri Hewan Ametabola</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        • Tidak ada perubahan bentuk yang signifikan<br>
+        • Tidak ada tahap larva atau pupa<br>
+        • Hanya terjadi pertambahan ukuran melalui molting<br>
+        • Organ reproduksi matang seiring pertumbuhan tubuh<br>
+        • Umumnya merupakan serangga primitif (tidak bersayap)
+      </p>
+    </div>
+
+    <div class="example-box">
+      <strong>📝 Contoh Hewan Ametabola:</strong><br>
+      <strong>🐟 Kutu Buku (Silverfish):</strong> Serangga kecil tanpa sayap yang hidup di tempat lembab. Anak yang menetas sudah mirip induk, hanya lebih kecil.<br>
+      <strong> Kutu Loncat (Springtail):</strong> Hewan kecil yang hidup di tanah dan serasah daun.<br>
+      <strong>🪲 Protura & Diplura:</strong> Serangga primitif tanpa mata dan antena kompleks.
+    </div>
+
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Jenis Metamorfosis</th>
+            <th>Tahapan</th>
+            <th>Perubahan Bentuk</th>
+            <th>Contoh</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🦋 Holometabola (Sempurna)</td>
+            <td>Telur → Larva → Pupa → Imago</td>
+            <td>Sangat berbeda</td>
+            <td>Kupu-kupu, nyamuk, lalat</td>
+          </tr>
+          <tr>
+            <td>🦗 Hemimetabola (Tidak Sempurna)</td>
+            <td>Telur → Nimfa → Imago</td>
+            <td>Sedikit berbeda</td>
+            <td>Belalang, kecoa, capung</td>
+          </tr>
+          <tr>
+            <td>🐛 Ametabola (Tanpa Metamorfosis)</td>
+            <td>Telur → juvenile → Imago</td>
+            <td>Hanya ukuran</td>
+            <td>Kutu buku, springtail</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section F -->
+  <section class="content-section">
+    <h3 class="section-title"> F. Hormon yang Mengatur Metamorfosis</h3>
+    <p>Metamorfosis pada serangga dikendalikan oleh tiga hormon utama yang bekerja secara terkoordinasi:</p>
+    
+    <div class="comparison-box">
+      <div class="comparison-item">
+        <h4>🧪 1. Hormon Juvenil (JH)</h4>
+        <p>Diproduksi oleh <strong>corpora allata</strong>. Berfungsi mempertahankan sifat larva/nimfa. Selama kadar JH tinggi, serangga tetap dalam bentuk muda. Ketika kadar JH turun, serangga mulai bermetamorfosis menjadi dewasa.</p>
+      </div>
+      <div class="comparison-item">
+        <h4>🧪 2. Ekdison (Hormon Molting)</h4>
+        <p>Diproduksi oleh <strong>kelenjar protoraks</strong>. Merangsang pergantian kulit (molting/ekdisis). Setiap kali serangga berganti kulit, ekdison bekerja sama dengan hormon juvenil untuk menentukan bentuk selanjutnya.</p>
+      </div>
+      <div class="comparison-item">
+        <h4>🧪 3. PTTH (Prothoracicotropic Hormone)</h4>
+        <p>Diproduksi oleh <strong>otak (neurosekretori)</strong>. Merangsang kelenjar protoraks untuk menghasilkan ekdison. PTTH adalah "master regulator" yang memulai proses molting.</p>
+      </div>
+      <div class="comparison-item">
+        <h4>⚖️ Interaksi Hormon</h4>
+        <p><strong>Ekdison tinggi + JH tinggi</strong> → Molting menjadi larva/nimfa yang lebih besar<br>
+        <strong>Ekdison tinggi + JH rendah</strong> → Molting menjadi pupa atau dewasa<br>
+        <strong>Ekdison rendah</strong> → Tidak ada molting, hewan tetap pada tahap saat ini</p>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <strong> Aplikasi Ilmu Hormon Metamorfosis:</strong><br>
+      Pemahaman tentang hormon metamorfosis digunakan dalam <strong>pengendalian hama ramah lingkungan</strong>. Zat penghambat hormon juvenil (JH analog) dapat disemprotkan pada tanaman untuk mencegah hama serangga mencapai tahap dewasa yang merusak, tanpa membunuh serangga berguna seperti lebah penyerbuk.
+    </div>
+  </section>
+
+  <!-- Section G -->
+  <section class="content-section">
+    <h3 class="section-title"> G. Aplikasi dalam Kehidupan dan Teknologi</h3>
+    <p>Pemahaman tentang metamorfosis memiliki banyak aplikasi praktis dalam kehidupan manusia:</p>
+    
+    <div class="highlight-box">
+      <h4>🐛 1. Budidaya Serangga Ekonomis</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        • <strong>Budidaya Ulat Sutera (Bombyx mori):</strong> Memanen kokon pada tahap pupa untuk menghasilkan benang sutera berkualitas tinggi.<br>
+        • <strong>Budidaya Lebah Madu:</strong> Memahami siklus metamorfosis untuk optimalisasi produksi madu dan royal jelly.<br>
+        • <strong>Budidaya Jangkrik:</strong> Untuk pakan ternak dan konsumsi manusia (sumber protein alternatif).
+      </p>
+    </div>
+
+    <div class="highlight-box">
+      <h4>🦟 2. Pengendalian Vektor Penyakit</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        • <strong>Pemberantasan Nyamuk:</strong> Memutus siklus hidup nyamuk pada tahap jentik (larva) dengan menguras tempat penampungan air (3M Plus).<br>
+        • <strong>Penggunaan Bacillus thuringiensis israelensis (Bti):</strong> Bakteri yang membunuh jentik nyamuk tanpa merusak lingkungan.<br>
+        • <strong>Ikan Pemakan Jentik:</strong> Memanfaatkan ikan cupang, nila, atau guppy untuk memakan jentik nyamuk secara alami.
+      </p>
+    </div>
+
+    <div class="highlight-box">
+      <h4>🦋 3. Konservasi & Ekowisata</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        • <strong>Taman Kupu-kupu:</strong> Budidaya kupu-kupu untuk ekowisata dan edukasi.<br>
+        • <strong>Konservasi Spesies Langka:</strong> Perlindungan habitat untuk serangga yang mengalami metamorfosis sempurna.<br>
+        • <strong>Bioindikator:</strong> Keberadaan serangga tertentu (seperti capung) menandakan kualitas lingkungan yang baik.
+      </p>
+    </div>
+
+    <div class="example-box">
+      <strong>📝 Studi Kasus: Pengendalian Hama Wereng pada Padi</strong><br>
+      Wereng coklat (<em>Nilaparvata lugens</em>) adalah hama utama padi yang mengalami metamorfosis tidak sempurna. Nimfa dan dewasa sama-sama menghisap cairan batang padi. Strategi pengendalian terpadu:<br>
+      • <strong>Budidaya:</strong> Tanam varietas tahan wereng<br>
+      • <strong>Biologis:</strong> Manfaatkan predator alami (laba-laba, kumbang koksinelid)<br>
+      • <strong>Kimiawi:</strong> Pestisida selektif hanya saat populasi mencapai ambang ekonomi<br>
+      • <strong>Fisik:</strong> Sanitasi lahan dan pergiliran tanaman
+    </div>
+  </section>
+
+  <!-- Keywords -->
+  <div class="keywords">
+    <span class="keyword-tag"> Metamorfosis</span>
+    <span class="keyword-tag">🐛 Holometabola</span>
+    <span class="keyword-tag">🦗 Hemimetabola</span>
+    <span class="keyword-tag"> Ametabola</span>
+    <span class="keyword-tag">🥚 Telur</span>
+    <span class="keyword-tag">🐛 Larva</span>
+    <span class="keyword-tag">🫙 Pupa/Kepompong</span>
+    <span class="keyword-tag">🦋 Imago</span>
+    <span class="keyword-tag"> Nimfa</span>
+    <span class="keyword-tag">🧪 Hormon Juvenil</span>
+    <span class="keyword-tag">🧬 Ekdison</span>
+    <span class="keyword-tag">🦟 Vektor Penyakit</span>
+    <span class="keyword-tag">🌾 Hama Pertanian</span>
+    <span class="keyword-tag">🐝 Budidaya Serangga</span>
+  </div>
+
+  <!-- Islamic Quote -->
+  <div class="islamic-quote">
+    <div class="arabic">أَلَمْ تَرَ أَنَّ اللَّهَ أَنزَلَ مِنَ السَّمَاءِ مَاءً فَأَخْرَجْنَا بِهِ ثَمَرَاتٍ مُّخْتَلِفًا أَلْوَانُهَا ۚ وَمِنَ الْجِبَالِ جُدَدٌ بِيضٌ وَحُمْرٌ مُّخْتَلِفٌ أَلْوَانُهَا وَغَرَابِيبُ سُودٌ</div>
+    <div class="translation">"Apakah kamu tidak memperhatikan, bahwa Allah menurunkan air dari langit, lalu Kami hasilkan dengan air itu buah-buahan yang beraneka macam jenisnya. Dan di antara gunung-gunung itu ada garis-garis putih dan merah yang beraneka macam warnanya dan ada (pula) yang hitam pekat."</div>
+    <div class="source">— QS. Fatir [35]: 27</div>
+  </div>
+  <p style="text-align: center; color: var(--text-secondary); font-style: italic; margin-top: -20px; margin-bottom: 30px;">
+    Ayat ini menggambarkan keanekaragaman ciptaan Allah, termasuk berbagai bentuk metamorfosis pada hewan. Setiap spesies memiliki cara transformasi yang unik, mencerminkan kebesaran dan kebijaksanaan Sang Pencipta dalam merancang kehidupan.
+  </p>
+
+  <!-- Section H: Referensi -->
+  <section class="content-section">
+    <h3 class="section-title">📚 H. Referensi Pendukung</h3>
+    <ul style="margin-left: 20px; color: var(--text-secondary); line-height: 1.8;">
+      <li>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi. (2021). <em>Ilmu Pengetahuan Alam Kelas IX SMP/MTs</em>. Jakarta: Pusat Perbukuan, Kemendikbudristek.</li>
+      <li>Campbell, N. A., & Reece, J. B. (2020). <em>Biology</em> (12th ed.). Pearson Education. (Bab 32: An Introduction to Animal Diversity)</li>
+      <li>Gullan, P. J., & Cranston, P. S. (2014). <em>The Insects: An Outline of Entomology</em> (5th ed.). Wiley-Blackwell.</li>
+      <li>Riddiford, L. M. (2012). "How does juvenile hormone control metamorphosis and reproduction?" <em>General and Comparative Endocrinology</em>, 179(3), 477-484.</li>
+      <li>Resh, V. H., & Cardé, R. T. (2009). <em>Encyclopedia of Insects</em> (2nd ed.). Academic Press.</li>
+    </ul>
+  </section>
+
+  <!-- ===== UJI FORMATIF ===== -->
+  <div class="quiz-container" id="quizSection">
+    <div class="quiz-header">
+      <h2>📝 Uji Formatif Bab 4</h2>
+      <p>Metamorfosis Sempurna dan Tidak Sempurna pada Hewan<br>
+       Bagian A: Pilihan Ganda (10 soal, skor 10/soal) | ✍️ Bagian B: Essay (5 soal, skor 20/soal)</p>
+    </div>
+
+    <form id="quizForm">
+      <!-- Identitas -->
+      <div class="content-section" style="background: rgba(255,255,255,0.03);">
+        <h4 style="color: var(--blue-accent); margin-bottom: 16px; font-family: 'Playfair Display', serif;">📋 Identitas Siswa</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+          <div class="form-group">
+            <label>Nama Lengkap *</label>
+            <input type="text" id="studentName" required placeholder="Masukkan nama lengkap">
+          </div>
+          <div class="form-group">
+            <label>No. Absen / NIS *</label>
+            <input type="text" id="studentNIS" required placeholder="Masukkan NIS">
+          </div>
+          <div class="form-group">
+            <label>📅 Tanggal Ujian</label>
+            <input type="date" id="quizDate" required>
+          </div>
+          <div class="form-group">
+            <label>Kelas</label>
+            <select id="studentClass" required>
+              <option value="">Pilih Kelas</option>
+              <option value="IX-A">IX-A</option>
+              <option value="IX-B">IX-B</option>
+              <option value="IX-C">IX-C</option>
+              <option value="IX-D">IX-D</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Semester</label>
+            <input type="text" value="1 (Satu)" readonly style="background: rgba(255,255,255,0.02); color: var(--text-secondary);">
+          </div>
+        </div>
+      </div>
+
+      <!-- Bagian A: Pilihan Ganda -->
+      <h3 style="color: var(--blue-accent); font-family: 'Playfair Display', serif; margin: 30px 0 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">📋 Bagian A: Pilihan Ganda</h3>
+      <div id="mcqContainer"></div>
+
+      <!-- Bagian B: Essay -->
+      <h3 style="color: var(--blue-accent); font-family: 'Playfair Display', serif; margin: 40px 0 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">✍️ Bagian B: Essay</h3>
+      <div id="essayContainer"></div>
+
+      <!-- Action Buttons -->
+      <div class="action-bar">
+        <button type="button" class="btn btn-primary" onclick="submitQuiz()">✉️ KIRIM JAWABAN & LIHAT HASIL</button>
+        <button type="button" class="btn btn-secondary" onclick="downloadPDF()"> UNDUH PDF LENGKAP</button>
+        <button type="button" class="btn btn-secondary" onclick="downloadTXT()">📥 UNDUH SKOR (TXT)</button>
+        <button type="button" class="btn btn-outline" onclick="resetQuiz()">🔄 MULAI ULANG</button>
+        <a id="emailLink" href="#" class="btn btn-outline" style="display:none;"> Kirim ke Email Guru</a>
+      </div>
+    </form>
+
+    <!-- Results Panel -->
+    <div class="results-panel" id="resultsPanel">
+      <h3 style="font-family: 'Playfair Display', serif; color: var(--blue-accent); margin-bottom: 10px;"> Hasil Uji Formatif</h3>
+      <p id="resultMessage" style="color: var(--text-primary); margin-bottom: 20px;"></p>
+      <div class="score-display">
+        <div class="score-item">
+          <div class="label">📋 Pilihan Ganda</div>
+          <div class="value" id="scoreMCQ">0</div>
+        </div>
+        <div class="score-item">
+          <div class="label">✍️ Essay</div>
+          <div class="value" id="scoreEssay">0</div>
+        </div>
+        <div class="score-item">
+          <div class="label">Skor Akhir</div>
+          <div class="value" id="scoreTotal">0</div>
+        </div>
+      </div>
+      <p style="font-size: 12px; color: var(--text-secondary); margin-top: 16px;">
+        *Penilaian Essay bersifat otomatis berdasarkan kelengkapan jawaban (minimal 30 karakter). Guru akan melakukan penilaian ulang secara manual untuk ketepatan konsep.
+      </p>
+    </div>
+  </div>
+
+  <!-- Navigation Footer -->
+  <div class="nav-footer">
+    <a href="3.html">
+      <span>←</span> Bab 3: Perkembangan Embrio
+    </a>
+    <a href="5.html">
+      Selanjutnya → <span>Bab 5: Pertumbuhan Tumbuhan</span>
+    </a>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-brand">🔬 IPA <span>Kelas IX</span></div>
+  <div class="footer-contact">
+    MTsN 10 Agam • <a href="mailto:medycandra514@gmail.com">medycandra514@gmail.com</a>
+  </div>
+  <div class="copyright">© 2026 Medy Candra, S.Pd — MTsN 10 Agam. Hak Cipta Dilindungi Undang-Undang</div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  document.getElementById('quizDate').valueAsDate = new Date();
+
+  const mcqQuestions = [
+    { q: "Metamorfosis sempurna (holometabola) melalui tahapan...", options: ["Telur → Nimfa → Imago", "Telur → Larva → Pupa → Imago", "Telur → Larva → Imago", "Telur → Pupa → Larva → Imago"], answer: 1 },
+    { q: "Hewan yang mengalami metamorfosis tidak sempurna (hemimetabola) adalah...", options: ["Kupu-kupu", "Nyamuk", "Belalang", "Lalat"], answer: 2 },
+    { q: "Tahap di mana larva kupu-kupu membungkus diri dan tidak makan disebut...", options: ["Telur", "Larva", "Pupa/Kepompong", "Imago"], answer: 2 },
+    { q: "Perbedaan utama antara larva dan nimfa adalah...", options: ["Larva mirip induk, nimfa tidak", "Nimfa mirip induk, larva sangat berbeda", "Larva memiliki sayap, nimfa tidak", "Nimfa tidak makan, larva makan"], answer: 1 },
+    { q: "Hormon yang mempertahankan sifat larva pada serangga adalah...", options: ["Ekdison", "Hormon Juvenil (JH)", "PTTH", "Hormon Tiroksin"], answer: 1 },
+    { q: "Berikut ini yang merupakan contoh hewan ametabola (tanpa metamorfosis) adalah...", options: ["Kupu-kupu", "Belalang", "Kutu buku (silverfish)", "Nyamuk"], answer: 2 },
+    { q: "Tahap nimfa pada belalang berbeda dengan belalang dewasa karena...", options: ["Nimfa memiliki sayap penuh", "Nimfa belum memiliki sayap dan organ reproduksi matang", "Nimfa tidak makan", "Nimfa hidup di air"], answer: 1 },
+    { q: "Keuntungan metamorfosis sempurna bagi hewan adalah...", options: ["Siklus hidup lebih cepat", "Larva dan dewasa tidak bersaing makanan", "Tidak perlu berganti kulit", "Tidak ada tahap pupa"], answer: 1 },
+    { q: "Jentik nyamuk merupakan tahap... dalam siklus hidup nyamuk.", options: ["Telur", "Larva", "Pupa", "Imago"], answer: 1 },
+    { q: "Proses pergantian kulit pada serangga disebut...", options: ["Metamorfosis", "Ekdisis/Molting", "Histolisis", "Fertilisasi"], answer: 1 }
+  ];
+
+  const essayQuestions = [
+    "Jelaskan perbedaan mendasar antara metamorfosis sempurna dan metamorfosis tidak sempurna! Berikan masing-masing 3 contoh hewan dan uraikan tahapannya!",
+    "Mengapa tahap pupa/kepompong sangat penting dalam metamorfosis sempurna? Jelaskan proses histolisis dan histogenesis yang terjadi di dalamnya!",
+    "Jelaskan peran tiga hormon utama (Hormon Juvenil, Ekdison, dan PTTH) dalam mengatur proses metamorfosis pada serangga!",
+    "Capung mengalami metamorfosis tidak sempurna, tetapi nimfanya hidup di air sementara dewasa hidup di darat/udara. Jelaskan keunikan ini dan mengapa tetap dikategorikan hemimetabola!",
+    "Bagaimana pemahaman tentang metamorfosis dapat diterapkan dalam pengendalian hama pertanian dan vektor penyakit (seperti nyamuk) secara ramah lingkungan? Berikan contoh konkret!"
+  ];
+
+  const mcqContainer = document.getElementById('mcqContainer');
+  mcqQuestions.forEach((item, index) => {
+    const qDiv = document.createElement('div');
+    qDiv.className = 'question-block';
+    qDiv.innerHTML = `
+      <div class="question-text">
+        <span class="question-num">Soal ${index + 1}</span>
+        <span>${item.q}</span>
+        <span class="question-points">10 POIN</span>
+      </div>
+      <div class="options">
+        ${item.options.map((opt, optIndex) => `
+          <label class="option-label" id="label_${index}_${optIndex}">
+            <input type="radio" name="q${index}" value="${optIndex}">
+            <span>${String.fromCharCode(65 + optIndex)}. ${opt}</span>
+          </label>
+        `).join('')}
+      </div>
+    `;
+    mcqContainer.appendChild(qDiv);
+  });
+
+  const essayContainer = document.getElementById('essayContainer');
+  essayQuestions.forEach((item, index) => {
+    const qDiv = document.createElement('div');
+    qDiv.className = 'question-block';
+    qDiv.innerHTML = `
+      <div class="question-text">
+        <span class="question-num">Essay ${index + 1}</span>
+        <span>${item}</span>
+        <span class="question-points">20 POIN</span>
+      </div>
+      <textarea id="essay${index}" placeholder="Tulis jawaban Anda di sini... (Minimal 30 karakter untuk mendapatkan poin)"></textarea>
+    `;
+    essayContainer.appendChild(qDiv);
+  });
+
+  let finalScores = { mcq: 0, essay: 0, total: 0 };
+
+  function submitQuiz() {
+    const name = document.getElementById('studentName').value;
+    const nis = document.getElementById('studentNIS').value;
+    const cls = document.getElementById('studentClass').value;
+    
+    if (!name || !nis || !cls) {
+      alert("Harap lengkapi identitas siswa (Nama, NIS, dan Kelas) sebelum mengirim jawaban!");
+      return;
+    }
+
+    let mcqScore = 0;
+    mcqQuestions.forEach((item, index) => {
+      const selected = document.querySelector(`input[name="q${index}"]:checked`);
+      const labels = document.querySelectorAll(`[id^="label_${index}_"]`);
+      labels.forEach(l => { l.classList.remove('correct', 'incorrect'); l.style.pointerEvents = 'none'; });
+
+      if (selected) {
+        const val = parseInt(selected.value);
+        if (val === item.answer) {
+          mcqScore += 10;
+          document.getElementById(`label_${index}_${val}`).classList.add('correct');
+        } else {
+          document.getElementById(`label_${index}_${val}`).classList.add('incorrect');
+          document.getElementById(`label_${index}_${item.answer}`).classList.add('correct');
+        }
+      } else {
+        document.getElementById(`label_${index}_${item.answer}`).classList.add('correct');
+      }
+    });
+
+    let essayScore = 0;
+    for (let i = 0; i < 5; i++) {
+      const text = document.getElementById(`essay${i}`).value.trim();
+      if (text.length >= 30) essayScore += 20;
+      else if (text.length > 0) essayScore += 10;
+      document.getElementById(`essay${i}`).disabled = true;
+    }
+
+    finalScores = { mcq: mcqScore, essay: essayScore, total: mcqScore + essayScore };
+
+    document.getElementById('scoreMCQ').textContent = finalScores.mcq;
+    document.getElementById('scoreEssay').textContent = finalScores.essay;
+    document.getElementById('scoreTotal').textContent = finalScores.total;
+    
+    let msg = `Terima kasih, ${name}! Jawaban Anda telah berhasil dikumpulkan.`;
+    if (finalScores.total >= 160) msg += " 🌟 Luar biasa! Pemahaman Anda tentang metamorfosis sangat baik.";
+    else if (finalScores.total >= 100) msg += " 👍 Bagus! Tingkatkan lagi pemahaman tentang perbedaan holometabola dan hemimetabola.";
+    else msg += " 📚 Jangan menyerah! Pelajari kembali materi metamorfosis hewan.";
+    
+    document.getElementById('resultMessage').textContent = msg;
+    document.getElementById('resultsPanel').classList.add('show');
+    
+    document.querySelector('.btn-primary').disabled = true;
+    document.querySelector('.btn-primary').textContent = "✓ SUDAH DIKIRIM";
+    document.querySelector('.btn-primary').style.opacity = "0.6";
+
+    const emailBody = `Hasil Uji Formatif Bab 4 (Metamorfosis Hewan)%0D%0A%0D%0ANama: ${name}%0D%0ANIS: ${nis}%0D%0AKelas: ${cls}%0D%0ATanggal: ${document.getElementById('quizDate').value}%0D%0A%0D%0ASKOR:%0D%0A- Pilihan Ganda: ${finalScores.mcq}/100%0D%0A- Essay: ${finalScores.essay}/100 (Perlu validasi guru)%0D%0A- Total: ${finalScores.total}/200%0D%0A%0D%0ACatatan: Jawaban detail dapat dilihat pada file PDF yang dilampirkan.`;
+    document.getElementById('emailLink').href = `mailto:medycandra514@gmail.com?subject=Hasil Uji Formatif Bab 4 - ${name} (${cls})&body=${emailBody}`;
+    document.getElementById('emailLink').style.display = 'inline-flex';
+
+    document.getElementById('resultsPanel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function downloadPDF() { window.print(); }
+
+  function downloadTXT() {
+    const name = document.getElementById('studentName').value || "Siswa";
+    const nis = document.getElementById('studentNIS').value || "-";
+    const cls = document.getElementById('studentClass').value || "-";
+    const date = document.getElementById('quizDate').value || new Date().toLocaleDateString('id-ID');
+
+    let content = `HASIL UJI FORMATIF BAB 4: METAMORFOSIS HEWAN\n`;
+    content += `====================================================\n`;
+    content += `Nama  : ${name}\nNIS   : ${nis}\nKelas : ${cls}\nTanggal: ${date}\n`;
+    content += `====================================================\n`;
+    content += `SKOR PILIHAN GANDA : ${finalScores.mcq} / 100\n`;
+    content += `SKOR ESSAY (Simulasi): ${finalScores.essay} / 100\n`;
+    content += `TOTAL SKOR         : ${finalScores.total} / 200\n`;
+    content += `====================================================\n\nJAWABAN ESSAY:\n`;
+    for (let i = 0; i < 5; i++) {
+      content += `\nEssay ${i+1}:\n${document.getElementById(`essay${i}`).value || "(Tidak dijawab)"}\n`;
+    }
+    content += `\n====================================================\nDikirim otomatis dari Sistem Pembelajaran IPA\nMTsN 10 Agam | Penulis: Medy Candra, S.Pd`;
+
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Skor_UjiFormatif_Bab4_${name.replace(/\s+/g, '_')}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function resetQuiz() {
+    if (confirm("Apakah Anda yakin ingin mengulang ujian? Semua jawaban akan dihapus.")) {
+      document.getElementById('quizForm').reset();
+      document.getElementById('quizDate').valueAsDate = new Date();
+      document.getElementById('resultsPanel').classList.remove('show');
+      document.querySelectorAll('.option-label').forEach(l => { l.classList.remove('correct', 'incorrect'); l.style.pointerEvents = 'auto'; });
+      document.querySelectorAll('textarea').forEach(t => t.disabled = false);
+      
+      const btn = document.querySelector('.btn-primary');
+      btn.disabled = false; btn.textContent = "✉️ KIRIM JAWABAN & LIHAT HASIL"; btn.style.opacity = "1";
+      document.getElementById('emailLink').style.display = 'none';
+      finalScores = { mcq: 0, essay: 0, total: 0 };
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+</script>
+
+</body>
+</html>

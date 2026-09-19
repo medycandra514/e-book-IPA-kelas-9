@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pertemuan 10: Siklus Menstruasi & Kehamilan | IPA Kelas IX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy-deep: #050b14;
+    --navy: #0a192f;
+    --navy-light: #112240;
+    --blue-royal: #1e3a8a;
+    --blue-glow: #3b82f6;
+    --blue-accent: #60a5fa;
+    --gold-accent: #fbbf24;
+    --green-accent: #10b981;
+    --red-accent: #ef4444;
+    --pink-accent: #ec4899;
+    --purple-accent: #a855f7;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --glass-bg: rgba(17, 34, 64, 0.6);
+    --glass-border: rgba(96, 165, 250, 0.15);
+    --shadow-soft: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+    --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--navy-deep);
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(30, 58, 138, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 40%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  .orb {
+    position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.4;
+    animation: floatOrb 20s ease-in-out infinite alternate;
+  }
+  .orb-1 { width: 500px; height: 500px; background: var(--blue-royal); top: -10%; right: -5%; }
+  .orb-2 { width: 400px; height: 400px; background: var(--navy-light); bottom: 10%; left: -5%; animation-delay: -5s; }
+  
+  @keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, -40px) scale(1.1); }
+  }
+
+  .accent-line {
+    height: 2px; background: linear-gradient(90deg, transparent, var(--blue-glow), var(--gold-accent), transparent);
+    margin: 0 auto; opacity: 0.8;
+  }
+  .accent-line.thick { height: 3px; max-width: 1200px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    background: rgba(5, 11, 20, 0.9); border-bottom: 1px solid var(--glass-border);
+  }
+  .nav-inner {
+    max-width: 1000px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; padding: 16px 24px;
+  }
+  .brand {
+    font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px;
+    color: var(--text-primary); display: flex; align-items: center; gap: 12px;
+  }
+  .brand span { color: var(--blue-accent); }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a {
+    color: var(--text-secondary); text-decoration: none; font-size: 12px;
+    font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s;
+  }
+  .nav-links a:hover { color: var(--blue-accent); }
+
+  .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .chapter-header {
+    text-align: center; margin-bottom: 50px; padding: 40px 30px; border-radius: 16px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft);
+  }
+  .chapter-header .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--blue-accent); margin-bottom: 12px; display: inline-block;
+    background: rgba(59, 130, 246, 0.1); padding: 6px 16px; border-radius: 50px;
+  }
+  .chapter-header h1 {
+    font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 48px); font-weight: 700;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--blue-accent) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    margin-bottom: 16px; line-height: 1.2;
+  }
+  .chapter-header .subtitle {
+    font-size: 16px; color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-weight: 400;
+  }
+  .author-badge {
+    display: inline-flex; align-items: center; gap: 12px; margin-top: 20px; padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); border-radius: 50px;
+    font-size: 13px; color: var(--text-primary); font-weight: 600;
+  }
+
+  .intro-quote {
+    text-align: center; padding: 40px 20px; margin-bottom: 50px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+  }
+  .intro-quote .label {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold-accent); margin-bottom: 12px; font-weight: 700;
+  }
+  .intro-quote .title {
+    font-family: 'Playfair Display', serif; font-size: 26px; color: var(--text-primary); margin-bottom: 16px; font-weight: 600;
+  }
+  .intro-quote p { font-size: 16px; color: var(--text-secondary); max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+  .content-section {
+    margin-bottom: 40px; padding: 30px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+    transition: all 0.3s; box-shadow: var(--shadow-soft);
+  }
+  .content-section:hover {
+    border-color: var(--blue-glow); box-shadow: var(--shadow-glow); transform: translateY(-4px);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text-primary);
+    margin-bottom: 20px; display: flex; align-items: center; gap: 12px; font-weight: 600;
+  }
+  .section-title::before {
+    content: ""; width: 4px; height: 24px; background: var(--blue-glow); border-radius: 2px;
+  }
+  p { margin-bottom: 16px; color: var(--text-secondary); }
+  
+  .highlight-box {
+    background: rgba(59, 130, 246, 0.08); border-left: 4px solid var(--blue-glow);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .highlight-box h4 { color: var(--blue-accent); margin-bottom: 8px; font-family: 'Playfair Display', serif; font-weight: 600; }
+  
+  .formula-box {
+    background: linear-gradient(135deg, var(--blue-royal), var(--navy-light));
+    padding: 20px; border-radius: 12px; text-align: center;
+    font-family: 'Playfair Display', serif; font-size: 18px; color: var(--text-primary);
+    margin: 20px 0; font-weight: 600; letter-spacing: 0.5px; border: 1px solid var(--glass-border);
+  }
+
+  .example-box {
+    background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(251, 191, 36, 0.4);
+    padding: 24px; border-radius: 12px; margin: 20px 0;
+  }
+  .example-box strong { color: var(--gold-accent); }
+
+  .warning-box {
+    background: rgba(239, 68, 68, 0.08); border-left: 4px solid var(--red-accent);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .warning-box h4 { color: var(--red-accent); margin-bottom: 8px; font-family: 'Playfair Display', serif; font-weight: 600; }
+
+  .info-box {
+    background: rgba(16, 185, 129, 0.08); border-left: 4px solid var(--green-accent);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .info-box h4 { color: var(--green-accent); margin-bottom: 8px; font-family: 'Playfair Display', serif; font-weight: 600; }
+
+  .comparison-box { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .comparison-item {
+    padding: 24px; border-radius: 12px; background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border); transition: all 0.3s;
+  }
+  .comparison-item:hover { transform: translateY(-4px); border-color: var(--blue-glow); }
+  .comparison-item h4 { color: var(--blue-accent); font-family: 'Playfair Display', serif; margin-bottom: 12px; font-size: 18px; font-weight: 600; }
+  .comparison-item p, .comparison-item li { font-size: 14px; margin: 0; color: var(--text-secondary); line-height: 1.6; }
+  .comparison-item ul { margin-left: 20px; margin-top: 8px; }
+
+  .table-wrapper { overflow-x: auto; margin: 20px 0; border-radius: 12px; border: 1px solid var(--glass-border); background: rgba(255, 255, 255, 0.02); }
+  .luxury-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+  .luxury-table th {
+    background: var(--blue-royal); color: var(--text-primary); padding: 14px 16px; text-align: center;
+    font-family: 'Playfair Display', serif; font-weight: 600; font-size: 15px;
+  }
+  .luxury-table td {
+    padding: 14px 16px; border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); font-size: 14px; text-align: center;
+  }
+  .luxury-table td:first-child { text-align: left; font-weight: 600; color: var(--blue-accent); }
+  .luxury-table tr:last-child td { border-bottom: none; }
+  .luxury-table tr:hover td { background: rgba(59, 130, 246, 0.05); }
+
+  .step-box {
+    display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start;
+  }
+  .step-num {
+    background: linear-gradient(135deg, var(--blue-royal), var(--blue-glow)); color: white;
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0;
+  }
+  .step-content h4 { color: var(--blue-accent); margin-bottom: 4px; font-size: 16px; font-weight: 700; }
+  .step-content p { margin: 0; font-size: 14px; }
+
+  .cycle-diagram {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 30px 0;
+  }
+  .cycle-phase {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid var(--glass-border);
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .cycle-phase:hover {
+    transform: translateY(-4px);
+    border-color: var(--blue-glow);
+    box-shadow: var(--shadow-glow);
+  }
+  .cycle-phase .phase-icon { font-size: 32px; margin-bottom: 10px; }
+  .cycle-phase h4 { 
+    color: var(--blue-accent); font-family: 'Playfair Display', serif; 
+    margin-bottom: 8px; font-size: 16px; font-weight: 600;
+  }
+  .cycle-phase .days { 
+    color: var(--gold-accent); font-size: 12px; font-weight: 700; 
+    margin-bottom: 8px; letter-spacing: 1px;
+  }
+  .cycle-phase p { font-size: 13px; color: var(--text-secondary); margin: 0; }
+
+  .islamic-quote {
+    text-align: center; padding: 40px 20px; margin: 40px 0;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+  }
+  .islamic-quote .arabic {
+    font-size: 26px; color: var(--gold-accent); margin-bottom: 16px;
+    font-family: 'Traditional Arabic', 'Arial', sans-serif; line-height: 1.6; font-weight: 600;
+  }
+  .islamic-quote .translation {
+    font-style: italic; font-size: 16px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-weight: 400;
+  }
+  .islamic-quote .source { font-size: 12px; color: var(--blue-accent); margin-top: 12px; letter-spacing: 2px; font-weight: 600; }
+
+  .keywords { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 30px 0; }
+  .keyword-tag {
+    padding: 6px 14px; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 50px; font-size: 12px; color: var(--blue-accent); letter-spacing: 0.5px; font-weight: 600;
+    transition: all 0.3s;
+  }
+  .keyword-tag:hover { background: var(--blue-glow); color: white; transform: translateY(-2px); }
+
+  .quiz-container {
+    margin-top: 60px; padding: 40px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px; box-shadow: var(--shadow-soft);
+  }
+  .quiz-header { text-align: center; margin-bottom: 30px; }
+  .quiz-header h2 { 
+    font-family: 'Playfair Display', serif; font-size: 26px; 
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--blue-accent) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700;
+  }
+  .quiz-header p { color: var(--text-secondary); font-size: 14px; }
+
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--blue-accent); margin-bottom: 8px; font-weight: 700;
+  }
+  .form-group input, .form-group select {
+    width: 100%; padding: 12px 16px; background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-primary); 
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; transition: all 0.3s;
+  }
+  .form-group input:focus, .form-group select:focus {
+    outline: none; border-color: var(--blue-glow); background: rgba(255, 255, 255, 0.08);
+  }
+
+  .question-block { margin-bottom: 30px; padding: 24px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 12px; }
+  .question-text { font-weight: 600; margin-bottom: 16px; color: var(--text-primary); display: flex; gap: 10px; font-size: 15px; }
+  .question-num { color: var(--blue-accent); font-weight: 800; font-size: 16px; flex-shrink: 0; }
+  .question-points {
+    padding: 4px 12px; background: var(--blue-royal); color: var(--text-primary);
+    border-radius: 50px; font-size: 11px; font-weight: 700; white-space: nowrap; margin-left: auto;
+  }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option-label {
+    display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 8px;
+    cursor: pointer; transition: all 0.3s;
+  }
+  .option-label:hover { background: rgba(59, 130, 246, 0.1); border-color: var(--blue-glow); transform: translateX(4px); }
+  .option-label input[type="radio"] { accent-color: var(--blue-glow); width: 18px; height: 18px; }
+  .option-label.correct { background: rgba(16, 185, 129, 0.15); border-color: #10b981; }
+  .option-label.incorrect { background: rgba(239, 68, 68, 0.15); border-color: #ef4444; }
+
+  textarea {
+    width: 100%; padding: 16px; min-height: 120px; background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-primary); 
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; resize: vertical; transition: all 0.3s;
+  }
+  textarea:focus { outline: none; border-color: var(--blue-glow); background: rgba(255, 255, 255, 0.08); }
+
+  .action-bar { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; justify-content: center; }
+  .btn {
+    padding: 14px 24px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    border: none; border-radius: 6px; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; transition: all 0.4s; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--blue-royal), var(--blue-glow)); color: white;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(59, 130, 246, 0.5); }
+  .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border: 1px solid var(--glass-border); }
+  .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--blue-accent); }
+  .btn-outline { background: transparent; color: var(--blue-accent); border: 1px solid var(--blue-accent); }
+  .btn-outline:hover { background: rgba(59, 130, 246, 0.1); }
+
+  .results-panel {
+    display: none; margin-top: 30px; padding: 30px;
+    background: rgba(59, 130, 246, 0.08); border: 1px solid var(--blue-glow);
+    border-radius: 12px; text-align: center;
+  }
+  .results-panel.show { display: block; animation: fadeIn 0.5s; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  
+  .score-display { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px 0; }
+  .score-item { padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 8px; }
+  .score-item .label { font-size: 11px; letter-spacing: 1px; color: var(--text-secondary); text-transform: uppercase; font-weight: 700; }
+  .score-item .value {
+    font-family: 'Playfair Display', serif; font-size: 32px;
+    background: linear-gradient(135deg, var(--text-primary), var(--blue-accent));
+    -webkit-background-clip: text; background-clip: text; color: transparent; margin-top: 8px; font-weight: 700;
+  }
+
+  .nav-footer {
+    display: flex; justify-content: space-between; margin-top: 40px; padding: 20px;
+    background: var(--glass-bg); border-radius: 12px; border: 1px solid var(--glass-border);
+  }
+  .nav-footer a {
+    color: var(--blue-accent); text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 600;
+    transition: color 0.3s;
+  }
+  .nav-footer a:hover { color: var(--gold-accent); }
+
+  footer {
+    border-top: 1px solid var(--glass-border); padding: 40px 24px; text-align: center;
+    background: rgba(5, 11, 20, 0.9); margin-top: 60px;
+  }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--text-primary); margin-bottom: 8px; }
+  .footer-brand span { color: var(--blue-accent); }
+  .footer-contact { color: var(--text-secondary); font-size: 13px; margin-bottom: 16px; }
+  .footer-contact a { color: var(--blue-accent); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+  .footer-contact a:hover { color: var(--text-primary); }
+  .copyright { font-size: 11px; letter-spacing: 1px; color: var(--text-secondary); text-transform: uppercase; opacity: 0.6; }
+
+  @media print {
+    nav, .action-bar, footer, .nav-footer { display: none !important; }
+    body { background: #fff; color: #000; }
+    .container { max-width: 100%; padding: 0; }
+    .content-section, .quiz-container { background: #fff; border: 1px solid #ccc; color: #000; break-inside: avoid; }
+    .section-title, .chapter-header h1 { color: #000 !important; -webkit-text-fill-color: #000 !important; }
+    p, .question-text { color: #000 !important; }
+    .luxury-table th { background: #e0e0e0; color: #000; }
+    .luxury-table td { color: #000; border-bottom: 1px solid #ccc; }
+  }
+
+  @media (max-width: 600px) {
+    .score-display { grid-template-columns: 1fr; }
+    .action-bar { flex-direction: column; }
+    .btn { width: 100%; justify-content: center; }
+    .comparison-box { grid-template-columns: 1fr; }
+    .cycle-diagram { grid-template-columns: 1fr 1fr; }
+    .nav-footer { flex-direction: column; gap: 16px; text-align: center; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <div class="nav-inner">
+    <div class="brand">SCIENTIA <span>IX</span></div>
+    <ul class="nav-links">
+      <li><a href="9.html">← Bab 9: Sistem Reproduksi</a></li>
+      <li><a href="index.html">📖 Daftar Isi</a></li>
+      <li><a href="11.html">Bab 11: Kontrasepsi →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="container">
+
+  <!-- Chapter Header -->
+  <header class="chapter-header">
+    <div class="eyebrow">Pertemuan 10 • IPA Kelas IX Semester 1</div>
+    <h1>Siklus Menstruasi & Proses Kehamilan</h1>
+    <p class="subtitle">Menganalisis siklus menstruasi pada perempuan dan proses kehamilan manusia dari fertilisasi hingga persalinan.</p>
+    <div class="author-badge">
+      <span>‍🏫 Medy Candra, S.Pd</span>
+      <span>•</span>
+      <span>MTsN 10 Agam</span>
+    </div>
+  </header>
+
+  <!-- Intro Quote -->
+  <div class="intro-quote">
+    <div class="label">◆ — Pertemuan Kesepuluh — ◆</div>
+    <div class="title">🌙 Siklus Kehidupan Perempuan</div>
+    <p>Siklus menstruasi adalah proses biologis alami yang dialami perempuan usia reproduksi. Memahami siklus ini secara ilmiah membantu kita menghargai keajaiban tubuh manusia dan mempersiapkan diri untuk menjadi individu yang sehat dan bertanggung jawab.</p>
+  </div>
+
+  <!-- Section A -->
+  <section class="content-section">
+    <h3 class="section-title"> A. Pengertian Siklus Menstruasi</h3>
+    <p><strong>Siklus menstruasi</strong> adalah serangkaian perubahan fisiologis yang terjadi secara berkala pada sistem reproduksi perempuan, yang dipersiapkan untuk kemungkinan kehamilan. Siklus ini dimulai dari hari pertama haid (menstruasi) hingga hari pertama haid berikutnya.</p>
+    
+    <div class="highlight-box">
+      <h4> Fakta Penting tentang Menstruasi</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        • Siklus menstruasi normal berlangsung <strong>21-35 hari</strong> (rata-rata 28 hari)<br>
+        • Durasi menstruasi (pendarahan) normal: <strong>3-7 hari</strong><br>
+        • Volume darah yang keluar: <strong>30-80 ml</strong> per siklus<br>
+        • Menarche (haid pertama): terjadi pada usia <strong>9-16 tahun</strong><br>
+        • Menopause (berhentinya haid): terjadi pada usia <strong>45-55 tahun</strong><br>
+        • Perempuan mengalami sekitar <strong>400-500 siklus menstruasi</strong> seumur hidup
+      </p>
+    </div>
+
+    <div class="formula-box">
+      🔄 Siklus Menstruasi = Fase Menstruasi + Fase Folikular + Ovulasi + Fase Luteal<br>
+      ⏱️ Rata-rata: 28 hari (bisa bervariasi 21-35 hari)
+    </div>
+
+    <div class="info-box">
+      <h4>💡 Mengapa Menstruasi Terjadi?</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Setiap bulan, tubuh perempuan mempersiapkan rahim untuk menerima sel telur yang telah dibuahi. Dinding rahim (endometrium) menebal dan kaya pembuluh darah. Jika tidak ada pembuahan, lapisan ini akan luruh dan keluar melalui vagina sebagai darah menstruasi.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section B -->
+  <section class="content-section">
+    <h3 class="section-title">🔄 B. Empat Fase Siklus Menstruasi</h3>
+    <p>Siklus menstruasi terdiri dari empat fase utama yang saling berkaitan dan dikendalikan oleh hormon-hormon reproduksi:</p>
+    
+    <div class="cycle-diagram">
+      <div class="cycle-phase">
+        <div class="phase-icon"></div>
+        <h4>Fase Menstruasi</h4>
+        <div class="days">Hari 1-5</div>
+        <p>Luruhnya endometrium karena tidak ada pembuahan. Darah dan jaringan keluar melalui vagina.</p>
+      </div>
+      <div class="cycle-phase">
+        <div class="phase-icon">🌱</div>
+        <h4>Fase Folikular</h4>
+        <div class="days">Hari 1-13</div>
+        <p>FSH merangsang pematangan folikel di ovarium. Estrogen meningkat, endometrium menebal kembali.</p>
+      </div>
+      <div class="cycle-phase">
+        <div class="phase-icon">🥚</div>
+        <h4>Ovulasi</h4>
+        <div class="days">Hari 14</div>
+        <p>LH melonjak (LH surge), folikel matang pecah, ovum dilepaskan dari ovarium ke tuba fallopi.</p>
+      </div>
+      <div class="cycle-phase">
+        <div class="phase-icon">🌕</div>
+        <h4>Fase Luteal</h4>
+        <div class="days">Hari 15-28</div>
+        <p>Korpus luteum menghasilkan progesteron. Endometrium siap menerima embrio. Jika tidak hamil, korpus luteum degenerasi → menstruasi.</p>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Fase</th>
+            <th>Hari ke-</th>
+            <th>Hormon Dominan</th>
+            <th>Peristiwa Utama</th>
+            <th>Kondisi Endometrium</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🩸 Menstruasi</td>
+            <td>1-5</td>
+            <td>Estrogen & Progesteron rendah</td>
+            <td>Luruhnya dinding rahim</td>
+            <td>Tipis, meluruh</td>
+          </tr>
+          <tr>
+            <td>🌱 Folikular</td>
+            <td>1-13</td>
+            <td>FSH ↑, Estrogen ↑</td>
+            <td>Pematangan folikel ovarium</td>
+            <td>Menebal kembali</td>
+          </tr>
+          <tr>
+            <td>🥚 Ovulasi</td>
+            <td>14</td>
+            <td>LH melonjak (LH surge)</td>
+            <td>Pelepasan ovum dari ovarium</td>
+            <td>Tebal, kaya pembuluh darah</td>
+          </tr>
+          <tr>
+            <td>🌕 Luteal</td>
+            <td>15-28</td>
+            <td>Progesteron ↑, Estrogen ↑</td>
+            <td>Pembentukan korpus luteum</td>
+            <td>Paling tebal, siap implantasi</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section C -->
+  <section class="content-section">
+    <h3 class="section-title">⚗️ C. Hormon-hormon dalam Siklus Menstruasi</h3>
+    <p>Empat hormon utama mengatur siklus menstruasi melalui mekanisme <strong>umpan balik (feedback loop)</strong> yang kompleks antara hipotalamus, hipofisis, dan ovarium (sumbu HPO: Hypothalamic-Pituitary-Ovarian axis).</p>
+    
+    <div class="comparison-box">
+      <div class="comparison-item">
+        <h4>🧪 1. FSH (Follicle Stimulating Hormone)</h4>
+        <p><strong>Diproduksi oleh:</strong> Hipofisis anterior<br><br>
+        <strong>Fungsi:</strong><br>
+        • Merangsang pematangan folikel di ovarium<br>
+        • Memicu produksi estrogen oleh folikel<br>
+        • Kadarnya tinggi di awal fase folikular</p>
+      </div>
+      <div class="comparison-item">
+        <h4>🧪 2. LH (Luteinizing Hormone)</h4>
+        <p><strong>Diproduksi oleh:</strong> Hipofisis anterior<br><br>
+        <strong>Fungsi:</strong><br>
+        • Memicu ovulasi (LH surge di hari ke-14)<br>
+        • Mengubah folikel yang telah berovulasi menjadi korpus luteum<br>
+        • Merangsang produksi progesteron</p>
+      </div>
+      <div class="comparison-item">
+        <h4>🧪 3. Estrogen</h4>
+        <p><strong>Diproduksi oleh:</strong> Folikel ovarium (sel granulosa)<br><br>
+        <strong>Fungsi:</strong><br>
+        • Menebalkan endometrium<br>
+        • Memicu ciri seks sekunder perempuan<br>
+        • Memberi umpan balik negatif/positif ke hipofisis<br>
+        • Meningkat tajam sebelum ovulasi</p>
+      </div>
+      <div class="comparison-item">
+        <h4>🧪 4. Progesteron</h4>
+        <p><strong>Diproduksi oleh:</strong> Korpus luteum (setelah ovulasi)<br><br>
+        <strong>Fungsi:</strong><br>
+        • Mempertahankan ketebalan endometrium<br>
+        • Menghambat kontraksi uterus<br>
+        • Mendukung kehamilan awal<br>
+        • Menurun jika tidak terjadi kehamilan → menstruasi</p>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <h4>🔄 Mekanisme Umpan Balik (Feedback Loop)</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        <strong>Umpan Balik Negatif:</strong> Estrogen dan progesteron yang tinggi menghambat produksi FSH dan LH (terjadi di fase luteal).<br><br>
+        <strong>Umpan Balik Positif:</strong> Estrogen yang sangat tinggi di akhir fase folikular justru memicu lonjakan LH (LH surge) yang menyebabkan ovulasi. Ini adalah satu-satunya contoh umpan balik positif dalam sistem endokrin manusia.
+      </p>
+    </div>
+
+    <div class="example-box">
+      <strong> Analogi Sederhana:</strong><br>
+      Bayangkan siklus menstruasi seperti mempersiapkan kamar tamu:<br>
+      • <strong>Fase Menstruasi:</strong> Membersihkan kamar dari tamu sebelumnya (endometrium luruh)<br>
+      • <strong>Fase Folikular:</strong> Menata dan mendekorasi kamar (endometrium menebal)<br>
+      • <strong>Ovulasi:</strong> Tamu utama datang (ovum dilepaskan)<br>
+      • <strong>Fase Luteal:</strong> Menunggu tamu menginap (endometrium siap menerima embrio)<br>
+      • Jika tamu tidak datang (tidak ada pembuahan), kamar dibersihkan lagi (menstruasi)
+    </div>
+  </section>
+
+  <!-- Section D -->
+  <section class="content-section">
+    <h3 class="section-title"> D. Proses Kehamilan</h3>
+    <p>Kehamilan (gestasi) adalah periode perkembangan embrio dan janin di dalam rahim, dimulai dari fertilisasi hingga persalinan. Kehamilan normal pada manusia berlangsung sekitar <strong>280 hari (40 minggu atau 9 bulan 7 hari)</strong>.</p>
+    
+    <div class="formula-box">
+       Kehamilan = Fertilisasi → Implantasi → Embriogenesis → Fetal Development → Persalinan<br>
+      ⏱️ Durasi Normal: 280 hari (40 minggu) dihitung dari Hari Pertama Haid Terakhir (HPHT)
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Fertilisasi (Pembuahan)</h4>
+        <p>Terjadi di <strong>tuba fallopi (1/3 bagian luar)</strong> dalam waktu 12-24 jam setelah ovulasi. Satu sperma menembus lapisan pelindung ovum (zona pelusida), inti keduanya melebur membentuk <strong>zigot (2n)</strong>.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Pembelahan Sel (Cleavage)</h4>
+        <p>Zigot membelah berkali-kali sambil bergerak menuju uterus: 2 sel → 4 sel → 8 sel → morula (16-32 sel) → blastokista (berongga).</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Implantasi (Hari ke-6-7)</h4>
+        <p>Blastokista menempel dan menanamkan diri ke dinding endometrium uterus. Sel-sel trofoblas membentuk <strong>plasenta</strong> yang akan menghubungkan janin dengan induk.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>Produksi hCG</h4>
+        <p>Sel-sel trofoblas menghasilkan hormon <strong>hCG (human Chorionic Gonadotropin)</strong> yang mempertahankan korpus luteum agar terus memproduksi progesteron. hCG adalah hormon yang dideteksi oleh <strong>test pack</strong>.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h4>Perkembangan Embrio → Janin</h4>
+        <p>Minggu 1-8 disebut <strong>embrio</strong> (pembentukan organ). Minggu 9 hingga lahir disebut <strong>janin/fetus</strong> (pertumbuhan dan pematangan organ).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section E -->
+  <section class="content-section">
+    <h3 class="section-title"> E. Perkembangan Janin per Trimester</h3>
+    <p>Kehamilan dibagi menjadi tiga trimester, masing-masing dengan karakteristik perkembangan yang berbeda:</p>
+    
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Trimester</th>
+            <th>Minggu</th>
+            <th>Perkembangan Utama</th>
+            <th>Ukuran Janin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Trimester 1</strong></td>
+            <td>1-12</td>
+            <td>Pembentukan organ vital (jantung, otak, paru-paru, ginjal). Jantung mulai berdetak (minggu 4). Terbentuk wajah, tangan, kaki. Risiko keguguran tertinggi.</td>
+            <td>Sebesar buah plum (7-8 cm, 14 gram)</td>
+          </tr>
+          <tr>
+            <td><strong>Trimester 2</strong></td>
+            <td>13-26</td>
+            <td>Pertumbuhan cepat. Ibu mulai merasakan gerakan janin (quickening, minggu 16-20). Terbentuk sidik jari. Janin mulai mendengar suara. Jenis kelamin dapat dibedakan.</td>
+            <td>Sebesar jagung (30 cm, 600 gram)</td>
+          </tr>
+          <tr>
+            <td><strong>Trimester 3</strong></td>
+            <td>27-40</td>
+            <td>Pematangan organ (terutama paru-paru). Janin mengambil posisi kepala di bawah. Berat badan meningkat pesat. Paru-paru matang di minggu 36-37 (siap lahir).</td>
+            <td>Sebesar labu kecil (50 cm, 3-3.5 kg)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlight-box">
+      <h4>🫁 Organ Penting: Plasenta & Tali Pusat</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        <strong>Plasenta (Ari-ari):</strong> Organ sementara yang menghubungkan janin dengan dinding rahim. Fungsinya:<br>
+        • Pertukaran oksigen dan CO₂ antara ibu dan janin<br>
+        • Penyaluran nutrisi dari ibu ke janin<br>
+        • Pembuangan limbah metabolik janin ke ibu<br>
+        • Produksi hormon (hCG, estrogen, progesteron)<br>
+        • <strong>Filter alami</strong> (meski tidak sempurna) terhadap zat berbahaya<br><br>
+        <strong>Tali Pusat (Umbilical Cord):</strong> Mengandung 2 arteri dan 1 vena umbilikalis yang menghubungkan janin dengan plasenta. Panjangnya ±50-60 cm.
+      </p>
+    </div>
+
+    <div class="example-box">
+      <strong>📝 Fakta Menarik Perkembangan Janin:</strong><br>
+      • <strong>Minggu 4:</strong> Jantung janin mulai berdetak (kecil seperti biji poppy)<br>
+      • <strong>Minggu 8:</strong> Semua organ utama sudah terbentuk<br>
+      • <strong>Minggu 12:</strong> Janin sudah bisa menghisap jempol<br>
+      • <strong>Minggu 20:</strong> Ibu mulai merasakan tendangan janin<br>
+      • <strong>Minggu 24:</strong> Janin sudah bisa mendengar suara dari luar<br>
+      • <strong>Minggu 28:</strong> Mata janin sudah bisa membuka dan menutup<br>
+      • <strong>Minggu 37:</strong> Janin dianggap <strong>aterm</strong> (cukup bulan, siap lahir)
+    </div>
+  </section>
+
+  <!-- Section F -->
+  <section class="content-section">
+    <h3 class="section-title">🔍 F. Tanda-tanda Kehamilan</h3>
+    <p>Mengenali tanda-tanda kehamilan penting untuk deteksi dini dan perawatan yang tepat:</p>
+    
+    <div class="comparison-box">
+      <div class="comparison-item">
+        <h4>🌟 Tanda Dugaan (Presumptive Signs)</h4>
+        <ul>
+          <li><strong>Amenore:</strong> Terlambat haid (tanda paling awal)</li>
+          <li><strong>Mual & muntah:</strong> Terutama pagi hari (morning sickness)</li>
+          <li><strong>Payudara membesar & sensitif</strong></li>
+          <li><strong>Sering buang air kecil</strong></li>
+          <li><strong>Kelelahan & mengantuk</strong></li>
+          <li><strong>Perubahan suasana hati (mood swing)</strong></li>
+        </ul>
+      </div>
+      <div class="comparison-item">
+        <h4> Tanda Kemungkinan (Probable Signs)</h4>
+        <ul>
+          <li><strong>Test pack positif:</strong> Mendeteksi hCG dalam urine</li>
+          <li><strong>Pembesaran uterus</strong> terdeteksi saat pemeriksaan</li>
+          <li><strong>Chadwick's sign:</strong> Warna kebiruan pada vagina & serviks</li>
+          <li><strong>Goodell's sign:</strong> Serviks melunak</li>
+          <li><strong>Hegar's sign:</strong> Istmus uterus melunak</li>
+        </ul>
+      </div>
+      <div class="comparison-item">
+        <h4>✅ Tanda Pasti (Positive Signs)</h4>
+        <ul>
+          <li><strong>Detak jantung janin</strong> terdengar (Doppler, minggu 10-12)</li>
+          <li><strong>Gerakan janin</strong> terasa oleh pemeriksa (bukan hanya ibu)</li>
+          <li><strong>USG:</strong> Visualisasi janin di dalam rahim</li>
+          <li><strong>Photo Rontgen:</strong> Terlihat kerangka janin (jarang digunakan)</li>
+        </ul>
+      </div>
+      <div class="comparison-item">
+        <h4>⚠️ Tanda Bahaya Kehamilan</h4>
+        <ul>
+          <li><strong>Pendarahan hebat</strong> dari vagina</li>
+          <li><strong>Sakit perut hebat</strong> yang tidak kunjung hilang</li>
+          <li><strong>Demam tinggi</strong> (>38°C)</li>
+          <li><strong>Sakit kepala hebat</strong> dengan pandangan kabur</li>
+          <li><strong>Bengkak hebat</strong> di wajah & tangan (tanda preeklampsia)</li>
+          <li><strong>Tidak ada gerakan janin</strong> selama 12+ jam</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section G -->
+  <section class="content-section">
+    <h3 class="section-title">⚠️ G. Gangguan pada Siklus Menstruasi</h3>
+    <p>Tidak semua siklus menstruasi berjalan normal. Berbagai faktor dapat menyebabkan gangguan:</p>
+    
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Gangguan</th>
+            <th>Definisi</th>
+            <th>Penyebab Umum</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Amenore</td>
+            <td>Tidak haid selama 3+ siklus berturut-turut</td>
+            <td>Kehamilan, stres, gangguan hormon, anoreksia</td>
+          </tr>
+          <tr>
+            <td>Dismenore</td>
+            <td>Nyeri haid hebat yang mengganggu aktivitas</td>
+            <td>Prostaglandin tinggi, endometriosis, miom</td>
+          </tr>
+          <tr>
+            <td>Menoragia</td>
+            <td>Pendarahan haid sangat banyak (>80 ml)</td>
+            <td>Gangguan hormon, miom, polip, IUD</td>
+          </tr>
+          <tr>
+            <td>Oligomenore</td>
+            <td>Siklus haid jarang (>35 hari)</td>
+            <td>PCOS, stres, gangguan tiroid</td>
+          </tr>
+          <tr>
+            <td>Polimenore</td>
+            <td>Siklus haid terlalu sering (<21 hari)</td>
+            <td>Gangguan hormon, infeksi, miom</td>
+          </tr>
+          <tr>
+            <td>PMS (Premenstrual Syndrome)</td>
+            <td>Gejala fisik & emosional sebelum haid</td>
+            <td>Fluktuasi hormon estrogen & progesteron</td>
+          </tr>
+          <tr>
+            <td>PCOS</td>
+            <td>Sindrom ovarium polikistik</td>
+            <td>Resistensi insulin, kelebihan androgen</td>
+          </tr>
+          <tr>
+            <td>Endometriosis</td>
+            <td>Jaringan endometrium tumbuh di luar rahim</td>
+            <td>Faktor genetik, hormonal, imunologi</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warning-box">
+      <h4>🚨 Kapan Harus ke Dokter?</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        • Haid tidak kunjung datang setelah usia 16 tahun (amenore primer)<br>
+        • Siklus haid tidak teratur selama 2+ tahun setelah menarche<br>
+        • Nyeri haid yang tidak tertahankan dengan obat pereda nyeri<br>
+        • Pendarahan sangat hebat (ganti pembalut setiap 1-2 jam)<br>
+        • Haid berlangsung lebih dari 7 hari<br>
+        • Nyeri panggul kronis di luar masa haid
+      </p>
+    </div>
+  </section>
+
+  <!-- Section H -->
+  <section class="content-section">
+    <h3 class="section-title">🌟 H. Menjaga Kesehatan Reproduksi Perempuan</h3>
+    <p>Kesehatan sistem reproduksi adalah investasi jangka panjang untuk kualitas hidup perempuan:</p>
+    
+    <div class="highlight-box">
+      <h4>✅ Tips Kesehatan Reproduksi</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        <strong>1. Kebersihan Personal:</strong> Ganti pembalut setiap 4-6 jam, bersihkan area intim dari depan ke belakang, gunakan air bersih.<br>
+        <strong>2. Pola Makan Sehat:</strong> Konsumsi zat besi (daging merah, bayam) untuk mencegah anemia, kalsium untuk tulang, asam folat untuk persiapan kehamilan.<br>
+        <strong>3. Olahraga Teratur:</strong> Membantu mengurangi nyeri haid dan menjaga keseimbangan hormon.<br>
+        <strong>4. Manajemen Stres:</strong> Stres dapat mengganggu siklus haid melalui gangguan hormon.<br>
+        <strong>5. Catat Siklus Haid:</strong> Gunakan aplikasi atau kalender untuk memantau keteraturan siklus.<br>
+        <strong>6. Pemeriksaan Rutin:</strong> Pap smear mulai usia 21 tahun, pemeriksaan payudara mandiri.<br>
+        <strong>7. Hindari Rokok & Alkohol:</strong> Dapat mengganggu kesuburan dan kesehatan janin.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h4> Mitos vs Fakta tentang Menstruasi</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        <strong>❌ Mitos:</strong> Perempuan haid tidak boleh mandi → <strong>✅ Fakta:</strong> Mandi air hangat justru meredakan kram<br>
+        <strong>❌ Mitos:</strong> Haid membuat perempuan lemah → <strong>✅ Fakta:</strong> Aktivitas normal tetap bisa dilakukan<br>
+        <strong>❌ Mitos:</strong> Olahraga saat haid berbahaya → <strong>✅ Fakta:</strong> Olahraga ringan justru mengurangi nyeri<br>
+        <strong>❌ Mitos:</strong> Darah haid adalah darah kotor → <strong>✅ Fakta:</strong> Darah haid adalah jaringan endometrium yang normal
+      </p>
+    </div>
+  </section>
+
+  <!-- Keywords -->
+  <div class="keywords">
+    <span class="keyword-tag">🌙 Menstruasi</span>
+    <span class="keyword-tag">🔄 Siklus Haid</span>
+    <span class="keyword-tag">🥚 Ovulasi</span>
+    <span class="keyword-tag"> Fase Folikular</span>
+    <span class="keyword-tag">🌕 Fase Luteal</span>
+    <span class="keyword-tag">🧪 FSH & LH</span>
+    <span class="keyword-tag"> Estrogen</span>
+    <span class="keyword-tag">🤰 Progesteron</span>
+    <span class="keyword-tag"> Plasenta</span>
+    <span class="keyword-tag">👶 Janin</span>
+    <span class="keyword-tag"> Trimester</span>
+    <span class="keyword-tag">⚠️ Endometriosis</span>
+    <span class="keyword-tag">🩺 PCOS</span>
+    <span class="keyword-tag"> Kesehatan Reproduksi</span>
+  </div>
+
+  <!-- Islamic Quote -->
+  <div class="islamic-quote">
+    <div class="arabic">وَلَقَدْ خَلَقْنَا الْإِنسَانَ مِن سُلَالَةٍ مِّن طِينٍ ثُمَّ جَعَلْنَاهُ نُطْفَةً فِي قَرَارٍ مَّكِينٍ ثُمَّ خَلَقْنَا النُّطْفَةَ عَلَقَةً فَخَلَقْنَا الْعَلَقَةَ مُضْغَةً فَخَلَقْنَا الْمُضْغَةَ عِظَامًا فَكَسَوْنَا الْعِظَامَ لَحْمًا ثُمَّ أَنشَأْنَاهُ خَلْقًا آخَرَ</div>
+    <div class="translation">"Dan sungguh, Kami telah menciptakan manusia dari saripati (berasal) dari tanah. Kemudian Kami menjadikannya air mani (yang disimpan) dalam tempat yang kokoh (rahim). Kemudian air mani itu Kami jadikan segumpal darah, lalu segumpal darah itu Kami jadikan segumpal daging, dan segumpal daging itu Kami jadikan tulang belulang, lalu tulang belulang itu Kami bungkus dengan daging. Kemudian Kami menjadikannya makhluk yang (berbentuk) lain."</div>
+    <div class="source">— QS. Al-Mu'minun [23]: 12-14</div>
+  </div>
+  <p style="text-align: center; color: var(--text-secondary); font-style: italic; margin-top: -20px; margin-bottom: 30px;">
+    Ayat ini secara ilmiah menggambarkan tahapan perkembangan embrio manusia dengan sangat akurat: nutfah (zigot) → 'alaqah (embrio awal yang menempel) → mudghah (janin berbentuk gumpalan) → 'idzam (tulang) → lahman (daging). Penjelasan ini sesuai dengan embriologi modern dan menjadi bukti kebesaran Allah SWT.
+  </p>
+
+  <!-- Section I: Referensi -->
+  <section class="content-section">
+    <h3 class="section-title"> I. Referensi Pendukung</h3>
+    <ul style="margin-left: 20px; color: var(--text-secondary); line-height: 1.8;">
+      <li>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi. (2021). <em>Ilmu Pengetahuan Alam Kelas IX SMP/MTs</em>. Jakarta: Pusat Perbukuan, Kemendikbudristek.</li>
+      <li>Campbell, N. A., & Reece, J. B. (2020). <em>Biology</em> (12th ed.). Pearson Education. (Bab 46: Animal Reproduction)</li>
+      <li>Guyton, A. C., & Hall, J. E. (2020). <em>Textbook of Medical Physiology</em> (14th ed.). Elsevier. (Bab 82-83: Female Physiology)</li>
+      <li>Speroff, L., & Fritz, M. A. (2005). <em>Clinical Gynecologic Endocrinology and Infertility</em> (7th ed.). Lippincott Williams & Wilkins.</li>
+      <li>World Health Organization (WHO). (2023). <em>Menstrual Health and Hygiene</em>. Geneva: WHO Press.</li>
+      <li>Ikatan Dokter Indonesia (IDI). (2022). <em>Pedoman Kesehatan Reproduksi Remaja</em>. Jakarta: IDI.</li>
+    </ul>
+  </section>
+
+  <!-- ===== UJI FORMATIF ===== -->
+  <div class="quiz-container" id="quizSection">
+    <div class="quiz-header">
+      <h2>📝 Uji Formatif Bab 10</h2>
+      <p>Siklus Menstruasi dan Proses Kehamilan<br>
+       Bagian A: Pilihan Ganda (10 soal, skor 10/soal) | ✍️ Bagian B: Essay (5 soal, skor 20/soal)</p>
+    </div>
+
+    <form id="quizForm">
+      <!-- Identitas -->
+      <div class="content-section" style="background: rgba(255,255,255,0.03);">
+        <h4 style="color: var(--blue-accent); margin-bottom: 16px; font-family: 'Playfair Display', serif;">📋 Identitas Siswa</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+          <div class="form-group">
+            <label>Nama Lengkap *</label>
+            <input type="text" id="studentName" required placeholder="Masukkan nama lengkap">
+          </div>
+          <div class="form-group">
+            <label>No. Absen / NIS *</label>
+            <input type="text" id="studentNIS" required placeholder="Masukkan NIS">
+          </div>
+          <div class="form-group">
+            <label>📅 Tanggal Ujian</label>
+            <input type="date" id="quizDate" required>
+          </div>
+          <div class="form-group">
+            <label>Kelas</label>
+            <select id="studentClass" required>
+              <option value="">Pilih Kelas</option>
+              <option value="IX-A">IX-A</option>
+              <option value="IX-B">IX-B</option>
+              <option value="IX-C">IX-C</option>
+              <option value="IX-D">IX-D</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Semester</label>
+            <input type="text" value="1 (Satu)" readonly style="background: rgba(255,255,255,0.02); color: var(--text-secondary);">
+          </div>
+        </div>
+      </div>
+
+      <!-- Bagian A: Pilihan Ganda -->
+      <h3 style="color: var(--blue-accent); font-family: 'Playfair Display', serif; margin: 30px 0 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">📋 Bagian A: Pilihan Ganda</h3>
+      <div id="mcqContainer"></div>
+
+      <!-- Bagian B: Essay -->
+      <h3 style="color: var(--blue-accent); font-family: 'Playfair Display', serif; margin: 40px 0 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">️ Bagian B: Essay</h3>
+      <div id="essayContainer"></div>
+
+      <!-- Action Buttons -->
+      <div class="action-bar">
+        <button type="button" class="btn btn-primary" onclick="submitQuiz()">✉️ KIRIM JAWABAN & LIHAT HASIL</button>
+        <button type="button" class="btn btn-secondary" onclick="downloadPDF()"> UNDUH PDF LENGKAP</button>
+        <button type="button" class="btn btn-secondary" onclick="downloadTXT()">📥 UNDUH SKOR (TXT)</button>
+        <button type="button" class="btn btn-outline" onclick="resetQuiz()">🔄 MULAI ULANG</button>
+        <a id="emailLink" href="#" class="btn btn-outline" style="display:none;">📧 Kirim ke Email Guru</a>
+      </div>
+    </form>
+
+    <!-- Results Panel -->
+    <div class="results-panel" id="resultsPanel">
+      <h3 style="font-family: 'Playfair Display', serif; color: var(--blue-accent); margin-bottom: 10px;"> Hasil Uji Formatif</h3>
+      <p id="resultMessage" style="color: var(--text-primary); margin-bottom: 20px;"></p>
+      <div class="score-display">
+        <div class="score-item">
+          <div class="label">📋 Pilihan Ganda</div>
+          <div class="value" id="scoreMCQ">0</div>
+        </div>
+        <div class="score-item">
+          <div class="label">✍️ Essay</div>
+          <div class="value" id="scoreEssay">0</div>
+        </div>
+        <div class="score-item">
+          <div class="label">Skor Akhir</div>
+          <div class="value" id="scoreTotal">0</div>
+        </div>
+      </div>
+      <p style="font-size: 12px; color: var(--text-secondary); margin-top: 16px;">
+        *Penilaian Essay bersifat otomatis berdasarkan kelengkapan jawaban (minimal 30 karakter). Guru akan melakukan penilaian ulang secara manual untuk ketepatan konsep.
+      </p>
+    </div>
+  </div>
+
+  <!-- Navigation Footer -->
+  <div class="nav-footer">
+    <a href="9.html">
+      <span>←</span> Bab 9: Sistem Reproduksi
+    </a>
+    <a href="11.html">
+      Selanjutnya → <span>Bab 11: Kontrasepsi & Kesehatan Reproduksi</span>
+    </a>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-brand">🔬 IPA <span>Kelas IX</span></div>
+  <div class="footer-contact">
+    MTsN 10 Agam • <a href="mailto:medycandra514@gmail.com">medycandra514@gmail.com</a>
+  </div>
+  <div class="copyright">© 2026 Medy Candra, S.Pd — MTsN 10 Agam. Hak Cipta Dilindungi Undang-Undang</div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  document.getElementById('quizDate').valueAsDate = new Date();
+
+  const mcqQuestions = [
+    { q: "Siklus menstruasi normal pada perempuan berlangsung selama...", options: ["7-14 hari", "21-35 hari", "40-60 hari", "3-7 hari"], answer: 1 },
+    { q: "Fase siklus menstruasi di mana ovum dilepaskan dari ovarium disebut...", options: ["Fase menstruasi", "Fase folikular", "Ovulasi", "Fase luteal"], answer: 2 },
+    { q: "Hormon yang mengalami lonjakan (surge) dan memicu ovulasi adalah...", options: ["FSH", "Estrogen", "LH (Luteinizing Hormone)", "Progesteron"], answer: 2 },
+    { q: "Korpus luteum menghasilkan hormon yang berfungsi mempertahankan ketebalan endometrium, yaitu...", options: ["FSH", "LH", "Estrogen", "Progesteron"], answer: 3 },
+    { q: "Fertilisasi pada manusia biasanya terjadi di...", options: ["Ovarium", "Tuba fallopi", "Uterus", "Vagina"], answer: 1 },
+    { q: "Hormon yang dideteksi oleh test pack untuk memastikan kehamilan adalah...", options: ["FSH", "LH", "hCG (human Chorionic Gonadotropin)", "Progesteron"], answer: 2 },
+    { q: "Trimester pertama kehamilan berlangsung pada minggu ke...", options: ["1-12", "13-26", "27-40", "1-8"], answer: 0 },
+    { q: "Organ yang menghubungkan janin dengan dinding rahim untuk pertukaran nutrisi dan oksigen adalah...", options: ["Amnion", "Tali pusat saja", "Plasenta", "Korion"], answer: 2 },
+    { q: "Gangguan menstruasi berupa tidak haid selama 3+ siklus berturut-turut disebut...", options: ["Dismenore", "Menoragia", "Amenore", "Oligomenore"], answer: 2 },
+    { q: "Janin dianggap cukup bulan (aterm) dan siap lahir pada usia kehamilan...", options: ["28 minggu", "32 minggu", "37 minggu", "42 minggu"], answer: 2 }
+  ];
+
+  const essayQuestions = [
+    "Jelaskan empat fase siklus menstruasi (menstruasi, folikular, ovulasi, luteal) beserta hormon yang dominan pada masing-masing fase!",
+    "Mengapa jika tidak terjadi pembuahan, endometrium akan luruh dan terjadi menstruasi? Jelaskan peran hormon progesteron dalam proses ini!",
+    "Jelaskan proses perkembangan janin dari fertilisasi hingga implantasi! Di mana fertilisasi terjadi dan berapa lama waktu yang dibutuhkan untuk implantasi?",
+    "Sebutkan dan jelaskan perbedaan tiga trimester kehamilan dalam hal perkembangan janin dan perubahan pada ibu!",
+    "Apa yang dimaksud dengan PCOS dan endometriosis? Jelaskan gejala dan dampaknya terhadap kesuburan perempuan!"
+  ];
+
+  const mcqContainer = document.getElementById('mcqContainer');
+  mcqQuestions.forEach((item, index) => {
+    const qDiv = document.createElement('div');
+    qDiv.className = 'question-block';
+    qDiv.innerHTML = `
+      <div class="question-text">
+        <span class="question-num">Soal ${index + 1}</span>
+        <span>${item.q}</span>
+        <span class="question-points">10 POIN</span>
+      </div>
+      <div class="options">
+        ${item.options.map((opt, optIndex) => `
+          <label class="option-label" id="label_${index}_${optIndex}">
+            <input type="radio" name="q${index}" value="${optIndex}">
+            <span>${String.fromCharCode(65 + optIndex)}. ${opt}</span>
+          </label>
+        `).join('')}
+      </div>
+    `;
+    mcqContainer.appendChild(qDiv);
+  });
+
+  const essayContainer = document.getElementById('essayContainer');
+  essayQuestions.forEach((item, index) => {
+    const qDiv = document.createElement('div');
+    qDiv.className = 'question-block';
+    qDiv.innerHTML = `
+      <div class="question-text">
+        <span class="question-num">Essay ${index + 1}</span>
+        <span>${item}</span>
+        <span class="question-points">20 POIN</span>
+      </div>
+      <textarea id="essay${index}" placeholder="Tulis jawaban Anda di sini... (Minimal 30 karakter untuk mendapatkan poin)"></textarea>
+    `;
+    essayContainer.appendChild(qDiv);
+  });
+
+  let finalScores = { mcq: 0, essay: 0, total: 0 };
+
+  function submitQuiz() {
+    const name = document.getElementById('studentName').value;
+    const nis = document.getElementById('studentNIS').value;
+    const cls = document.getElementById('studentClass').value;
+    
+    if (!name || !nis || !cls) {
+      alert("Harap lengkapi identitas siswa (Nama, NIS, dan Kelas) sebelum mengirim jawaban!");
+      return;
+    }
+
+    let mcqScore = 0;
+    mcqQuestions.forEach((item, index) => {
+      const selected = document.querySelector(`input[name="q${index}"]:checked`);
+      const labels = document.querySelectorAll(`[id^="label_${index}_"]`);
+      labels.forEach(l => { l.classList.remove('correct', 'incorrect'); l.style.pointerEvents = 'none'; });
+
+      if (selected) {
+        const val = parseInt(selected.value);
+        if (val === item.answer) {
+          mcqScore += 10;
+          document.getElementById(`label_${index}_${val}`).classList.add('correct');
+        } else {
+          document.getElementById(`label_${index}_${val}`).classList.add('incorrect');
+          document.getElementById(`label_${index}_${item.answer}`).classList.add('correct');
+        }
+      } else {
+        document.getElementById(`label_${index}_${item.answer}`).classList.add('correct');
+      }
+    });
+
+    let essayScore = 0;
+    for (let i = 0; i < 5; i++) {
+      const text = document.getElementById(`essay${i}`).value.trim();
+      if (text.length >= 30) essayScore += 20;
+      else if (text.length > 0) essayScore += 10;
+      document.getElementById(`essay${i}`).disabled = true;
+    }
+
+    finalScores = { mcq: mcqScore, essay: essayScore, total: mcqScore + essayScore };
+
+    document.getElementById('scoreMCQ').textContent = finalScores.mcq;
+    document.getElementById('scoreEssay').textContent = finalScores.essay;
+    document.getElementById('scoreTotal').textContent = finalScores.total;
+    
+    let msg = `Terima kasih, ${name}! Jawaban Anda telah berhasil dikumpulkan.`;
+    if (finalScores.total >= 160) msg += " 🌟 Luar biasa! Pemahaman Anda tentang siklus menstruasi dan kehamilan sangat baik.";
+    else if (finalScores.total >= 100) msg += " 👍 Bagus! Tingkatkan lagi pemahaman tentang hormon dan fase siklus.";
+    else msg += "  Jangan menyerah! Pelajari kembali materi siklus menstruasi dan kehamilan.";
+    
+    document.getElementById('resultMessage').textContent = msg;
+    document.getElementById('resultsPanel').classList.add('show');
+    
+    document.querySelector('.btn-primary').disabled = true;
+    document.querySelector('.btn-primary').textContent = "✓ SUDAH DIKIRIM";
+    document.querySelector('.btn-primary').style.opacity = "0.6";
+
+    const emailBody = `Hasil Uji Formatif Bab 10 (Siklus Menstruasi & Kehamilan)%0D%0A%0D%0ANama: ${name}%0D%0ANIS: ${nis}%0D%0AKelas: ${cls}%0D%0ATanggal: ${document.getElementById('quizDate').value}%0D%0A%0D%0ASKOR:%0D%0A- Pilihan Ganda: ${finalScores.mcq}/100%0D%0A- Essay: ${finalScores.essay}/100 (Perlu validasi guru)%0D%0A- Total: ${finalScores.total}/200%0D%0A%0D%0ACatatan: Jawaban detail dapat dilihat pada file PDF yang dilampirkan.`;
+    document.getElementById('emailLink').href = `mailto:medycandra514@gmail.com?subject=Hasil Uji Formatif Bab 10 - ${name} (${cls})&body=${emailBody}`;
+    document.getElementById('emailLink').style.display = 'inline-flex';
+
+    document.getElementById('resultsPanel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function downloadPDF() { window.print(); }
+
+  function downloadTXT() {
+    const name = document.getElementById('studentName').value || "Siswa";
+    const nis = document.getElementById('studentNIS').value || "-";
+    const cls = document.getElementById('studentClass').value || "-";
+    const date = document.getElementById('quizDate').value || new Date().toLocaleDateString('id-ID');
+
+    let content = `HASIL UJI FORMATIF BAB 10: SIKLUS MENSTRUASI & KEHAMILAN\n`;
+    content += `====================================================\n`;
+    content += `Nama  : ${name}\nNIS   : ${nis}\nKelas : ${cls}\nTanggal: ${date}\n`;
+    content += `====================================================\n`;
+    content += `SKOR PILIHAN GANDA : ${finalScores.mcq} / 100\n`;
+    content += `SKOR ESSAY (Simulasi): ${finalScores.essay} / 100\n`;
+    content += `TOTAL SKOR         : ${finalScores.total} / 200\n`;
+    content += `====================================================\n\nJAWABAN ESSAY:\n`;
+    for (let i = 0; i < 5; i++) {
+      content += `\nEssay ${i+1}:\n${document.getElementById(`essay${i}`).value || "(Tidak dijawab)"}\n`;
+    }
+    content += `\n====================================================\nDikirim otomatis dari Sistem Pembelajaran IPA\nMTsN 10 Agam | Penulis: Medy Candra, S.Pd`;
+
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Skor_UjiFormatif_Bab10_${name.replace(/\s+/g, '_')}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function resetQuiz() {
+    if (confirm("Apakah Anda yakin ingin mengulang ujian? Semua jawaban akan dihapus.")) {
+      document.getElementById('quizForm').reset();
+      document.getElementById('quizDate').valueAsDate = new Date();
+      document.getElementById('resultsPanel').classList.remove('show');
+      document.querySelectorAll('.option-label').forEach(l => { l.classList.remove('correct', 'incorrect'); l.style.pointerEvents = 'auto'; });
+      document.querySelectorAll('textarea').forEach(t => t.disabled = false);
+      
+      const btn = document.querySelector('.btn-primary');
+      btn.disabled = false; btn.textContent = "✉️ KIRIM JAWABAN & LIHAT HASIL"; btn.style.opacity = "1";
+      document.getElementById('emailLink').style.display = 'none';
+      finalScores = { mcq: 0, essay: 0, total: 0 };
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pertemuan 18: Tekanan pada Sistem Biologis | IPA Kelas IX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy-deep: #050b14;
+    --navy: #0a192f;
+    --navy-light: #112240;
+    --blue-royal: #1e3a8a;
+    --blue-glow: #3b82f6;
+    --blue-accent: #60a5fa;
+    --gold-accent: #fbbf24;
+    --green-accent: #10b981;
+    --red-accent: #ef4444;
+    --cyan-accent: #06b6d4;
+    --purple-accent: #a855f7;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --glass-bg: rgba(17, 34, 64, 0.6);
+    --glass-border: rgba(96, 165, 250, 0.15);
+    --shadow-soft: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+    --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--navy-deep);
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(30, 58, 138, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08) 0%, transparent 40%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  .orb {
+    position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.4;
+    animation: floatOrb 20s ease-in-out infinite alternate;
+  }
+  .orb-1 { width: 500px; height: 500px; background: var(--blue-royal); top: -10%; right: -5%; }
+  .orb-2 { width: 400px; height: 400px; background: var(--navy-light); bottom: 10%; left: -5%; animation-delay: -5s; }
+  
+  @keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, -40px) scale(1.1); }
+  }
+
+  .accent-line {
+    height: 2px; background: linear-gradient(90deg, transparent, var(--blue-glow), var(--gold-accent), transparent);
+    margin: 0 auto; opacity: 0.8;
+  }
+  .accent-line.thick { height: 3px; max-width: 1200px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    background: rgba(5, 11, 20, 0.9); border-bottom: 1px solid var(--glass-border);
+  }
+  .nav-inner {
+    max-width: 1000px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; padding: 16px 24px;
+  }
+  .brand {
+    font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px;
+    color: var(--text-primary); display: flex; align-items: center; gap: 12px;
+  }
+  .brand span { color: var(--blue-accent); }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a {
+    color: var(--text-secondary); text-decoration: none; font-size: 12px;
+    font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s;
+  }
+  .nav-links a:hover { color: var(--blue-accent); }
+
+  .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .chapter-header {
+    text-align: center; margin-bottom: 50px; padding: 40px 30px; border-radius: 16px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft);
+  }
+  .chapter-header .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--blue-accent); margin-bottom: 12px; display: inline-block;
+    background: rgba(59, 130, 246, 0.1); padding: 6px 16px; border-radius: 50px;
+  }
+  .chapter-header h1 {
+    font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 48px); font-weight: 700;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--cyan-accent) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    margin-bottom: 16px; line-height: 1.2;
+  }
+  .chapter-header .subtitle {
+    font-size: 16px; color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-weight: 400;
+  }
+  .author-badge {
+    display: inline-flex; align-items: center; gap: 12px; margin-top: 20px; padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); border-radius: 50px;
+    font-size: 13px; color: var(--text-primary); font-weight: 600;
+  }
+
+  .intro-quote {
+    text-align: center; padding: 40px 20px; margin-bottom: 50px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+  }
+  .intro-quote .label {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold-accent); margin-bottom: 12px; font-weight: 700;
+  }
+  .intro-quote .title {
+    font-family: 'Playfair Display', serif; font-size: 26px; color: var(--text-primary); margin-bottom: 16px; font-weight: 600;
+  }
+  .intro-quote p { font-size: 16px; color: var(--text-secondary); max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+  .content-section {
+    margin-bottom: 40px; padding: 30px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+    transition: all 0.3s; box-shadow: var(--shadow-soft);
+  }
+  .content-section:hover {
+    border-color: var(--blue-glow); box-shadow: var(--shadow-glow); transform: translateY(-4px);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text-primary);
+    margin-bottom: 20px; display: flex; align-items: center; gap: 12px; font-weight: 600;
+  }
+  .section-title::before {
+    content: ""; width: 4px; height: 24px; background: var(--blue-glow); border-radius: 2px;
+  }
+  p { margin-bottom: 16px; color: var(--text-secondary); }
+  
+  .highlight-box {
+    background: rgba(59, 130, 246, 0.08); border-left: 4px solid var(--blue-glow);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .highlight-box h4 { color: var(--blue-accent); margin-bottom: 8px; font-family: 'Playfair Display', serif; font-weight: 600; }
+  
+  .formula-box {
+    background: linear-gradient(135deg, var(--blue-royal), var(--navy-light));
+    padding: 24px; border-radius: 12px; text-align: center;
+    font-family: 'Playfair Display', serif; font-size: 20px; color: var(--text-primary);
+    margin: 20px 0; font-weight: 600; letter-spacing: 0.5px; border: 1px solid var(--glass-border);
+  }
+  .formula-box .main-formula {
+    font-size: 28px;
+    color: var(--gold-accent);
+    margin: 12px 0;
+    font-weight: 700;
+  }
+
+  .example-box {
+    background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(251, 191, 36, 0.4);
+    padding: 24px; border-radius: 12px; margin: 20px 0;
+  }
+  .example-box strong { color: var(--gold-accent); }
+
+  .warning-box {
+    background: rgba(239, 68, 68, 0.08); border-left: 4px solid var(--red-accent);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .warning-box h4 { color: var(--red-accent); margin-bottom: 8px; font-family: 'Playfair Display', serif; font-weight: 600; }
+
+  .info-box {
+    background: rgba(16, 185, 129, 0.08); border-left: 4px solid var(--green-accent);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .info-box h4 { color: var(--green-accent); margin-bottom: 8px; font-family: 'Playfair Display', serif; font-weight: 600; }
+
+  .bio-box {
+    background: rgba(168, 85, 247, 0.08); border-left: 4px solid var(--purple-accent);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .bio-box h4 { color: var(--purple-accent); margin-bottom: 8px; font-family: 'Playfair Display', serif; font-weight: 600; }
+
+  .comparison-box { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .triple-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+  .comparison-item {
+    padding: 24px; border-radius: 12px; background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border); transition: all 0.3s;
+  }
+  .comparison-item:hover { transform: translateY(-4px); border-color: var(--blue-glow); }
+  .comparison-item h4 { color: var(--blue-accent); font-family: 'Playfair Display', serif; margin-bottom: 12px; font-size: 18px; font-weight: 600; }
+  .comparison-item p, .comparison-item li { font-size: 14px; margin: 0; color: var(--text-secondary); line-height: 1.6; }
+  .comparison-item ul { margin-left: 20px; margin-top: 8px; }
+
+  .table-wrapper { overflow-x: auto; margin: 20px 0; border-radius: 12px; border: 1px solid var(--glass-border); background: rgba(255, 255, 255, 0.02); }
+  .luxury-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+  .luxury-table th {
+    background: var(--blue-royal); color: var(--text-primary); padding: 14px 16px; text-align: center;
+    font-family: 'Playfair Display', serif; font-weight: 600; font-size: 15px;
+  }
+  .luxury-table td {
+    padding: 14px 16px; border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); font-size: 14px; text-align: center;
+  }
+  .luxury-table td:first-child { text-align: left; font-weight: 600; color: var(--blue-accent); }
+  .luxury-table tr:last-child td { border-bottom: none; }
+  .luxury-table tr:hover td { background: rgba(59, 130, 246, 0.05); }
+
+  .step-box {
+    display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start;
+  }
+  .step-num {
+    background: linear-gradient(135deg, var(--blue-royal), var(--blue-glow)); color: white;
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0;
+  }
+  .step-content h4 { color: var(--blue-accent); margin-bottom: 4px; font-size: 16px; font-weight: 700; }
+  .step-content p { margin: 0; font-size: 14px; }
+
+  .islamic-quote {
+    text-align: center; padding: 40px 20px; margin: 40px 0;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+  }
+  .islamic-quote .arabic {
+    font-size: 26px; color: var(--gold-accent); margin-bottom: 16px;
+    font-family: 'Traditional Arabic', 'Arial', sans-serif; line-height: 1.6; font-weight: 600;
+  }
+  .islamic-quote .translation {
+    font-style: italic; font-size: 16px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-weight: 400;
+  }
+  .islamic-quote .source { font-size: 12px; color: var(--blue-accent); margin-top: 12px; letter-spacing: 2px; font-weight: 600; }
+
+  .keywords { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 30px 0; }
+  .keyword-tag {
+    padding: 6px 14px; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 50px; font-size: 12px; color: var(--blue-accent); letter-spacing: 0.5px; font-weight: 600;
+    transition: all 0.3s;
+  }
+  .keyword-tag:hover { background: var(--blue-glow); color: white; transform: translateY(-2px); }
+
+  .quiz-container {
+    margin-top: 60px; padding: 40px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px; box-shadow: var(--shadow-soft);
+  }
+  .quiz-header { text-align: center; margin-bottom: 30px; }
+  .quiz-header h2 { 
+    font-family: 'Playfair Display', serif; font-size: 26px; 
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--blue-accent) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700;
+  }
+  .quiz-header p { color: var(--text-secondary); font-size: 14px; }
+
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--blue-accent); margin-bottom: 8px; font-weight: 700;
+  }
+  .form-group input, .form-group select {
+    width: 100%; padding: 12px 16px; background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-primary); 
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; transition: all 0.3s;
+  }
+  .form-group input:focus, .form-group select:focus {
+    outline: none; border-color: var(--blue-glow); background: rgba(255, 255, 255, 0.08);
+  }
+
+  .question-block { margin-bottom: 30px; padding: 24px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 12px; }
+  .question-text { font-weight: 600; margin-bottom: 16px; color: var(--text-primary); display: flex; gap: 10px; font-size: 15px; }
+  .question-num { color: var(--blue-accent); font-weight: 800; font-size: 16px; flex-shrink: 0; }
+  .question-points {
+    padding: 4px 12px; background: var(--blue-royal); color: var(--text-primary);
+    border-radius: 50px; font-size: 11px; font-weight: 700; white-space: nowrap; margin-left: auto;
+  }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option-label {
+    display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 8px;
+    cursor: pointer; transition: all 0.3s;
+  }
+  .option-label:hover { background: rgba(59, 130, 246, 0.1); border-color: var(--blue-glow); transform: translateX(4px); }
+  .option-label input[type="radio"] { accent-color: var(--blue-glow); width: 18px; height: 18px; }
+  .option-label.correct { background: rgba(16, 185, 129, 0.15); border-color: #10b981; }
+  .option-label.incorrect { background: rgba(239, 68, 68, 0.15); border-color: #ef4444; }
+
+  textarea {
+    width: 100%; padding: 16px; min-height: 120px; background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-primary); 
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; resize: vertical; transition: all 0.3s;
+  }
+  textarea:focus { outline: none; border-color: var(--blue-glow); background: rgba(255, 255, 255, 0.08); }
+
+  .action-bar { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; justify-content: center; }
+  .btn {
+    padding: 14px 24px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    border: none; border-radius: 6px; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; transition: all 0.4s; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--blue-royal), var(--blue-glow)); color: white;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(59, 130, 246, 0.5); }
+  .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border: 1px solid var(--glass-border); }
+  .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--blue-accent); }
+  .btn-outline { background: transparent; color: var(--blue-accent); border: 1px solid var(--blue-accent); }
+  .btn-outline:hover { background: rgba(59, 130, 246, 0.1); }
+
+  .results-panel {
+    display: none; margin-top: 30px; padding: 30px;
+    background: rgba(59, 130, 246, 0.08); border: 1px solid var(--blue-glow);
+    border-radius: 12px; text-align: center;
+  }
+  .results-panel.show { display: block; animation: fadeIn 0.5s; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  
+  .score-display { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px 0; }
+  .score-item { padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 8px; }
+  .score-item .label { font-size: 11px; letter-spacing: 1px; color: var(--text-secondary); text-transform: uppercase; font-weight: 700; }
+  .score-item .value {
+    font-family: 'Playfair Display', serif; font-size: 32px;
+    background: linear-gradient(135deg, var(--text-primary), var(--blue-accent));
+    -webkit-background-clip: text; background-clip: text; color: transparent; margin-top: 8px; font-weight: 700;
+  }
+
+  .nav-footer {
+    display: flex; justify-content: space-between; margin-top: 40px; padding: 20px;
+    background: var(--glass-bg); border-radius: 12px; border: 1px solid var(--glass-border);
+  }
+  .nav-footer a {
+    color: var(--blue-accent); text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 600;
+    transition: color 0.3s;
+  }
+  .nav-footer a:hover { color: var(--gold-accent); }
+
+  footer {
+    border-top: 1px solid var(--glass-border); padding: 40px 24px; text-align: center;
+    background: rgba(5, 11, 20, 0.9); margin-top: 60px;
+  }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--text-primary); margin-bottom: 8px; }
+  .footer-brand span { color: var(--blue-accent); }
+  .footer-contact { color: var(--text-secondary); font-size: 13px; margin-bottom: 16px; }
+  .footer-contact a { color: var(--blue-accent); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+  .footer-contact a:hover { color: var(--text-primary); }
+  .copyright { font-size: 11px; letter-spacing: 1px; color: var(--text-secondary); text-transform: uppercase; opacity: 0.6; }
+
+  @media print {
+    nav, .action-bar, footer, .nav-footer { display: none !important; }
+    body { background: #fff; color: #000; }
+    .container { max-width: 100%; padding: 0; }
+    .content-section, .quiz-container { background: #fff; border: 1px solid #ccc; color: #000; break-inside: avoid; }
+    .section-title, .chapter-header h1 { color: #000 !important; -webkit-text-fill-color: #000 !important; }
+    p, .question-text { color: #000 !important; }
+    .luxury-table th { background: #e0e0e0; color: #000; }
+    .luxury-table td { color: #000; border-bottom: 1px solid #ccc; }
+  }
+
+  @media (max-width: 600px) {
+    .score-display { grid-template-columns: 1fr; }
+    .action-bar { flex-direction: column; }
+    .btn { width: 100%; justify-content: center; }
+    .comparison-box, .triple-box { grid-template-columns: 1fr; }
+    .nav-footer { flex-direction: column; gap: 16px; text-align: center; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <div class="nav-inner">
+    <div class="brand">SCIENTIA <span>IX</span></div>
+    <ul class="nav-links">
+      <li><a href="17.html">← Bab 17: Tekanan Gas</a></li>
+      <li><a href="index.html">📖 Daftar Isi</a></li>
+      <li><a href="19.html">Bab 19: Listrik Statis →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="container">
+
+  <!-- Chapter Header -->
+  <header class="chapter-header">
+    <div class="eyebrow">Pertemuan 18 • IPA Kelas IX Semester 1</div>
+    <h1>Tekanan pada Sistem Biologis</h1>
+    <p class="subtitle">Menganalisis penerapan konsep tekanan pada sistem biologis: transportasi tumbuhan, peredaran darah, dan pernapasan manusia.</p>
+    <div class="author-badge">
+      <span>‍🏫 Medy Candra, S.Pd</span>
+      <span>•</span>
+      <span>MTsN 10 Agam</span>
+    </div>
+  </header>
+
+  <!-- Intro Quote -->
+  <div class="intro-quote">
+    <div class="label">◆ — Pertemuan Kedelapan Belas — ◆</div>
+    <div class="title">🫀 Tekanan dalam Tubuh Makhluk Hidup</div>
+    <p>Tubuh makhluk hidup adalah "mesin hidrolik" yang sangat canggih. Darah mengalir, air naik dari akar ke daun, dan udara masuk-keluar paru-paru — semuanya digerakkan oleh perbedaan tekanan. Memahami prinsip fisika dalam sistem biologis adalah kunci untuk memahami kesehatan dan kehidupan itu sendiri.</p>
+  </div>
+
+  <!-- Section A -->
+  <section class="content-section">
+    <h3 class="section-title">🔬 A. Tekanan dalam Sistem Biologis</h3>
+    <p>Semua makhluk hidup bergantung pada prinsip <strong>perbedaan tekanan</strong> untuk mengangkut zat-zat penting ke seluruh tubuh. Tanpa perbedaan tekanan, darah tidak akan mengalir, air tidak akan naik ke daun, dan udara tidak akan masuk ke paru-paru.</p>
+    
+    <div class="highlight-box">
+      <h4> Prinsip Dasar</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        <strong>Zat (cairan/gas) selalu mengalir dari daerah bertekanan TINGGI ke daerah bertekanan RENDAH.</strong><br><br>
+        Prinsip ini berlaku universal:<br>
+        • Dalam <strong>pipa</strong>: air mengalir dari tekanan tinggi ke rendah<br>
+        • Dalam <strong>pembuluh darah</strong>: darah dipompa dari jantung (tekanan tinggi) ke seluruh tubuh (tekanan rendah)<br>
+        • Dalam <strong>xilem tumbuhan</strong>: air naik dari akar ke daun karena perbedaan tekanan<br>
+        • Dalam <strong>paru-paru</strong>: udara masuk karena tekanan di paru-paru lebih rendah dari atmosfer
+      </p>
+    </div>
+
+    <div class="formula-box">
+      🌊 Hukum Dasar Aliran Fluida dalam Biologi:<br>
+      <div class="main-formula">Aliran = (Tekanan Tinggi) → (Tekanan Rendah)</div>
+    </div>
+
+    <div class="triple-box">
+      <div class="comparison-item" style="border-color: var(--green-accent);">
+        <h4 style="color: var(--green-accent);">🌳 Transportasi Tumbuhan</h4>
+        <p>Air & mineral naik dari akar ke daun melalui xilem, didorong oleh transpirasi, tekanan akar, dan kapilaritas.</p>
+      </div>
+      <div class="comparison-item" style="border-color: var(--red-accent);">
+        <h4 style="color: var(--red-accent);">🫀 Peredaran Darah</h4>
+        <p>Darah dipompa oleh jantung melalui pembuluh arteri, kapiler, dan vena ke seluruh tubuh.</p>
+      </div>
+      <div class="comparison-item" style="border-color: var(--blue-accent);">
+        <h4 style="color: var(--blue-accent);">🫁 Pernapasan</h4>
+        <p>Udara masuk-keluar paru-paru karena perubahan tekanan rongga dada saat diafragma berkontraksi/relaksasi.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section B -->
+  <section class="content-section">
+    <h3 class="section-title"> B. Tekanan dalam Transportasi Tumbuhan</h3>
+    <p>Tumbuhan tidak memiliki "jantung" untuk memompa air, namun air dan mineral tetap dapat naik dari akar ke puncak pohon yang tingginya bisa mencapai 100 meter! Bagaimana ini mungkin? Jawabannya terletak pada tiga mekanisme tekanan yang bekerja bersamaan:</p>
+    
+    <div class="comparison-box">
+      <div class="comparison-item">
+        <h4>💧 1. Tekanan Akar (Root Pressure)</h4>
+        <p><strong>Mekanisme:</strong> Sel-sel akar aktif menyerap mineral dari tanah → konsentrasi zat terlarut di dalam akar meningkat → air masuk secara osmosis → tekanan di dalam akar meningkat → air terdorong ke atas melalui xilem.<br><br>
+        <strong>Bukti:</strong> Fenomena <em>guttasi</em> — tetesan air di ujung daun pada pagi hari, terutama pada tumbuhan kecil.<br><br>
+        <strong>Keterbatasan:</strong> Tekanan akar hanya mampu menaikkan air setinggi ±1-2 meter. Tidak cukup untuk pohon tinggi!</p>
+      </div>
+      <div class="comparison-item">
+        <h4>🌬️ 2. Tarikan Transpirasi (Transpiration Pull)</h4>
+        <p><strong>Mekanisme:</strong> Air menguap dari stomata daun (transpirasi) → sel-sel daun kehilangan air → sel daun "menarik" air dari sel di bawahnya → tarikan ini merambat ke bawah melalui xilem hingga ke akar → air dari tanah terhisap ke atas.<br><br>
+        <strong>Kekuatan:</strong> Ini adalah mekanisme <strong>utama</strong> yang menaikkan air pada pohon tinggi! Dapat menaikkan air hingga 100+ meter.<br><br>
+        <strong>Analogi:</strong> Seperti sedotan — saat kamu menghisap udara dari sedotan, cairan naik ke atas.</p>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <h4> 3. Gaya Kohesi-Adhesi-Kapilaritas</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        <strong>Kohesi:</strong> Gaya tarik-menarik antar molekul air (H₂O saling menempel).<br>
+        <strong>Adhesi:</strong> Gaya tarik antara molekul air dengan dinding xilem (selulosa).<br>
+        <strong>Kapilaritas:</strong> Air naik melalui pembuluh kecil (xilem) karena adhesi lebih kuat dari kohesi.<br><br>
+        Ketiga gaya ini bekerja bersama transpirasi untuk membentuk <strong>"kolom air kontinu"</strong> dari akar hingga daun, tanpa terputus meskipun pohon sangat tinggi!
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h4>🌲 Fakta Menakjubkan: Pohon Sequoia</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Pohon Sequoia di California dapat mencapai tinggi <strong>115 meter</strong> (setara gedung 35 lantai)! Air dari akar harus naik sejauh itu melawan gravitasi. Transpirasi dan kohesi-adhesi mampu melakukan ini dengan kecepatan aliran hingga <strong>15 meter per jam</strong> pada siang hari yang terik!
+      </p>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Mekanisme</th>
+            <th>Sumber Energi</th>
+            <th>Arah Aliran</th>
+            <th>Tinggi Maksimum</th>
+            <th>Kondisi Optimal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tekanan Akar</td>
+            <td>Aktif (ATP dari respirasi akar)</td>
+            <td>Akar → Batang</td>
+            <td>1-2 meter</td>
+            <td>Tanah lembab, malam hari</td>
+          </tr>
+          <tr>
+            <td>Transpirasi</td>
+            <td>Panas matahari (evaporasi)</td>
+            <td>Akar → Daun</td>
+            <td>100+ meter</td>
+            <td>Siang hari, udara kering</td>
+          </tr>
+          <tr>
+            <td>Kapilaritas</td>
+            <td>Adhesi molekul air-dinding xilem</td>
+            <td>Ke atas di xilem</td>
+            <td>Terbatas (bantu mekanisme lain)</td>
+            <td>Pembuluh kecil (xilem sempit)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section C -->
+  <section class="content-section">
+    <h3 class="section-title"> C. Tekanan dalam Sistem Peredaran Darah</h3>
+    <p>Sistem peredaran darah manusia adalah sistem transportasi paling kompleks di alam. Jantung berfungsi sebagai <strong>pompa</strong> yang menciptakan tekanan untuk mengalirkan darah ke seluruh tubuh melalui ±100.000 km pembuluh darah!</p>
+    
+    <div class="bio-box">
+      <h4>❤️ Jantung: Pompa Tekanan Tubuh</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Jantung berdetak ±100.000 kali per hari, memompa ±7.500 liter darah. Setiap denyut menciptakan dua tekanan:<br>
+        • <strong>Tekanan Sistolik:</strong> Tekanan saat ventrikel berkontraksi (memompa darah keluar) — nilai normal: <strong>120 mmHg</strong><br>
+        • <strong>Tekanan Diastolik:</strong> Tekanan saat ventrikel relaksasi (beristirahat) — nilai normal: <strong>80 mmHg</strong><br>
+        • <strong>Tekanan darah normal:</strong> <strong style="color: var(--gold-accent);">120/80 mmHg</strong>
+      </p>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Aliran dari Jantung ke Seluruh Tubuh</h4>
+        <p><strong>Ventrikel kiri</strong> berkontraksi → tekanan darah meningkat drastis → katup aorta terbuka → darah dipompa ke <strong>aorta</strong> (arteri terbesar) → mengalir ke arteri → arteriol → kapiler di seluruh tubuh.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Pertukaran Zat di Kapiler</h4>
+        <p>Di kapiler (pembuluh paling kecil), tekanan darah masih cukup tinggi untuk mendorong <strong>cairan, oksigen, dan nutrisi</strong> keluar dari pembuluh menuju sel-sel tubuh. Sebaliknya, <strong>CO₂ dan zat sisa</strong> masuk ke kapiler untuk dibuang.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Kembali ke Jantung melalui Vena</h4>
+        <p>Darah kembali ke jantung melalui <strong>vena</strong>. Tekanan di vena sangat rendah, sehingga dibantu oleh:<br>
+        • <strong>Katup vena:</strong> Mencegah darah mengalir balik<br>
+        • <strong>Kontraksi otot rangka:</strong> "Memompa" darah ke atas (terutama dari kaki)<br>
+        • <strong>Tekanan negatif rongga dada:</strong> Saat menarik napas, rongga dada mengembang → tekanan turun → darah tertarik ke jantung</p>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Jenis Pembuluh</th>
+            <th>Tekanan Darah</th>
+            <th>Kecepatan Aliran</th>
+            <th>Fungsi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Arteri (Aorta)</td>
+            <td>Tinggi (120 mmHg)</td>
+            <td>Cepat (40 cm/detik)</td>
+            <td>Mengangkut darah dari jantung</td>
+          </tr>
+          <tr>
+            <td>Arteriol</td>
+            <td>Sedang</td>
+            <td>Sedang</td>
+            <td>Mengatur distribusi darah</td>
+          </tr>
+          <tr>
+            <td>Kapiler</td>
+            <td>Rendah (30 mmHg)</td>
+            <td>Lambat (0,03 cm/detik)</td>
+            <td>Pertukaran zat dengan sel</td>
+          </tr>
+          <tr>
+            <td>Venula</td>
+            <td>Rendah</td>
+            <td>Sedang</td>
+            <td>Mengumpulkan darah dari kapiler</td>
+          </tr>
+          <tr>
+            <td>Vena (Vena Kava)</td>
+            <td>Sangat rendah (10 mmHg)</td>
+            <td>Cepat (20 cm/detik)</td>
+            <td>Mengembalikan darah ke jantung</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warning-box">
+      <h4>⚠️ Gangguan Tekanan Darah</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        <strong>Hipertensi (Darah Tinggi):</strong> Tekanan darah >140/90 mmHg. Penyebab: gaya hidup tidak sehat, stres, genetik. Dampak: stroke, serangan jantung, gagal ginjal.<br><br>
+        <strong>Hipotensi (Darah Rendah):</strong> Tekanan darah <90/60 mmHg. Gejala: pusing, lemas, pingsan. Penyebab: dehidrasi, kurang gizi, perdarahan.<br><br>
+        <strong>Varises:</strong> Pembengkakan vena (biasanya di kaki) karena katup vena rusak → darah tidak bisa naik ke jantung dengan baik → tekanan menumpuk di vena.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section D -->
+  <section class="content-section">
+    <h3 class="section-title">🫁 D. Tekanan dalam Sistem Pernapasan</h3>
+    <p>Pernapasan adalah proses pertukaran gas (O₂ dan CO₂) antara tubuh dengan lingkungan. Proses ini sepenuhnya digerakkan oleh <strong>perubahan tekanan udara</strong> di dalam rongga dada.</p>
+    
+    <div class="comparison-box">
+      <div class="comparison-item">
+        <h4>🌬️ Inspirasi (Menarik Napas Masuk)</h4>
+        <p><strong>Urutan peristiwa:</strong><br>
+        1. Otot diafragma <strong>berkontraksi</strong> → diafragma mendatar (turun)<br>
+        2. Otot antar tulang rusuk <strong>berkontraksi</strong> → tulang rusuk terangkat<br>
+        3. Rongga dada <strong>membesar</strong> → volume paru-paru meningkat<br>
+        4. Tekanan udara di paru-paru <strong>menurun</strong> (hukum Boyle: V↑ → P↓)<br>
+        5. Tekanan udara luar > tekanan dalam paru-paru<br>
+        6. Udara <strong>masuk</strong> ke paru-paru<br><br>
+        <strong style="color: var(--gold-accent);">Kunci: Volume ↑ → Tekanan ↓ → Udara masuk</strong></p>
+      </div>
+      <div class="comparison-item">
+        <h4>💨 Ekspirasi (Menghembuskan Napas Keluar)</h4>
+        <p><strong>Urutan peristiwa:</strong><br>
+        1. Otot diafragma <strong>relaksasi</strong> → diafragma melengkung ke atas<br>
+        2. Otot antar tulang rusuk <strong>relaksasi</strong> → tulang rusuk turun<br>
+        3. Rongga dada <strong>mengecil</strong> → volume paru-paru menurun<br>
+        4. Tekanan udara di paru-paru <strong>meningkat</strong> (hukum Boyle: V↓ → P↑)<br>
+        5. Tekanan udara dalam paru-paru > tekanan luar<br>
+        6. Udara <strong>keluar</strong> dari paru-paru<br><br>
+        <strong style="color: var(--gold-accent);">Kunci: Volume ↓ → Tekanan ↑ → Udara keluar</strong></p>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      🫁 Hukum Boyle dalam Pernapasan:<br>
+      <div class="main-formula">P × V = konstan (pada suhu tetap)</div>
+      <div style="font-size: 14px; margin-top: 10px;">
+        Inspirasi: V↑ → P↓ → udara masuk | Ekspirasi: V↓ → P↑ → udara keluar
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <h4>🔬 Tekanan Parsial Gas dalam Pernapasan</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Pertukaran O₂ dan CO₂ di alveolus (kantong udara paru-paru) terjadi berdasarkan <strong>tekanan parsial</strong> (tekanan yang disumbangkan oleh satu jenis gas dalam campuran gas):<br><br>
+        • <strong>Di Alveolus:</strong> Tekanan parsial O₂ tinggi (104 mmHg), CO₂ rendah (40 mmHg)<br>
+        • <strong>Di Darah (vena):</strong> Tekanan parsial O₂ rendah (40 mmHg), CO₂ tinggi (45 mmHg)<br>
+        • <strong>Hasil:</strong> O₂ berdifusi dari alveolus → darah; CO₂ berdifusi dari darah → alveolus<br><br>
+        Prinsip ini disebut <strong>Hukum Difusi Fick</strong>: gas berdifusi dari tekanan parsial tinggi ke rendah.
+      </p>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Proses</th>
+            <th>Diafragma</th>
+            <th>Rongga Dada</th>
+            <th>Volume Paru-paru</th>
+            <th>Tekanan Udara</th>
+            <th>Aliran Udara</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Inspirasi</td>
+            <td>Kontraksi (mendatar)</td>
+            <td>Membesar</td>
+            <td>Bertambah</td>
+            <td>Menurun</td>
+            <td>Masuk (luar → paru)</td>
+          </tr>
+          <tr>
+            <td>Ekspirasi</td>
+            <td>Relaksasi (melengkung)</td>
+            <td>Mengecil</td>
+            <td>Berkurang</td>
+            <td>Meningkat</td>
+            <td>Keluar (paru → luar)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section E -->
+  <section class="content-section">
+    <h3 class="section-title">🔗 E. Perbandingan Ketiga Sistem Biologis</h3>
+    <p>Meskipun berbeda dalam detail, ketiga sistem biologis ini menggunakan prinsip fisika yang sama: <strong>perbedaan tekanan menggerakkan aliran zat</strong>.</p>
+    
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Aspek</th>
+            <th>🌳 Transportasi Tumbuhan</th>
+            <th>🫀 Peredaran Darah</th>
+            <th>🫁 Pernapasan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Zat yang dialirkan</td>
+            <td>Air & mineral (xilem), hasil fotosintesis (floem)</td>
+            <td>Darah (O₂, nutrisi, hormon, zat sisa)</td>
+            <td>Udara (O₂ & CO₂)</td>
+          </tr>
+          <tr>
+            <td>Sumber tekanan</td>
+            <td>Transpirasi, tekanan akar, kapilaritas</td>
+            <td>Pompa jantung (kontraksi otot)</td>
+            <td>Perubahan volume rongga dada (diafragma)</td>
+          </tr>
+          <tr>
+            <td>Saluran/pembuluh</td>
+            <td>Xilem & floem</td>
+            <td>Arteri, vena, kapiler</td>
+            <td>Trakea, bronkus, bronkiolus, alveolus</td>
+          </tr>
+          <tr>
+            <td>Hukum fisika utama</td>
+            <td>Kohesi-adhesi, kapilaritas, osmosis</td>
+            <td>Pascal, Bernoulli, tekanan hidrostatis</td>
+            <td>Boyle, difusi, tekanan parsial</td>
+          </tr>
+          <tr>
+            <td>Arah aliran</td>
+            <td>Satu arah (akar → daun)</td>
+            <td>Sirkulasi tertutup (jantung → tubuh → jantung)</td>
+            <td>Dua arah (masuk-keluar paru-paru)</td>
+          </tr>
+          <tr>
+            <td>Pengaturan</td>
+            <td>Otomatis (respons terhadap cahaya, kelembaban)</td>
+            <td>Otomatis (saraf otonom, hormon)</td>
+            <td>Sadar & tidak sadar (otak & medula oblongata)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box">
+      <h4>💡 Kesamaan Prinsip</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Ketiga sistem ini menunjukkan bahwa <strong>alam menggunakan prinsip fisika yang sama</strong> untuk memecahkan masalah transportasi. Perbedaan utamanya:<br>
+        • <strong>Tumbuhan:</strong> Tidak punya pompa aktif, mengandalkan energi matahari (transpirasi)<br>
+        • <strong>Hewan (darah):</strong> Punya pompa aktif (jantung) yang mengonsumsi energi<br>
+        • <strong>Pernapasan:</strong> Kombinasi pompa aktif (otot) dan hukum fisika pasif (Boyle)
+      </p>
+    </div>
+  </section>
+
+  <!-- Section F -->
+  <section class="content-section">
+    <h3 class="section-title"> F. Aplikasi Medis Berbasis Tekanan</h3>
+    <p>Pemahaman tentang tekanan dalam sistem biologis melahirkan banyak teknologi medis yang menyelamatkan nyawa:</p>
+    
+    <div class="comparison-box">
+      <div class="comparison-item">
+        <h4> 1. Tensimeter (Sphygmomanometer)</h4>
+        <p>Mengukur tekanan darah dengan cara:<br>
+        • Manset dipompa hingga tekanan > tekanan sistolik → aliran darah di arteri berhenti<br>
+        • Manset dikempiskan perlahan → saat darah mulai mengalir kembali, terdengar suara (Korotkoff)<br>
+        • Tekanan saat suara pertama = sistolik; saat suara hilang = diastolik</p>
+      </div>
+      <div class="comparison-item">
+        <h4>💉 2. Infus Cairan</h4>
+        <p>Cairan infus digantung lebih tinggi dari jantung pasien. Prinsipnya:<br>
+        • Tekanan hidrostatis cairan infus > tekanan darah vena<br>
+        • Cairan mengalir masuk ke pembuluh darah<br>
+        • Ketinggian botol infus menentukan kecepatan aliran</p>
+      </div>
+      <div class="comparison-item">
+        <h4> 3. Ventilator (Alat Bantu Napas)</h4>
+        <p>Pada pasien yang tidak bisa bernapas sendiri:<br>
+        • Ventilator menciptakan tekanan positif di saluran napas<br>
+        • Tekanan ini memaksa udara masuk ke paru-paru (inspirasi mekanis)<br>
+        • Saat tekanan dilepaskan, udara keluar (ekspirasi pasif)</p>
+      </div>
+      <div class="comparison-item">
+        <h4>🩸 4. Dialisis (Cuci Darah)</h4>
+        <p>Pada pasien gagal ginjal:<br>
+        • Darah dipompa keluar tubuh melalui mesin dialisis<br>
+        • Tekanan darah mendorong zat sisa (urea, kreatinin) melewati membran semi-permeabel<br>
+        • Darah bersih dikembalikan ke tubuh</p>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <strong> Studi Kasus: Mengapa Astronot Pingsan saat Kembali ke Bumi?</strong><br>
+      Di luar angkasa (microgravity), darah tidak perlu melawan gravitasi untuk naik ke otak. Jantung beradaptasi dengan memompa lebih lemah. Saat astronaut kembali ke Bumi, gravitasi menarik darah ke kaki → tekanan darah di otak turun drastis → pusing bahkan pingsan (orthostatic hypotension). Butuh waktu berminggu-minggu bagi tubuh untuk beradaptasi kembali!
+    </div>
+  </section>
+
+  <!-- Section G -->
+  <section class="content-section">
+    <h3 class="section-title">⚠️ G. Gangguan Terkait Tekanan dalam Tubuh</h3>
+    
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Sistem</th>
+            <th>Gangguan</th>
+            <th>Penyebab Tekanan</th>
+            <th>Gejala</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>🌳 Tumbuhan</td>
+            <td>Layu (wilting)</td>
+            <td>Tekanan turgor sel turun (kurang air)</td>
+            <td>Daun & batang lemas, menggantung</td>
+          </tr>
+          <tr>
+            <td> Tumbuhan</td>
+            <td>Edema</td>
+            <td>Penyerapan air > transpirasi</td>
+            <td>Benjolan di daun, sel pecah</td>
+          </tr>
+          <tr>
+            <td>🫀 Darah</td>
+            <td>Hipertensi</td>
+            <td>Tekanan darah >140/90 mmHg</td>
+            <td>Sakit kepala, risiko stroke & jantung</td>
+          </tr>
+          <tr>
+            <td>🫀 Darah</td>
+            <td>Hipotensi</td>
+            <td>Tekanan darah <90/60 mmHg</td>
+            <td>Pusing, lemas, pingsan</td>
+          </tr>
+          <tr>
+            <td>🫀 Darah</td>
+            <td>Aneurisma</td>
+            <td>Dinding pembuluh lemah, tekanan darah mendesak</td>
+            <td>Pembuluh menggelembung, bisa pecah</td>
+          </tr>
+          <tr>
+            <td>🫁 Napas</td>
+            <td>Asma</td>
+            <td>Saluran napas menyempit, tekanan udara sulit masuk</td>
+            <td>Sesak napas, mengi (wheezing)</td>
+          </tr>
+          <tr>
+            <td>🫁 Napas</td>
+            <td>Pneumothorax</td>
+            <td>Udara masuk rongga pleura, tekanan paru kolaps</td>
+            <td>Nyeri dada, sesak napas hebat</td>
+          </tr>
+          <tr>
+            <td>🫁 Napas</td>
+            <td>Penyakit Dekompresi</td>
+            <td>Penyelam naik terlalu cepat → tekanan turun drastis → gelembung N₂ dalam darah</td>
+            <td>Nyeri sendi, lumpuh, kematian</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="warning-box">
+      <h4>🚨 Penyakit Dekompresi (The Bends)</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Saat penyelam berada di kedalaman, tekanan air tinggi → gas nitrogen (N₂) dari udara pernapasan larut dalam darah. Jika penyelam naik terlalu cepat, tekanan menurun drastis → N₂ membentuk gelembung dalam darah (seperti membuka botol soda!) → gelembung menyumbat pembuluh darah → nyeri hebat, kelumpuhan, bahkan kematian.<br><br>
+        <strong>Pencegahan:</strong> Naik secara bertahap dengan <em>decompression stops</em>, atau gunakan ruang dekompresi.
+      </p>
+    </div>
+  </section>
+
+  <!-- Keywords -->
+  <div class="keywords">
+    <span class="keyword-tag">🌳 Transpirasi</span>
+    <span class="keyword-tag"> Tekanan Akar</span>
+    <span class="keyword-tag">🔗 Kohesi-Adhesi</span>
+    <span class="keyword-tag">🫀 Tekanan Darah</span>
+    <span class="keyword-tag">❤️ Jantung</span>
+    <span class="keyword-tag">🩸 Hipertensi</span>
+    <span class="keyword-tag">🫁 Inspirasi-Ekspirasi</span>
+    <span class="keyword-tag">💨 Hukum Boyle</span>
+    <span class="keyword-tag">🔬 Tekanan Parsial</span>
+    <span class="keyword-tag"> Tensimeter</span>
+    <span class="keyword-tag">💉 Infus</span>
+    <span class="keyword-tag"> Dekompresi</span>
+  </div>
+
+  <!-- Islamic Quote -->
+  <div class="islamic-quote">
+    <div class="arabic">أَوَلَمْ يَرَوْا أَنَّا نَسُوقُ الْمَاءَ إِلَى الْأَرْضِ الْجُرُزِ فَنُخْرِجُ بِهِ زَرْعًا تَأْكُلُ مِنْهُ أَنْعَامُهُمْ وَأَنفُسُهُمْ ۖ أَفَلَا يُبْصِرُونَ</div>
+    <div class="translation">"Dan apakah mereka tidak memperhatikan bahwa Kami menghalau air (hujan) ke bumi yang tandus, lalu Kami tumbuhkan dengan air itu tanam-tanaman yang darinya makan hewan-hewan ternak mereka dan manusia mereka sendiri. Maka apakah mereka tidak memperhatikan?"</div>
+    <div class="source">— QS. As-Sajdah [32]: 27</div>
+  </div>
+  <p style="text-align: center; color: var(--text-secondary); font-style: italic; margin-top: -20px; margin-bottom: 30px;">
+    Ayat ini menggambarkan bagaimana Allah menggerakkan air dari langit ke bumi yang tandus, lalu menumbuhkan tumbuhan. Proses naiknya air dari akar ke daun — melawan gravitasi — adalah keajaiban tekanan biologis yang Allah ciptakan. Begitu juga dengan darah yang mengalir dan udara yang kita hirup, semuanya bekerja dengan prinsip tekanan yang sempurna.
+  </p>
+
+  <!-- Section H: Referensi -->
+  <section class="content-section">
+    <h3 class="section-title">📚 H. Referensi Pendukung</h3>
+    <ul style="margin-left: 20px; color: var(--text-secondary); line-height: 1.8;">
+      <li>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi. (2021). <em>Ilmu Pengetahuan Alam Kelas IX SMP/MTs</em>. Jakarta: Pusat Perbukuan, Kemendikbudristek.</li>
+      <li>Campbell, N. A., & Reece, J. B. (2020). <em>Biology</em> (12th ed.). Pearson Education. (Bab 36: Resource Acquisition in Plants; Bab 42: Circulation and Gas Exchange)</li>
+      <li>Guyton, A. C., & Hall, J. E. (2020). <em>Textbook of Medical Physiology</em> (14th ed.). Elsevier. (Bab 15: Cardiac Output; Bab 39: Pulmonary Ventilation)</li>
+      <li>Raven, P. H., Evert, R. F., & Eichhorn, S. E. (2013). <em>Biology of Plants</em> (8th ed.). W.H. Freeman. (Bab 36: Transport in Plants)</li>
+      <li>West, J. B. (2012). <em>Respiratory Physiology: The Essentials</em> (9th ed.). Lippincott Williams & Wilkins.</li>
+    </ul>
+  </section>
+
+  <!-- ===== UJI FORMATIF ===== -->
+  <div class="quiz-container" id="quizSection">
+    <div class="quiz-header">
+      <h2>📝 Uji Formatif Bab 18</h2>
+      <p>Tekanan pada Sistem Biologis<br>
+      📋 Bagian A: Pilihan Ganda (10 soal, skor 10/soal) | ✍️ Bagian B: Essay (5 soal, skor 20/soal)</p>
+    </div>
+
+    <form id="quizForm">
+      <!-- Identitas -->
+      <div class="content-section" style="background: rgba(255,255,255,0.03);">
+        <h4 style="color: var(--blue-accent); margin-bottom: 16px; font-family: 'Playfair Display', serif;">📋 Identitas Siswa</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+          <div class="form-group">
+            <label>Nama Lengkap *</label>
+            <input type="text" id="studentName" required placeholder="Masukkan nama lengkap">
+          </div>
+          <div class="form-group">
+            <label>No. Absen / NIS *</label>
+            <input type="text" id="studentNIS" required placeholder="Masukkan NIS">
+          </div>
+          <div class="form-group">
+            <label>📅 Tanggal Ujian</label>
+            <input type="date" id="quizDate" required>
+          </div>
+          <div class="form-group">
+            <label>Kelas</label>
+            <select id="studentClass" required>
+              <option value="">Pilih Kelas</option>
+              <option value="IX-A">IX-A</option>
+              <option value="IX-B">IX-B</option>
+              <option value="IX-C">IX-C</option>
+              <option value="IX-D">IX-D</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Semester</label>
+            <input type="text" value="1 (Satu)" readonly style="background: rgba(255,255,255,0.02); color: var(--text-secondary);">
+          </div>
+        </div>
+      </div>
+
+      <!-- Bagian A: Pilihan Ganda -->
+      <h3 style="color: var(--blue-accent); font-family: 'Playfair Display', serif; margin: 30px 0 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">📋 Bagian A: Pilihan Ganda</h3>
+      <div id="mcqContainer"></div>
+
+      <!-- Bagian B: Essay -->
+      <h3 style="color: var(--blue-accent); font-family: 'Playfair Display', serif; margin: 40px 0 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">✍️ Bagian B: Essay</h3>
+      <div id="essayContainer"></div>
+
+      <!-- Action Buttons -->
+      <div class="action-bar">
+        <button type="button" class="btn btn-primary" onclick="submitQuiz()">✉️ KIRIM JAWABAN & LIHAT HASIL</button>
+        <button type="button" class="btn btn-secondary" onclick="downloadPDF()">📄 UNDUH PDF LENGKAP</button>
+        <button type="button" class="btn btn-secondary" onclick="downloadTXT()"> UNDUH SKOR (TXT)</button>
+        <button type="button" class="btn btn-outline" onclick="resetQuiz()">🔄 MULAI ULANG</button>
+        <a id="emailLink" href="#" class="btn btn-outline" style="display:none;">📧 Kirim ke Email Guru</a>
+      </div>
+    </form>
+
+    <!-- Results Panel -->
+    <div class="results-panel" id="resultsPanel">
+      <h3 style="font-family: 'Playfair Display', serif; color: var(--blue-accent); margin-bottom: 10px;">📊 Hasil Uji Formatif</h3>
+      <p id="resultMessage" style="color: var(--text-primary); margin-bottom: 20px;"></p>
+      <div class="score-display">
+        <div class="score-item">
+          <div class="label">📋 Pilihan Ganda</div>
+          <div class="value" id="scoreMCQ">0</div>
+        </div>
+        <div class="score-item">
+          <div class="label">✍️ Essay</div>
+          <div class="value" id="scoreEssay">0</div>
+        </div>
+        <div class="score-item">
+          <div class="label">Skor Akhir</div>
+          <div class="value" id="scoreTotal">0</div>
+        </div>
+      </div>
+      <p style="font-size: 12px; color: var(--text-secondary); margin-top: 16px;">
+        *Penilaian Essay bersifat otomatis berdasarkan kelengkapan jawaban (minimal 30 karakter). Guru akan melakukan penilaian ulang secara manual.
+      </p>
+    </div>
+  </div>
+
+  <!-- Navigation Footer -->
+  <div class="nav-footer">
+    <a href="17.html">
+      <span>←</span> Bab 17: Tekanan Gas
+    </a>
+    <a href="19.html">
+      Selanjutnya → <span>Bab 19: Listrik Statis & Dinamis</span>
+    </a>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-brand">🔬 IPA <span>Kelas IX</span></div>
+  <div class="footer-contact">
+    MTsN 10 Agam • <a href="mailto:medycandra514@gmail.com">medycandra514@gmail.com</a>
+  </div>
+  <div class="copyright">© 2026 Medy Candra, S.Pd — MTsN 10 Agam. Hak Cipta Dilindungi Undang-Undang</div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  document.getElementById('quizDate').valueAsDate = new Date();
+
+  const mcqQuestions = [
+    { q: "Prinsip dasar aliran zat dalam sistem biologis adalah...", options: ["Dari tekanan rendah ke tinggi", "Dari tekanan tinggi ke rendah", "Dari suhu tinggi ke rendah", "Dari konsentrasi rendah ke tinggi"], answer: 1 },
+    { q: "Mekanisme utama yang menaikkan air dari akar ke daun pada pohon tinggi adalah...", options: ["Tekanan akar", "Transpirasi (tarikan transpirasi)", "Gravitasi", "Osmosis pasif"], answer: 1 },
+    { q: "Fenomena tetesan air di ujung daun pada pagi hari disebut...", options: ["Transpirasi", "Guttasi", "Respirasi", "Evaporasi"], answer: 1 },
+    { q: "Tekanan darah normal pada manusia dewasa adalah...", options: ["80/60 mmHg", "100/70 mmHg", "120/80 mmHg", "140/90 mmHg"], answer: 2 },
+    { q: "Pembuluh darah dengan tekanan tertinggi adalah...", options: ["Vena", "Kapiler", "Arteri (Aorta)", "Venula"], answer: 2 },
+    { q: "Saat inspirasi (menarik napas), yang terjadi pada rongga dada adalah...", options: ["Volume mengecil, tekanan meningkat", "Volume membesar, tekanan menurun", "Volume tetap, tekanan meningkat", "Volume mengecil, tekanan menurun"], answer: 1 },
+    { q: "Hukum fisika yang menjelaskan mekanisme pernapasan adalah...", options: ["Hukum Archimedes", "Hukum Pascal", "Hukum Boyle", "Hukum Newton"], answer: 2 },
+    { q: "Pertukaran O₂ dan CO₂ di alveolus terjadi berdasarkan...", options: ["Perbedaan suhu", "Perbedaan tekanan parsial", "Perbedaan warna", "Perbedaan massa"], answer: 1 },
+    { q: "Penyakit yang disebabkan oleh tekanan darah >140/90 mmHg disebut...", options: ["Hipotensi", "Hipertensi", "Anemia", "Leukemia"], answer: 1 },
+    { q: "Penyakit dekompresi (the bends) pada penyelam disebabkan oleh...", options: ["Kekurangan O₂", "Kelebihan CO₂", "Gelembung N₂ dalam darah akibat penurunan tekanan cepat", "Infeksi bakteri"], answer: 2 }
+  ];
+
+  const essayQuestions = [
+    "Jelaskan tiga mekanisme yang menyebabkan air dapat naik dari akar ke daun pada tumbuhan tinggi! Mengapa tekanan akar saja tidak cukup untuk pohon setinggi 100 meter?",
+    "Jelaskan mekanisme peredaran darah manusia dari jantung ke seluruh tubuh dan kembali ke jantung! Sebutkan perbedaan tekanan darah di arteri, kapiler, dan vena!",
+    "Jelaskan proses inspirasi dan ekspirasi menggunakan Hukum Boyle! Mengapa udara bisa masuk dan keluar dari paru-paru?",
+    "Mengapa botol infus harus digantung lebih tinggi dari jantung pasien? Jelaskan menggunakan konsep tekanan hidrostatis!",
+    "Bandingkan sistem transportasi pada tumbuhan, peredaran darah pada manusia, dan sistem pernapasan dari segi sumber tekanan, zat yang diangkut, dan hukum fisika yang berlaku!"
+  ];
+
+  const mcqContainer = document.getElementById('mcqContainer');
+  mcqQuestions.forEach((item, index) => {
+    const qDiv = document.createElement('div');
+    qDiv.className = 'question-block';
+    qDiv.innerHTML = `
+      <div class="question-text">
+        <span class="question-num">Soal ${index + 1}</span>
+        <span>${item.q}</span>
+        <span class="question-points">10 POIN</span>
+      </div>
+      <div class="options">
+        ${item.options.map((opt, optIndex) => `
+          <label class="option-label" id="label_${index}_${optIndex}">
+            <input type="radio" name="q${index}" value="${optIndex}">
+            <span>${String.fromCharCode(65 + optIndex)}. ${opt}</span>
+          </label>
+        `).join('')}
+      </div>
+    `;
+    mcqContainer.appendChild(qDiv);
+  });
+
+  const essayContainer = document.getElementById('essayContainer');
+  essayQuestions.forEach((item, index) => {
+    const qDiv = document.createElement('div');
+    qDiv.className = 'question-block';
+    qDiv.innerHTML = `
+      <div class="question-text">
+        <span class="question-num">Essay ${index + 1}</span>
+        <span>${item}</span>
+        <span class="question-points">20 POIN</span>
+      </div>
+      <textarea id="essay${index}" placeholder="Tulis jawaban Anda di sini... (Minimal 30 karakter untuk mendapatkan poin)"></textarea>
+    `;
+    essayContainer.appendChild(qDiv);
+  });
+
+  let finalScores = { mcq: 0, essay: 0, total: 0 };
+
+  function submitQuiz() {
+    const name = document.getElementById('studentName').value;
+    const nis = document.getElementById('studentNIS').value;
+    const cls = document.getElementById('studentClass').value;
+    
+    if (!name || !nis || !cls) {
+      alert("Harap lengkapi identitas siswa (Nama, NIS, dan Kelas) sebelum mengirim jawaban!");
+      return;
+    }
+
+    let mcqScore = 0;
+    mcqQuestions.forEach((item, index) => {
+      const selected = document.querySelector(`input[name="q${index}"]:checked`);
+      const labels = document.querySelectorAll(`[id^="label_${index}_"]`);
+      labels.forEach(l => { l.classList.remove('correct', 'incorrect'); l.style.pointerEvents = 'none'; });
+
+      if (selected) {
+        const val = parseInt(selected.value);
+        if (val === item.answer) {
+          mcqScore += 10;
+          document.getElementById(`label_${index}_${val}`).classList.add('correct');
+        } else {
+          document.getElementById(`label_${index}_${val}`).classList.add('incorrect');
+          document.getElementById(`label_${index}_${item.answer}`).classList.add('correct');
+        }
+      } else {
+        document.getElementById(`label_${index}_${item.answer}`).classList.add('correct');
+      }
+    });
+
+    let essayScore = 0;
+    for (let i = 0; i < 5; i++) {
+      const text = document.getElementById(`essay${i}`).value.trim();
+      if (text.length >= 30) essayScore += 20;
+      else if (text.length > 0) essayScore += 10;
+      document.getElementById(`essay${i}`).disabled = true;
+    }
+
+    finalScores = { mcq: mcqScore, essay: essayScore, total: mcqScore + essayScore };
+
+    document.getElementById('scoreMCQ').textContent = finalScores.mcq;
+    document.getElementById('scoreEssay').textContent = finalScores.essay;
+    document.getElementById('scoreTotal').textContent = finalScores.total;
+    
+    let msg = `Terima kasih, ${name}! Jawaban Anda telah berhasil dikumpulkan.`;
+    if (finalScores.total >= 160) msg += " 🌟 Luar biasa! Pemahamanmu tentang tekanan dalam sistem biologis sangat baik.";
+    else if (finalScores.total >= 100) msg += "  Bagus! Tingkatkan lagi pemahaman tentang mekanisme transportasi biologis.";
+    else msg += " 📚 Jangan menyerah! Pelajari kembali materi tekanan pada sistem biologis.";
+    
+    document.getElementById('resultMessage').textContent = msg;
+    document.getElementById('resultsPanel').classList.add('show');
+    
+    document.querySelector('.btn-primary').disabled = true;
+    document.querySelector('.btn-primary').textContent = "✓ SUDAH DIKIRIM";
+    document.querySelector('.btn-primary').style.opacity = "0.6";
+
+    const emailBody = `Hasil Uji Formatif Bab 18 (Tekanan pada Sistem Biologis)%0D%0A%0D%0ANama: ${name}%0D%0ANIS: ${nis}%0D%0AKelas: ${cls}%0D%0ATanggal: ${document.getElementById('quizDate').value}%0D%0A%0D%0ASKOR:%0D%0A- Pilihan Ganda: ${finalScores.mcq}/100%0D%0A- Essay: ${finalScores.essay}/100 (Perlu validasi guru)%0D%0A- Total: ${finalScores.total}/200%0D%0A%0D%0ACatatan: Jawaban detail dapat dilihat pada file PDF yang dilampirkan.`;
+    document.getElementById('emailLink').href = `mailto:medycandra514@gmail.com?subject=Hasil Uji Formatif Bab 18 - ${name} (${cls})&body=${emailBody}`;
+    document.getElementById('emailLink').style.display = 'inline-flex';
+
+    document.getElementById('resultsPanel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function downloadPDF() { window.print(); }
+
+  function downloadTXT() {
+    const name = document.getElementById('studentName').value || "Siswa";
+    const nis = document.getElementById('studentNIS').value || "-";
+    const cls = document.getElementById('studentClass').value || "-";
+    const date = document.getElementById('quizDate').value || new Date().toLocaleDateString('id-ID');
+
+    let content = `HASIL UJI FORMATIF BAB 18: TEKANAN PADA SISTEM BIOLOGIS\n`;
+    content += `====================================================\n`;
+    content += `Nama  : ${name}\nNIS   : ${nis}\nKelas : ${cls}\nTanggal: ${date}\n`;
+    content += `====================================================\n`;
+    content += `SKOR PILIHAN GANDA : ${finalScores.mcq} / 100\n`;
+    content += `SKOR ESSAY (Simulasi): ${finalScores.essay} / 100\n`;
+    content += `TOTAL SKOR         : ${finalScores.total} / 200\n`;
+    content += `====================================================\n\nJAWABAN ESSAY:\n`;
+    for (let i = 0; i < 5; i++) {
+      content += `\nEssay ${i+1}:\n${document.getElementById(`essay${i}`).value || "(Tidak dijawab)"}\n`;
+    }
+    content += `\n====================================================\nDikirim otomatis dari Sistem Pembelajaran IPA\nMTsN 10 Agam | Penulis: Medy Candra, S.Pd`;
+
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Skor_UjiFormatif_Bab18_${name.replace(/\s+/g, '_')}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function resetQuiz() {
+    if (confirm("Apakah Anda yakin ingin mengulang ujian? Semua jawaban akan dihapus.")) {
+      document.getElementById('quizForm').reset();
+      document.getElementById('quizDate').valueAsDate = new Date();
+      document.getElementById('resultsPanel').classList.remove('show');
+      document.querySelectorAll('.option-label').forEach(l => { l.classList.remove('correct', 'incorrect'); l.style.pointerEvents = 'auto'; });
+      document.querySelectorAll('textarea').forEach(t => t.disabled = false);
+      
+      const btn = document.querySelector('.btn-primary');
+      btn.disabled = false; btn.textContent = "✉️ KIRIM JAWABAN & LIHAT HASIL"; btn.style.opacity = "1";
+      document.getElementById('emailLink').style.display = 'none';
+      finalScores = { mcq: 0, essay: 0, total: 0 };
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+</script>
+
+</body>
+</html>

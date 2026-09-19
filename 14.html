@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pertemuan 14: Hukum Archimedes | IPA Kelas IX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy-deep: #050b14;
+    --navy: #0a192f;
+    --navy-light: #112240;
+    --blue-royal: #1e3a8a;
+    --blue-glow: #3b82f6;
+    --blue-accent: #60a5fa;
+    --gold-accent: #fbbf24;
+    --green-accent: #10b981;
+    --red-accent: #ef4444;
+    --cyan-accent: #06b6d4;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --glass-bg: rgba(17, 34, 64, 0.6);
+    --glass-border: rgba(96, 165, 250, 0.15);
+    --shadow-soft: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+    --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--navy-deep);
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(30, 58, 138, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08) 0%, transparent 40%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  .orb {
+    position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.4;
+    animation: floatOrb 20s ease-in-out infinite alternate;
+  }
+  .orb-1 { width: 500px; height: 500px; background: var(--blue-royal); top: -10%; right: -5%; }
+  .orb-2 { width: 400px; height: 400px; background: var(--navy-light); bottom: 10%; left: -5%; animation-delay: -5s; }
+  
+  @keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, -40px) scale(1.1); }
+  }
+
+  .accent-line {
+    height: 2px; background: linear-gradient(90deg, transparent, var(--blue-glow), var(--gold-accent), transparent);
+    margin: 0 auto; opacity: 0.8;
+  }
+  .accent-line.thick { height: 3px; max-width: 1200px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    background: rgba(5, 11, 20, 0.9); border-bottom: 1px solid var(--glass-border);
+  }
+  .nav-inner {
+    max-width: 1000px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; padding: 16px 24px;
+  }
+  .brand {
+    font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px;
+    color: var(--text-primary); display: flex; align-items: center; gap: 12px;
+  }
+  .brand span { color: var(--blue-accent); }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a {
+    color: var(--text-secondary); text-decoration: none; font-size: 12px;
+    font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s;
+  }
+  .nav-links a:hover { color: var(--blue-accent); }
+
+  .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .chapter-header {
+    text-align: center; margin-bottom: 50px; padding: 40px 30px; border-radius: 16px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft);
+  }
+  .chapter-header .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--blue-accent); margin-bottom: 12px; display: inline-block;
+    background: rgba(59, 130, 246, 0.1); padding: 6px 16px; border-radius: 50px;
+  }
+  .chapter-header h1 {
+    font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 48px); font-weight: 700;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--cyan-accent) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    margin-bottom: 16px; line-height: 1.2;
+  }
+  .chapter-header .subtitle {
+    font-size: 16px; color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-weight: 400;
+  }
+  .author-badge {
+    display: inline-flex; align-items: center; gap: 12px; margin-top: 20px; padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); border-radius: 50px;
+    font-size: 13px; color: var(--text-primary); font-weight: 600;
+  }
+
+  .intro-quote {
+    text-align: center; padding: 40px 20px; margin-bottom: 50px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+  }
+  .intro-quote .label {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold-accent); margin-bottom: 12px; font-weight: 700;
+  }
+  .intro-quote .title {
+    font-family: 'Playfair Display', serif; font-size: 26px; color: var(--text-primary); margin-bottom: 16px; font-weight: 600;
+  }
+  .intro-quote p { font-size: 16px; color: var(--text-secondary); max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+  .content-section {
+    margin-bottom: 40px; padding: 30px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+    transition: all 0.3s; box-shadow: var(--shadow-soft);
+  }
+  .content-section:hover {
+    border-color: var(--blue-glow); box-shadow: var(--shadow-glow); transform: translateY(-4px);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text-primary);
+    margin-bottom: 20px; display: flex; align-items: center; gap: 12px; font-weight: 600;
+  }
+  .section-title::before {
+    content: ""; width: 4px; height: 24px; background: var(--blue-glow); border-radius: 2px;
+  }
+  p { margin-bottom: 16px; color: var(--text-secondary); }
+  
+  .highlight-box {
+    background: rgba(59, 130, 246, 0.08); border-left: 4px solid var(--blue-glow);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .highlight-box h4 { color: var(--blue-accent); margin-bottom: 8px; font-family: 'Playfair Display', serif; font-weight: 600; }
+  
+  .formula-box {
+    background: linear-gradient(135deg, var(--blue-royal), var(--navy-light));
+    padding: 24px; border-radius: 12px; text-align: center;
+    font-family: 'Playfair Display', serif; font-size: 20px; color: var(--text-primary);
+    margin: 20px 0; font-weight: 600; letter-spacing: 0.5px; border: 1px solid var(--glass-border);
+  }
+  .formula-box .main-formula {
+    font-size: 28px;
+    color: var(--gold-accent);
+    margin: 12px 0;
+    font-weight: 700;
+  }
+
+  .example-box {
+    background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(251, 191, 36, 0.4);
+    padding: 24px; border-radius: 12px; margin: 20px 0;
+  }
+  .example-box strong { color: var(--gold-accent); }
+
+  .warning-box {
+    background: rgba(239, 68, 68, 0.08); border-left: 4px solid var(--red-accent);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .warning-box h4 { color: var(--red-accent); margin-bottom: 8px; font-family: 'Playfair Display', serif; font-weight: 600; }
+
+  .info-box {
+    background: rgba(16, 185, 129, 0.08); border-left: 4px solid var(--green-accent);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .info-box h4 { color: var(--green-accent); margin-bottom: 8px; font-family: 'Playfair Display', serif; font-weight: 600; }
+
+  .comparison-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+  .comparison-item {
+    padding: 24px; border-radius: 12px; background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border); transition: all 0.3s;
+  }
+  .comparison-item:hover { transform: translateY(-4px); border-color: var(--blue-glow); }
+  .comparison-item h4 { color: var(--blue-accent); font-family: 'Playfair Display', serif; margin-bottom: 12px; font-size: 18px; font-weight: 600; }
+  .comparison-item p, .comparison-item li { font-size: 14px; margin: 0; color: var(--text-secondary); line-height: 1.6; }
+  .comparison-item ul { margin-left: 20px; margin-top: 8px; }
+
+  .table-wrapper { overflow-x: auto; margin: 20px 0; border-radius: 12px; border: 1px solid var(--glass-border); background: rgba(255, 255, 255, 0.02); }
+  .luxury-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+  .luxury-table th {
+    background: var(--blue-royal); color: var(--text-primary); padding: 14px 16px; text-align: center;
+    font-family: 'Playfair Display', serif; font-weight: 600; font-size: 15px;
+  }
+  .luxury-table td {
+    padding: 14px 16px; border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); font-size: 14px; text-align: center;
+  }
+  .luxury-table td:first-child { text-align: left; font-weight: 600; color: var(--blue-accent); }
+  .luxury-table tr:last-child td { border-bottom: none; }
+  .luxury-table tr:hover td { background: rgba(59, 130, 246, 0.05); }
+
+  .step-box {
+    display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start;
+  }
+  .step-num {
+    background: linear-gradient(135deg, var(--blue-royal), var(--blue-glow)); color: white;
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0;
+  }
+  .step-content h4 { color: var(--blue-accent); margin-bottom: 4px; font-size: 16px; font-weight: 700; }
+  .step-content p { margin: 0; font-size: 14px; }
+
+  .islamic-quote {
+    text-align: center; padding: 40px 20px; margin: 40px 0;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+  }
+  .islamic-quote .arabic {
+    font-size: 26px; color: var(--gold-accent); margin-bottom: 16px;
+    font-family: 'Traditional Arabic', 'Arial', sans-serif; line-height: 1.6; font-weight: 600;
+  }
+  .islamic-quote .translation {
+    font-style: italic; font-size: 16px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-weight: 400;
+  }
+  .islamic-quote .source { font-size: 12px; color: var(--blue-accent); margin-top: 12px; letter-spacing: 2px; font-weight: 600; }
+
+  .keywords { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 30px 0; }
+  .keyword-tag {
+    padding: 6px 14px; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 50px; font-size: 12px; color: var(--blue-accent); letter-spacing: 0.5px; font-weight: 600;
+    transition: all 0.3s;
+  }
+  .keyword-tag:hover { background: var(--blue-glow); color: white; transform: translateY(-2px); }
+
+  .quiz-container {
+    margin-top: 60px; padding: 40px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px; box-shadow: var(--shadow-soft);
+  }
+  .quiz-header { text-align: center; margin-bottom: 30px; }
+  .quiz-header h2 { 
+    font-family: 'Playfair Display', serif; font-size: 26px; 
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--blue-accent) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700;
+  }
+  .quiz-header p { color: var(--text-secondary); font-size: 14px; }
+
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--blue-accent); margin-bottom: 8px; font-weight: 700;
+  }
+  .form-group input, .form-group select {
+    width: 100%; padding: 12px 16px; background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-primary); 
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; transition: all 0.3s;
+  }
+  .form-group input:focus, .form-group select:focus {
+    outline: none; border-color: var(--blue-glow); background: rgba(255, 255, 255, 0.08);
+  }
+
+  .question-block { margin-bottom: 30px; padding: 24px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 12px; }
+  .question-text { font-weight: 600; margin-bottom: 16px; color: var(--text-primary); display: flex; gap: 10px; font-size: 15px; }
+  .question-num { color: var(--blue-accent); font-weight: 800; font-size: 16px; flex-shrink: 0; }
+  .question-points {
+    padding: 4px 12px; background: var(--blue-royal); color: var(--text-primary);
+    border-radius: 50px; font-size: 11px; font-weight: 700; white-space: nowrap; margin-left: auto;
+  }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option-label {
+    display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 8px;
+    cursor: pointer; transition: all 0.3s;
+  }
+  .option-label:hover { background: rgba(59, 130, 246, 0.1); border-color: var(--blue-glow); transform: translateX(4px); }
+  .option-label input[type="radio"] { accent-color: var(--blue-glow); width: 18px; height: 18px; }
+  .option-label.correct { background: rgba(16, 185, 129, 0.15); border-color: #10b981; }
+  .option-label.incorrect { background: rgba(239, 68, 68, 0.15); border-color: #ef4444; }
+
+  textarea {
+    width: 100%; padding: 16px; min-height: 120px; background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-primary); 
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; resize: vertical; transition: all 0.3s;
+  }
+  textarea:focus { outline: none; border-color: var(--blue-glow); background: rgba(255, 255, 255, 0.08); }
+
+  .action-bar { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; justify-content: center; }
+  .btn {
+    padding: 14px 24px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    border: none; border-radius: 6px; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; transition: all 0.4s; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--blue-royal), var(--blue-glow)); color: white;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(59, 130, 246, 0.5); }
+  .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border: 1px solid var(--glass-border); }
+  .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--blue-accent); }
+  .btn-outline { background: transparent; color: var(--blue-accent); border: 1px solid var(--blue-accent); }
+  .btn-outline:hover { background: rgba(59, 130, 246, 0.1); }
+
+  .results-panel {
+    display: none; margin-top: 30px; padding: 30px;
+    background: rgba(59, 130, 246, 0.08); border: 1px solid var(--blue-glow);
+    border-radius: 12px; text-align: center;
+  }
+  .results-panel.show { display: block; animation: fadeIn 0.5s; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  
+  .score-display { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px 0; }
+  .score-item { padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 8px; }
+  .score-item .label { font-size: 11px; letter-spacing: 1px; color: var(--text-secondary); text-transform: uppercase; font-weight: 700; }
+  .score-item .value {
+    font-family: 'Playfair Display', serif; font-size: 32px;
+    background: linear-gradient(135deg, var(--text-primary), var(--blue-accent));
+    -webkit-background-clip: text; background-clip: text; color: transparent; margin-top: 8px; font-weight: 700;
+  }
+
+  .nav-footer {
+    display: flex; justify-content: space-between; margin-top: 40px; padding: 20px;
+    background: var(--glass-bg); border-radius: 12px; border: 1px solid var(--glass-border);
+  }
+  .nav-footer a {
+    color: var(--blue-accent); text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 600;
+    transition: color 0.3s;
+  }
+  .nav-footer a:hover { color: var(--gold-accent); }
+
+  footer {
+    border-top: 1px solid var(--glass-border); padding: 40px 24px; text-align: center;
+    background: rgba(5, 11, 20, 0.9); margin-top: 60px;
+  }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--text-primary); margin-bottom: 8px; }
+  .footer-brand span { color: var(--blue-accent); }
+  .footer-contact { color: var(--text-secondary); font-size: 13px; margin-bottom: 16px; }
+  .footer-contact a { color: var(--blue-accent); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+  .footer-contact a:hover { color: var(--text-primary); }
+  .copyright { font-size: 11px; letter-spacing: 1px; color: var(--text-secondary); text-transform: uppercase; opacity: 0.6; }
+
+  @media print {
+    nav, .action-bar, footer, .nav-footer { display: none !important; }
+    body { background: #fff; color: #000; }
+    .container { max-width: 100%; padding: 0; }
+    .content-section, .quiz-container { background: #fff; border: 1px solid #ccc; color: #000; break-inside: avoid; }
+    .section-title, .chapter-header h1 { color: #000 !important; -webkit-text-fill-color: #000 !important; }
+    p, .question-text { color: #000 !important; }
+    .luxury-table th { background: #e0e0e0; color: #000; }
+    .luxury-table td { color: #000; border-bottom: 1px solid #ccc; }
+  }
+
+  @media (max-width: 600px) {
+    .score-display { grid-template-columns: 1fr; }
+    .action-bar { flex-direction: column; }
+    .btn { width: 100%; justify-content: center; }
+    .comparison-box { grid-template-columns: 1fr; }
+    .nav-footer { flex-direction: column; gap: 16px; text-align: center; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <div class="nav-inner">
+    <div class="brand">SCIENTIA <span>IX</span></div>
+    <ul class="nav-links">
+      <li><a href="13.html">← Bab 13: Tekanan Zat</a></li>
+      <li><a href="index.html">📖 Daftar Isi</a></li>
+      <li><a href="15.html">Bab 15: Kapal Selam →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="container">
+
+  <!-- Chapter Header -->
+  <header class="chapter-header">
+    <div class="eyebrow">Pertemuan 14 • IPA Kelas IX Semester 1</div>
+    <h1>Hukum Archimedes tentang Gaya Apung</h1>
+    <p class="subtitle">Menganalisis hukum Archimedes, gaya apung, massa jenis, dan penerapannya dalam kehidupan sehari-hari.</p>
+    <div class="author-badge">
+      <span>👨‍🏫 Medy Candra, S.Pd</span>
+      <span>•</span>
+      <span>MTsN 10 Agam</span>
+    </div>
+  </header>
+
+  <!-- Intro Quote -->
+  <div class="intro-quote">
+    <div class="label">◆ — Pertemuan Keempat Belas — ◆</div>
+    <div class="title"> Hukum Archimedes</div>
+    <p>Pernahkah kamu bertanya mengapa kapal besi yang sangat besar bisa mengapung di laut, sedangkan jarum kecil tenggelam? Jawabannya terletak pada Hukum Archimedes — salah satu penemuan paling fundamental dalam fisika yang menjelaskan mengapa benda terapung, melayang, atau tenggelam dalam fluida.</p>
+  </div>
+
+  <!-- Section A -->
+  <section class="content-section">
+    <h3 class="section-title"> A. Pengertian Gaya Apung dan Hukum Archimedes</h3>
+    <p><strong>Gaya apung</strong> (buoyant force) adalah gaya ke atas yang diberikan oleh fluida (zat cair atau gas) kepada benda yang tercelup di dalamnya. Gaya ini yang membuat benda terasa lebih ringan saat berada di dalam air.</p>
+    
+    <div class="highlight-box">
+      <h4>📜 Sejarah Penemuan Archimedes</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        <strong>Archimedes</strong> (287-212 SM) adalah ilmuwan Yunani kuno yang menemukan hukum ini ketika sedang mandi. Ia menyadari bahwa air yang tumpah dari bak mandi sama dengan volume tubuhnya yang tercelup. Ia begitu gembira sehingga berlari telanjang di jalan sambil berteriak <strong>"Eureka!"</strong> (Aku menemukannya!). Raja Hiero II memintanya membuktikan apakah mahkotanya terbuat dari emas murni atau dicampur perak, dan Archimedes memecahkan masalah ini dengan hukum yang kini bearing namanya.
+      </p>
+    </div>
+
+    <div class="formula-box">
+       Bunyi Hukum Archimedes:<br>
+      <div class="main-formula">"Sebuah benda yang tercelup sebagian atau seluruhnya dalam fluida akan mengalami gaya apung yang besarnya sama dengan berat fluida yang dipindahkan oleh benda tersebut."</div>
+    </div>
+
+    <div class="info-box">
+      <h4>💡 Konsep Kunci</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        • <strong>Fluida:</strong> Zat yang dapat mengalir (zat cair dan gas)<br>
+        • <strong>Volume tercelup:</strong> Bagian volume benda yang berada di dalam fluida<br>
+        • <strong>Massa jenis fluida:</strong> Kerapatan fluida (kg/m³)<br>
+        • <strong>Gaya apung (Fa):</strong> Gaya ke atas yang dialami benda
+      </p>
+    </div>
+  </section>
+
+  <!-- Section B -->
+  <section class="content-section">
+    <h3 class="section-title"> B. Rumus Hukum Archimedes</h3>
+    <p>Hukum Archimedes dapat dinyatakan dalam rumus matematis sebagai berikut:</p>
+    
+    <div class="formula-box">
+      Fa = ρ × g × V<br>
+      <div style="font-size: 16px; margin-top: 12px;">
+        Fa = Gaya apung (N)<br>
+        ρ = Massa jenis fluida (kg/m³)<br>
+        g = Percepatan gravitasi (9,8 m/s² atau 10 m/s²)<br>
+        V = Volume benda yang tercelup (m³)
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <h4>📊 Berat Semu Benda dalam Fluida</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Ketika benda dicelupkan ke dalam fluida, beratnya seolah-olah berkurang. Berat semu (berat yang terukur di dalam fluida) adalah:<br><br>
+        <strong style="color: var(--gold-accent); font-size: 20px;">w' = w - Fa</strong><br><br>
+        di mana:<br>
+        • w' = berat semu (N)<br>
+        • w = berat benda di udara (N) = m × g<br>
+        • Fa = gaya apung (N)
+      </p>
+    </div>
+
+    <div class="example-box">
+      <strong> Contoh Soal 1: Menghitung Gaya Apung</strong><br>
+      Sebuah balok kayu dengan volume 0,02 m³ tercelup seluruhnya dalam air. Jika massa jenis air 1000 kg/m³ dan g = 10 m/s², berapakah gaya apung yang dialami balok?<br><br>
+      <strong>Diketahui:</strong> V = 0,02 m³, ρ = 1000 kg/m³, g = 10 m/s²<br>
+      <strong>Ditanya:</strong> Fa = ?<br><br>
+      <strong>Penyelesaian:</strong><br>
+      Fa = ρ × g × V<br>
+      Fa = 1000 × 10 × 0,02<br>
+      Fa = <strong style="color: var(--gold-accent);">200 N</strong>
+    </div>
+
+    <div class="example-box">
+      <strong>📝 Contoh Soal 2: Berat Semu</strong><br>
+      Sebuah benda memiliki berat 50 N di udara. Ketika dicelupkan ke dalam air, benda tersebut mengalami gaya apung 15 N. Berapakah berat semu benda di dalam air?<br><br>
+      <strong>Penyelesaian:</strong><br>
+      w' = w - Fa = 50 - 15 = <strong style="color: var(--gold-accent);">35 N</strong>
+    </div>
+  </section>
+
+  <!-- Section C -->
+  <section class="content-section">
+    <h3 class="section-title">🌊 C. Tiga Keadaan Benda dalam Fluida</h3>
+    <p>Berdasarkan perbandingan antara massa jenis benda (ρb) dan massa jenis fluida (ρf), benda dapat berada dalam tiga keadaan:</p>
+    
+    <div class="comparison-box">
+      <div class="comparison-item">
+        <h4>🟢 Terapung</h4>
+        <p><strong>Syarat:</strong> ρb &lt; ρf<br><br>
+        <strong>Ciri-ciri:</strong><br>
+        • Benda berada di permukaan fluida<br>
+        • Sebagian benda tercelup, sebagian muncul<br>
+        • Fa = w (gaya apung = berat benda)<br>
+        • V tercelup &lt; V total<br><br>
+        <strong>Contoh:</strong> Kayu di air, es batu di air, kapal laut, gabus</p>
+      </div>
+      <div class="comparison-item">
+        <h4>🟡 Melayang</h4>
+        <p><strong>Syarat:</strong> ρb = ρf<br><br>
+        <strong>Ciri-ciri:</strong><br>
+        • Benda berada di tengah-tengah fluida<br>
+        • Tidak tenggelam, tidak muncul ke permukaan<br>
+        • Fa = w<br>
+        • V tercelup = V total<br><br>
+        <strong>Contoh:</strong> Ikan dengan gelembung renang, kapal selam saat melayang, telur dalam air garam jenuh</p>
+      </div>
+      <div class="comparison-item">
+        <h4>🔴 Tenggelam</h4>
+        <p><strong>Syarat:</strong> ρb &gt; ρf<br><br>
+        <strong>Ciri-ciri:</strong><br>
+        • Benda berada di dasar fluida<br>
+        • Seluruh benda tercelup<br>
+        • Fa &lt; w (gaya apung &lt; berat benda)<br>
+        • V tercelup = V total<br><br>
+        <strong>Contoh:</strong> Batu di air, besi, koin, pasir</p>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Keadaan</th>
+            <th>Syarat Massa Jenis</th>
+            <th>Hubungan Gaya</th>
+            <th>Volume Tercelup</th>
+            <th>Contoh</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Terapung</td>
+            <td>ρb &lt; ρf</td>
+            <td>Fa = w</td>
+            <td>V tercelup &lt; V total</td>
+            <td>Kayu, kapal laut</td>
+          </tr>
+          <tr>
+            <td>Melayang</td>
+            <td>ρb = ρf</td>
+            <td>Fa = w</td>
+            <td>V tercelup = V total</td>
+            <td>Ikan, kapal selam</td>
+          </tr>
+          <tr>
+            <td>Tenggelam</td>
+            <td>ρb &gt; ρf</td>
+            <td>Fa &lt; w</td>
+            <td>V tercelup = V total</td>
+            <td>Batu, besi</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box">
+      <h4> Massa Jenis Beberapa Zat</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        • Air murni: 1000 kg/m³<br>
+        • Air laut: 1025 kg/m³ (lebih padat dari air tawar)<br>
+        • Es: 917 kg/m³ (itulah mengapa es mengapung di air)<br>
+        • Kayu (rata-rata): 400-700 kg/m³<br>
+        • Besi: 7870 kg/m³<br>
+        • Emas: 19.320 kg/m³<br>
+        • Udara: 1,225 kg/m³ (sangat ringan!)
+      </p>
+    </div>
+  </section>
+
+  <!-- Section D -->
+  <section class="content-section">
+    <h3 class="section-title"> D. Aplikasi Hukum Archimedes dalam Kehidupan</h3>
+    <p>Hukum Archimedes memiliki banyak aplikasi penting dalam teknologi dan kehidupan sehari-hari:</p>
+    
+    <div class="comparison-box">
+      <div class="comparison-item">
+        <h4> 1. Kapal Laut</h4>
+        <p>Meskipun terbuat dari baja (ρ = 7870 kg/m³), kapal laut bisa mengapung karena:<br>
+        • Bentuk lambung kapal berongga (berisi udara)<br>
+        • Volume total kapal sangat besar<br>
+        • Massa jenis rata-rata kapal (baja + udara) &lt; massa jenis air laut<br>
+        • <strong>Garis load line (Plimsoll):</strong> Tanda batas aman kapal saat bermuatan</p>
+      </div>
+      <div class="comparison-item">
+        <h4>🤿 2. Kapal Selam</h4>
+        <p>Kapal selam dapat mengatur kedalaman dengan mengubah massa jenis rata-ratanya:<br>
+        • <strong>Terapung:</strong> Tangki ballast berisi udara<br>
+        • <strong>Melayang:</strong> Tangki ballast setengah berisi air<br>
+        • <strong>Tenggelam:</strong> Tangki ballast penuh berisi air<br>
+        • Untuk muncul: udara bertekanan tinggi dimasukkan, air dikeluarkan</p>
+      </div>
+      <div class="comparison-item">
+        <h4>🎈 3. Balon Udara</h4>
+        <p>Balon udara mengapung di atmosfer karena:<br>
+        • Gas di dalam balon (helium/hidrogen/udara panas) lebih ringan dari udara luar<br>
+        • ρ gas &lt; ρ udara<br>
+        • Gaya apung udara &gt; berat balon + muatan<br>
+        • Prinsip sama seperti benda terapung di air</p>
+      </div>
+      <div class="comparison-item">
+        <h4>🌡️ 4. Hidrometer</h4>
+        <p>Alat untuk mengukur massa jenis cairan:<br>
+        • Terdiri dari tabung kaca dengan pemberat di bawah<br>
+        • Dicelupkan ke dalam cairan, akan terapung<br>
+        • Kedalaman tenggelam menunjukkan massa jenis cairan<br>
+        • Digunakan untuk: mengukur kadar alkohol, keasaman aki, kualitas susu</p>
+      </div>
+      <div class="comparison-item">
+        <h4>🐟 5. Gelembung Renang Ikan</h4>
+        <p>Ikan dapat mengatur kedalaman berenang dengan:<br>
+        • Menggelembungkan/mengempiskan gelembung renang (swim bladder)<br>
+        • Mengubah volume tubuh → mengubah massa jenis rata-rata<br>
+        • Ikan bisa melayang di kedalaman tertentu tanpa berenang</p>
+      </div>
+      <div class="comparison-item">
+        <h4>🪵 6. Jembatan Ponton</h4>
+        <p>Jembatan apung yang terbuat dari drum/rakit:<br>
+        • Drum berisi udara memiliki massa jenis rendah<br>
+        • Gaya apung menahan beban jembatan + kendaraan<br>
+        • Digunakan di sungai besar yang sulit dibangun jembatan tetap</p>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <strong>📝 Studi Kasus: Mengapa Kapal Baja Bisa Mengapung?</strong><br>
+      Sebuah kapal baja dengan massa 10.000 ton bisa mengapung, padahal baja tenggelam di air. Rahasianya:<br><br>
+      • Baja padat: ρ = 7870 kg/m³ → tenggelam<br>
+      • Kapal baja berongga: volume total sangat besar (berisi udara)<br>
+      • Massa jenis rata-rata kapal = massa total / volume total &lt; 1025 kg/m³ (air laut)<br>
+      • Gaya apung air laut = berat air yang dipindahkan = berat kapal<br><br>
+      <strong>Itulah mengapa kapal bisa mengangkut ribuan ton kargo tanpa tenggelam!</strong>
+    </div>
+  </section>
+
+  <!-- Section E -->
+  <section class="content-section">
+    <h3 class="section-title">🧪 E. Eksperimen Sederhana: Membuktikan Hukum Archimedes</h3>
+    <p>Kamu dapat membuktikan Hukum Archimedes dengan eksperimen sederhana di rumah:</p>
+    
+    <div class="step-box">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Alat dan Bahan</h4>
+        <p>• Gelas ukur atau wadah transparan<br>
+        • Air secukupnya<br>
+        • Batu kecil atau benda padat<br>
+        • Neraca pegas (dinamometer)<br>
+        • Benang</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Langkah Kerja</h4>
+        <p>• Ukur berat benda di udara dengan neraca pegas (w)<br>
+        • Isi gelas ukur dengan air, catat volume awal (V1)<br>
+        • Celupkan benda seluruhnya ke dalam air, catat:<br>
+          - Berat benda di air (w')<br>
+          - Volume air setelah benda dicelupkan (V2)<br>
+        • Hitung volume benda: V = V2 - V1<br>
+        • Hitung gaya apung: Fa = w - w'<br>
+        • Hitung berat air yang dipindahkan:  × g × V</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Kesimpulan</h4>
+        <p>Kamu akan menemukan bahwa <strong>Fa = ρ × g × V</strong>, yaitu gaya apung sama dengan berat air yang dipindahkan. Ini membuktikan Hukum Archimedes!</p>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <h4>⚠️ Kesalahan Umum dalam Perhitungan</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        • <strong>Satuan tidak konsisten:</strong> Pastikan ρ dalam kg/m³, V dalam m³, g dalam m/s²<br>
+        • <strong>Volume tercelup vs volume total:</strong> Untuk benda terapung, gunakan volume yang tercelup saja<br>
+        • <strong>Massa jenis fluida:</strong> Air tawar (1000 kg/m³) berbeda dengan air laut (1025 kg/m³)<br>
+        • <strong>Berat vs massa:</strong> Berat (N) = massa (kg) × g (m/s²)
+      </p>
+    </div>
+  </section>
+
+  <!-- Section F -->
+  <section class="content-section">
+    <h3 class="section-title">📊 F. Tabel Perbandingan Konsep</h3>
+    <p>Berikut adalah ringkasan konsep penting dalam Hukum Archimedes:</p>
+    
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Konsep</th>
+            <th>Rumus</th>
+            <th>Satuan SI</th>
+            <th>Keterangan</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gaya Apung (Fa)</td>
+            <td>Fa = ρ × g × V</td>
+            <td>Newton (N)</td>
+            <td>Gaya ke atas dari fluida</td>
+          </tr>
+          <tr>
+            <td>Massa Jenis (ρ)</td>
+            <td>ρ = m / V</td>
+            <td>kg/m³</td>
+            <td>Kerapatan zat</td>
+          </tr>
+          <tr>
+            <td>Berat (w)</td>
+            <td>w = m × g</td>
+            <td>Newton (N)</td>
+            <td>Gaya gravitasi pada benda</td>
+          </tr>
+          <tr>
+            <td>Berat Semu (w')</td>
+            <td>w' = w - Fa</td>
+            <td>Newton (N)</td>
+            <td>Berat benda di dalam fluida</td>
+          </tr>
+          <tr>
+            <td>Tekanan Hidrostatis</td>
+            <td>P = ρ × g × h</td>
+            <td>Pascal (Pa)</td>
+            <td>Tekanan pada kedalaman h</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="example-box">
+      <strong>📝 Contoh Soal Komprehensif:</strong><br>
+      Sebuah benda bermassa 5 kg dan volume 0,004 m³ dicelupkan ke dalam air (ρ = 1000 kg/m³). Tentukan:<br>
+      a. Gaya apung yang dialami benda<br>
+      b. Berat benda di udara<br>
+      c. Berat semu benda di dalam air<br>
+      d. Apakah benda terapung, melayang, atau tenggelam?<br><br>
+      <strong>Penyelesaian:</strong><br>
+      <strong>a. Gaya apung:</strong><br>
+      Fa = ρ × g × V = 1000 × 10 × 0,004 = <strong style="color: var(--gold-accent);">40 N</strong><br><br>
+      <strong>b. Berat di udara:</strong><br>
+      w = m × g = 5 × 10 = <strong style="color: var(--gold-accent);">50 N</strong><br><br>
+      <strong>c. Berat semu:</strong><br>
+      w' = w - Fa = 50 - 40 = <strong style="color: var(--gold-accent);">10 N</strong><br><br>
+      <strong>d. Keadaan benda:</strong><br>
+      Massa jenis benda = m/V = 5/0,004 = 1250 kg/m³<br>
+      Karena ρb (1250) &gt; ρair (1000), maka benda <strong style="color: var(--gold-accent);">TENGGELAM</strong>
+    </div>
+  </section>
+
+  <!-- Keywords -->
+  <div class="keywords">
+    <span class="keyword-tag"> Hukum Archimedes</span>
+    <span class="keyword-tag">🌊 Gaya Apung</span>
+    <span class="keyword-tag">⚖️ Massa Jenis</span>
+    <span class="keyword-tag"> Terapung</span>
+    <span class="keyword-tag">🟡 Melayang</span>
+    <span class="keyword-tag">🔴 Tenggelam</span>
+    <span class="keyword-tag"> Kapal Laut</span>
+    <span class="keyword-tag">🤿 Kapal Selam</span>
+    <span class="keyword-tag"> Balon Udara</span>
+    <span class="keyword-tag">🌡️ Hidrometer</span>
+    <span class="keyword-tag"> Gelembung Renang</span>
+    <span class="keyword-tag">💧 Fluida</span>
+  </div>
+
+  <!-- Islamic Quote -->
+  <div class="islamic-quote">
+    <div class="arabic">أَلَمْ تَرَ أَنَّ اللَّهَ يُزْجِي سَحَابًا ثُمَّ يُؤَلِّفُ بَيْنَهُ ثُمَّ يَجْعَلُهُ رُكَامًا فَتَرَى الْوَدْقَ يَخْرُجُ مِنْ خِلَالِهِ</div>
+    <div class="translation">"Apakah kamu tidak memperhatikan bahwa Allah mengarak awan, kemudian mengumpulkan antara (bagian-bagian)nya, kemudian menjadikannya bertindih-tindih, maka kamu lihat hujan keluar dari celah-celahnya..."</div>
+    <div class="source">— QS. An-Nur [24]: 43</div>
+  </div>
+  <p style="text-align: center; color: var(--text-secondary); font-style: italic; margin-top: -20px; margin-bottom: 30px;">
+    Ayat ini menggambarkan fenomena alam yang melibatkan prinsip fisika fluida. Hujan yang turun dari awan adalah contoh interaksi antara udara (gas) dan air (cair) yang mengikuti hukum-hukum fisika termasuk Hukum Archimedes. Allah menciptakan alam dengan hukum-hukum yang konsisten dan dapat dipelajari.
+  </p>
+
+  <!-- Section G: Referensi -->
+  <section class="content-section">
+    <h3 class="section-title">📚 G. Referensi Pendukung</h3>
+    <ul style="margin-left: 20px; color: var(--text-secondary); line-height: 1.8;">
+      <li>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi. (2021). <em>Ilmu Pengetahuan Alam Kelas IX SMP/MTs</em>. Jakarta: Pusat Perbukuan, Kemendikbudristek.</li>
+      <li>Halliday, D., Resnick, R., & Walker, J. (2018). <em>Fundamentals of Physics</em> (11th ed.). Wiley. (Bab 14: Fluids)</li>
+      <li>Serway, R. A., & Jewett, J. W. (2018). <em>Physics for Scientists and Engineers</em> (10th ed.). Cengage Learning.</li>
+      <li>Archimedes. (250 SM). <em>On Floating Bodies</em>. (Karya asli Archimedes tentang gaya apung)</li>
+      <li>Young, H. D., & Freedman, R. A. (2019). <em>Sears and Zemansky's University Physics</em> (15th ed.). Pearson.</li>
+    </ul>
+  </section>
+
+  <!-- ===== UJI FORMATIF ===== -->
+  <div class="quiz-container" id="quizSection">
+    <div class="quiz-header">
+      <h2> Uji Formatif Bab 14</h2>
+      <p>Hukum Archimedes tentang Gaya Apung<br>
+      📋 Bagian A: Pilihan Ganda (10 soal, skor 10/soal) | ✍️ Bagian B: Essay (5 soal, skor 20/soal)</p>
+    </div>
+
+    <form id="quizForm">
+      <!-- Identitas -->
+      <div class="content-section" style="background: rgba(255,255,255,0.03);">
+        <h4 style="color: var(--blue-accent); margin-bottom: 16px; font-family: 'Playfair Display', serif;">📋 Identitas Siswa</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+          <div class="form-group">
+            <label>Nama Lengkap *</label>
+            <input type="text" id="studentName" required placeholder="Masukkan nama lengkap">
+          </div>
+          <div class="form-group">
+            <label>No. Absen / NIS *</label>
+            <input type="text" id="studentNIS" required placeholder="Masukkan NIS">
+          </div>
+          <div class="form-group">
+            <label>📅 Tanggal Ujian</label>
+            <input type="date" id="quizDate" required>
+          </div>
+          <div class="form-group">
+            <label>Kelas</label>
+            <select id="studentClass" required>
+              <option value="">Pilih Kelas</option>
+              <option value="IX-A">IX-A</option>
+              <option value="IX-B">IX-B</option>
+              <option value="IX-C">IX-C</option>
+              <option value="IX-D">IX-D</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Semester</label>
+            <input type="text" value="1 (Satu)" readonly style="background: rgba(255,255,255,0.02); color: var(--text-secondary);">
+          </div>
+        </div>
+      </div>
+
+      <!-- Bagian A: Pilihan Ganda -->
+      <h3 style="color: var(--blue-accent); font-family: 'Playfair Display', serif; margin: 30px 0 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">📋 Bagian A: Pilihan Ganda</h3>
+      <div id="mcqContainer"></div>
+
+      <!-- Bagian B: Essay -->
+      <h3 style="color: var(--blue-accent); font-family: 'Playfair Display', serif; margin: 40px 0 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">✍️ Bagian B: Essay</h3>
+      <div id="essayContainer"></div>
+
+      <!-- Action Buttons -->
+      <div class="action-bar">
+        <button type="button" class="btn btn-primary" onclick="submitQuiz()">✉️ KIRIM JAWABAN & LIHAT HASIL</button>
+        <button type="button" class="btn btn-secondary" onclick="downloadPDF()">📄 UNDUH PDF LENGKAP</button>
+        <button type="button" class="btn btn-secondary" onclick="downloadTXT()">📥 UNDUH SKOR (TXT)</button>
+        <button type="button" class="btn btn-outline" onclick="resetQuiz()">🔄 MULAI ULANG</button>
+        <a id="emailLink" href="#" class="btn btn-outline" style="display:none;">📧 Kirim ke Email Guru</a>
+      </div>
+    </form>
+
+    <!-- Results Panel -->
+    <div class="results-panel" id="resultsPanel">
+      <h3 style="font-family: 'Playfair Display', serif; color: var(--blue-accent); margin-bottom: 10px;">📊 Hasil Uji Formatif</h3>
+      <p id="resultMessage" style="color: var(--text-primary); margin-bottom: 20px;"></p>
+      <div class="score-display">
+        <div class="score-item">
+          <div class="label"> Pilihan Ganda</div>
+          <div class="value" id="scoreMCQ">0</div>
+        </div>
+        <div class="score-item">
+          <div class="label">✍️ Essay</div>
+          <div class="value" id="scoreEssay">0</div>
+        </div>
+        <div class="score-item">
+          <div class="label">Skor Akhir</div>
+          <div class="value" id="scoreTotal">0</div>
+        </div>
+      </div>
+      <p style="font-size: 12px; color: var(--text-secondary); margin-top: 16px;">
+        *Penilaian Essay bersifat otomatis berdasarkan kelengkapan jawaban (minimal 30 karakter). Guru akan melakukan penilaian ulang secara manual untuk ketepatan konsep.
+      </p>
+    </div>
+  </div>
+
+  <!-- Navigation Footer -->
+  <div class="nav-footer">
+    <a href="13.html">
+      <span>←</span> Bab 13: Tekanan Zat Padat & Cair
+    </a>
+    <a href="15.html">
+      Selanjutnya → <span>Bab 15: Proyek Kapal Selam</span>
+    </a>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-brand">🔬 IPA <span>Kelas IX</span></div>
+  <div class="footer-contact">
+    MTsN 10 Agam • <a href="mailto:medycandra514@gmail.com">medycandra514@gmail.com</a>
+  </div>
+  <div class="copyright">© 2026 Medy Candra, S.Pd — MTsN 10 Agam. Hak Cipta Dilindungi Undang-Undang</div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  document.getElementById('quizDate').valueAsDate = new Date();
+
+  const mcqQuestions = [
+    { q: "Bunyi Hukum Archimedes menyatakan bahwa gaya apung yang dialami benda sama dengan...", options: ["Berat benda di udara", "Berat fluida yang dipindahkan benda", "Volume benda yang tercelup", "Massa jenis benda"], answer: 1 },
+    { q: "Rumus gaya apung (Fa) yang benar adalah...", options: ["Fa = m × g", "Fa = ρ × V", "Fa = ρ × g × V", "Fa = P × A"], answer: 2 },
+    { q: "Sebuah benda akan terapung di dalam fluida jika...", options: ["ρb > ρf", "ρb = ρf", "ρb < ρf", "ρb = 0"], answer: 2 },
+    { q: "Kapal laut yang terbuat dari baja bisa mengapung karena...", options: ["Baja lebih ringan dari air", "Bentuk lambung kapal berongga sehingga massa jenis rata-rata < air", "Kapal selalu kosong", "Air laut lebih berat dari baja"], answer: 1 },
+    { q: "Massa jenis air murni adalah...", options: ["100 kg/m³", "1000 kg/m³", "10.000 kg/m³", "100.000 kg/m³"], answer: 1 },
+    { q: "Sebuah benda memiliki berat 50 N di udara dan 35 N di dalam air. Gaya apung yang dialami benda adalah...", options: ["15 N", "35 N", "50 N", "85 N"], answer: 0 },
+    { q: "Alat yang digunakan untuk mengukur massa jenis cairan berdasarkan Hukum Archimedes adalah...", options: ["Barometer", "Termometer", "Hidrometer", "Manometer"], answer: 2 },
+    { q: "Kapal selam dapat menyelam dengan cara...", options: ["Mengisi tangki ballast dengan udara", "Mengisi tangki ballast dengan air", "Membuang semua air", "Menyalakan mesin"], answer: 1 },
+    { q: "Ikan dapat melayang di kedalaman tertentu karena memiliki...", options: ["Sirip yang besar", "Gelembung renang", "Insang yang kuat", "Ekor yang panjang"], answer: 1 },
+    { q: "Sebuah balok kayu dengan volume 0,02 m³ tercelup seluruhnya dalam air (ρ = 1000 kg/m³, g = 10 m/s²). Gaya apung yang dialami balok adalah...", options: ["20 N", "200 N", "2000 N", "20.000 N"], answer: 1 }
+  ];
+
+  const essayQuestions = [
+    "Jelaskan bunyi Hukum Archimedes dan tuliskan rumusnya! Jelaskan makna setiap variabel dalam rumus tersebut!",
+    "Sebuah benda bermassa 8 kg dan volume 0,01 m³ dicelupkan ke dalam air (ρ = 1000 kg/m³, g = 10 m/s²). Hitunglah: (a) gaya apung, (b) berat benda di udara, (c) berat semu di air, dan (d) apakah benda terapung, melayang, atau tenggelam?",
+    "Mengapa kapal laut yang terbuat dari baja (massa jenis 7870 kg/m³) bisa mengapung di air laut, sedangkan sepotong besi kecil tenggelam? Jelaskan dengan konsep massa jenis rata-rata!",
+    "Jelaskan bagaimana kapal selam dapat mengatur kedalaman (terapung, melayang, tenggelam) dengan menggunakan prinsip Hukum Archimedes!",
+    "Sebutkan dan jelaskan 4 aplikasi Hukum Archimedes dalam kehidupan sehari-hari beserta cara kerjanya!"
+  ];
+
+  const mcqContainer = document.getElementById('mcqContainer');
+  mcqQuestions.forEach((item, index) => {
+    const qDiv = document.createElement('div');
+    qDiv.className = 'question-block';
+    qDiv.innerHTML = `
+      <div class="question-text">
+        <span class="question-num">Soal ${index + 1}</span>
+        <span>${item.q}</span>
+        <span class="question-points">10 POIN</span>
+      </div>
+      <div class="options">
+        ${item.options.map((opt, optIndex) => `
+          <label class="option-label" id="label_${index}_${optIndex}">
+            <input type="radio" name="q${index}" value="${optIndex}">
+            <span>${String.fromCharCode(65 + optIndex)}. ${opt}</span>
+          </label>
+        `).join('')}
+      </div>
+    `;
+    mcqContainer.appendChild(qDiv);
+  });
+
+  const essayContainer = document.getElementById('essayContainer');
+  essayQuestions.forEach((item, index) => {
+    const qDiv = document.createElement('div');
+    qDiv.className = 'question-block';
+    qDiv.innerHTML = `
+      <div class="question-text">
+        <span class="question-num">Essay ${index + 1}</span>
+        <span>${item}</span>
+        <span class="question-points">20 POIN</span>
+      </div>
+      <textarea id="essay${index}" placeholder="Tulis jawaban Anda di sini... (Minimal 30 karakter untuk mendapatkan poin)"></textarea>
+    `;
+    essayContainer.appendChild(qDiv);
+  });
+
+  let finalScores = { mcq: 0, essay: 0, total: 0 };
+
+  function submitQuiz() {
+    const name = document.getElementById('studentName').value;
+    const nis = document.getElementById('studentNIS').value;
+    const cls = document.getElementById('studentClass').value;
+    
+    if (!name || !nis || !cls) {
+      alert("Harap lengkapi identitas siswa (Nama, NIS, dan Kelas) sebelum mengirim jawaban!");
+      return;
+    }
+
+    let mcqScore = 0;
+    mcqQuestions.forEach((item, index) => {
+      const selected = document.querySelector(`input[name="q${index}"]:checked`);
+      const labels = document.querySelectorAll(`[id^="label_${index}_"]`);
+      labels.forEach(l => { l.classList.remove('correct', 'incorrect'); l.style.pointerEvents = 'none'; });
+
+      if (selected) {
+        const val = parseInt(selected.value);
+        if (val === item.answer) {
+          mcqScore += 10;
+          document.getElementById(`label_${index}_${val}`).classList.add('correct');
+        } else {
+          document.getElementById(`label_${index}_${val}`).classList.add('incorrect');
+          document.getElementById(`label_${index}_${item.answer}`).classList.add('correct');
+        }
+      } else {
+        document.getElementById(`label_${index}_${item.answer}`).classList.add('correct');
+      }
+    });
+
+    let essayScore = 0;
+    for (let i = 0; i < 5; i++) {
+      const text = document.getElementById(`essay${i}`).value.trim();
+      if (text.length >= 30) essayScore += 20;
+      else if (text.length > 0) essayScore += 10;
+      document.getElementById(`essay${i}`).disabled = true;
+    }
+
+    finalScores = { mcq: mcqScore, essay: essayScore, total: mcqScore + essayScore };
+
+    document.getElementById('scoreMCQ').textContent = finalScores.mcq;
+    document.getElementById('scoreEssay').textContent = finalScores.essay;
+    document.getElementById('scoreTotal').textContent = finalScores.total;
+    
+    let msg = `Terima kasih, ${name}! Jawaban Anda telah berhasil dikumpulkan.`;
+    if (finalScores.total >= 160) msg += "  Luar biasa! Pemahaman Anda tentang Hukum Archimedes sangat baik.";
+    else if (finalScores.total >= 100) msg += "  Bagus! Tingkatkan lagi pemahaman tentang gaya apung dan massa jenis.";
+    else msg += " 📚 Jangan menyerah! Pelajari kembali materi Hukum Archimedes.";
+    
+    document.getElementById('resultMessage').textContent = msg;
+    document.getElementById('resultsPanel').classList.add('show');
+    
+    document.querySelector('.btn-primary').disabled = true;
+    document.querySelector('.btn-primary').textContent = "✓ SUDAH DIKIRIM";
+    document.querySelector('.btn-primary').style.opacity = "0.6";
+
+    const emailBody = `Hasil Uji Formatif Bab 14 (Hukum Archimedes)%0D%0A%0D%0ANama: ${name}%0D%0ANIS: ${nis}%0D%0AKelas: ${cls}%0D%0ATanggal: ${document.getElementById('quizDate').value}%0D%0A%0D%0ASKOR:%0D%0A- Pilihan Ganda: ${finalScores.mcq}/100%0D%0A- Essay: ${finalScores.essay}/100 (Perlu validasi guru)%0D%0A- Total: ${finalScores.total}/200%0D%0A%0D%0ACatatan: Jawaban detail dapat dilihat pada file PDF yang dilampirkan.`;
+    document.getElementById('emailLink').href = `mailto:medycandra514@gmail.com?subject=Hasil Uji Formatif Bab 14 - ${name} (${cls})&body=${emailBody}`;
+    document.getElementById('emailLink').style.display = 'inline-flex';
+
+    document.getElementById('resultsPanel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function downloadPDF() { window.print(); }
+
+  function downloadTXT() {
+    const name = document.getElementById('studentName').value || "Siswa";
+    const nis = document.getElementById('studentNIS').value || "-";
+    const cls = document.getElementById('studentClass').value || "-";
+    const date = document.getElementById('quizDate').value || new Date().toLocaleDateString('id-ID');
+
+    let content = `HASIL UJI FORMATIF BAB 14: HUKUM ARCHIMEDES\n`;
+    content += `====================================================\n`;
+    content += `Nama  : ${name}\nNIS   : ${nis}\nKelas : ${cls}\nTanggal: ${date}\n`;
+    content += `====================================================\n`;
+    content += `SKOR PILIHAN GANDA : ${finalScores.mcq} / 100\n`;
+    content += `SKOR ESSAY (Simulasi): ${finalScores.essay} / 100\n`;
+    content += `TOTAL SKOR         : ${finalScores.total} / 200\n`;
+    content += `====================================================\n\nJAWABAN ESSAY:\n`;
+    for (let i = 0; i < 5; i++) {
+      content += `\nEssay ${i+1}:\n${document.getElementById(`essay${i}`).value || "(Tidak dijawab)"}\n`;
+    }
+    content += `\n====================================================\nDikirim otomatis dari Sistem Pembelajaran IPA\nMTsN 10 Agam | Penulis: Medy Candra, S.Pd`;
+
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Skor_UjiFormatif_Bab14_${name.replace(/\s+/g, '_')}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function resetQuiz() {
+    if (confirm("Apakah Anda yakin ingin mengulang ujian? Semua jawaban akan dihapus.")) {
+      document.getElementById('quizForm').reset();
+      document.getElementById('quizDate').valueAsDate = new Date();
+      document.getElementById('resultsPanel').classList.remove('show');
+      document.querySelectorAll('.option-label').forEach(l => { l.classList.remove('correct', 'incorrect'); l.style.pointerEvents = 'auto'; });
+      document.querySelectorAll('textarea').forEach(t => t.disabled = false);
+      
+      const btn = document.querySelector('.btn-primary');
+      btn.disabled = false; btn.textContent = "✉️ KIRIM JAWABAN & LIHAT HASIL"; btn.style.opacity = "1";
+      document.getElementById('emailLink').style.display = 'none';
+      finalScores = { mcq: 0, essay: 0, total: 0 };
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+</script>
+
+</body>
+</html>

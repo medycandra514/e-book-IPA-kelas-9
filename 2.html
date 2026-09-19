@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bab 2: Pubertas dan Masa Remaja | IPA Kelas IX Semester 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0ea5e9;
+    --primary-dark: #0284c7;
+    --secondary: #8b5cf6;
+    --accent: #f59e0b;
+    --success: #10b981;
+    --danger: #ef4444;
+    --gradient-primary: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
+    --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+    --gradient-success: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+    --bg-body: #f0f9ff;
+    --bg-card: rgba(255, 255, 255, 0.85);
+    --bg-card-hover: rgba(255, 255, 255, 0.95);
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --text-light: #ffffff;
+    --border: rgba(255, 255, 255, 0.8);
+    --shadow-sm: 0 4px 6px -1px rgba(14, 165, 233, 0.1);
+    --shadow-md: 0 10px 30px -5px rgba(14, 165, 233, 0.2);
+    --shadow-lg: 0 20px 50px -10px rgba(139, 92, 246, 0.3);
+    --glass: blur(20px) saturate(180%);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f5f3ff 100%);
+    color: var(--text-main);
+    min-height: 100vh;
+    line-height: 1.7;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .bg-pattern {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.4;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+  }
+
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: var(--glass); -webkit-backdrop-filter: var(--glass);
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 2px solid rgba(14, 165, 233, 0.2);
+    box-shadow: 0 4px 20px rgba(14, 165, 233, 0.1);
+  }
+  .nav-inner {
+    max-width: 1000px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 24px;
+  }
+  .nav-links { display: flex; gap: 20px; list-style: none; flex-wrap: wrap; }
+  .nav-links a {
+    color: var(--text-muted); text-decoration: none;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
+    transition: all 0.3s; display: flex; align-items: center; gap: 6px;
+    position: relative;
+  }
+  .nav-links a:hover { color: var(--primary); transform: translateY(-2px); }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px;
+    background: var(--gradient-primary); transition: width 0.3s ease;
+  }
+  .nav-links a:hover::after { width: 100%; }
+
+  .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .chapter-header {
+    text-align: center; margin-bottom: 50px;
+    padding: 40px 30px; border-radius: 24px;
+    background: var(--bg-card); backdrop-filter: blur(10px);
+    border: 2px solid rgba(14, 165, 233, 0.2);
+    box-shadow: var(--shadow-md);
+  }
+  .chapter-header .eyebrow {
+    font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--primary); margin-bottom: 12px;
+    display: inline-block; padding: 6px 16px; border-radius: 50px;
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(139, 92, 246, 0.1));
+  }
+  .chapter-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 5vw, 52px); font-weight: 700;
+    background: var(--gradient-primary); -webkit-background-clip: text; background-clip: text;
+    color: transparent; margin-bottom: 16px; line-height: 1.2;
+  }
+  .chapter-header .subtitle {
+    font-size: 18px; color: var(--text-muted);
+    max-width: 700px; margin: 0 auto 20px; font-weight: 500;
+  }
+  .author-badge {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 10px 20px; background: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(14, 165, 233, 0.2); border-radius: 50px;
+    font-size: 13px; color: var(--text-main); font-weight: 600;
+  }
+
+  .intro-quote {
+    text-align: center; padding: 40px 20px; margin-bottom: 50px;
+    background: var(--bg-card); backdrop-filter: blur(10px);
+    border: 2px solid rgba(139, 92, 246, 0.2); border-radius: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  .intro-quote .label {
+    font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--secondary); margin-bottom: 12px; font-weight: 700;
+  }
+  .intro-quote .title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; color: var(--text-main); margin-bottom: 16px; font-weight: 700;
+  }
+  .intro-quote p {
+    font-size: 17px; color: var(--text-muted);
+    max-width: 700px; margin: 0 auto; line-height: 1.7;
+  }
+
+  .content-section {
+    margin-bottom: 40px; padding: 30px;
+    background: var(--bg-card); backdrop-filter: blur(10px);
+    border: 2px solid rgba(14, 165, 233, 0.15);
+    border-radius: 20px; transition: all 0.3s;
+    box-shadow: var(--shadow-sm);
+  }
+  .content-section:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; color: var(--text-main); margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px; font-weight: 700;
+  }
+  .section-title::before {
+    content: ""; width: 5px; height: 28px;
+    background: var(--gradient-primary); border-radius: 3px;
+  }
+  p { margin-bottom: 16px; color: #475569; }
+  
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), rgba(139, 92, 246, 0.08));
+    border-left: 4px solid var(--primary);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .highlight-box h4 { 
+    color: var(--primary); margin-bottom: 8px; 
+    font-family: 'Playfair Display', serif; font-weight: 700;
+  }
+  
+  .formula-box {
+    background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
+    padding: 20px; border-radius: 12px; text-align: center;
+    font-family: 'Playfair Display', serif; font-size: 18px;
+    color: white; margin: 20px 0; font-weight: 600;
+    letter-spacing: 0.5px; box-shadow: var(--shadow-md);
+  }
+
+  .example-box {
+    background: rgba(255, 255, 255, 0.9); 
+    border: 2px dashed rgba(139, 92, 246, 0.4);
+    padding: 24px; border-radius: 16px; margin: 20px 0;
+  }
+  .example-box strong { color: var(--secondary); }
+
+  .comparison-box {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0;
+  }
+  .comparison-item {
+    padding: 24px; border-radius: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(14, 165, 233, 0.2);
+    transition: all 0.3s;
+  }
+  .comparison-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+  .comparison-item h4 {
+    color: var(--primary); font-family: 'Playfair Display', serif;
+    margin-bottom: 12px; font-size: 18px; font-weight: 700;
+  }
+  .comparison-item p { font-size: 14px; margin: 0; color: #475569; }
+
+  .table-wrapper { 
+    overflow-x: auto; margin: 20px 0; border-radius: 16px; 
+    border: 2px solid rgba(14, 165, 233, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+  }
+  .luxury-table {
+    width: 100%; border-collapse: collapse;
+    min-width: 600px;
+  }
+  .luxury-table th {
+    background: var(--gradient-primary); color: white;
+    padding: 14px 16px; text-align: center;
+    font-family: 'Playfair Display', serif; font-weight: 700; font-size: 15px;
+  }
+  .luxury-table td {
+    padding: 14px 16px; border-bottom: 1px solid rgba(14, 165, 233, 0.1);
+    color: #475569; font-size: 14px; text-align: center;
+  }
+  .luxury-table td:first-child { text-align: left; font-weight: 700; color: var(--primary); }
+  .luxury-table tr:last-child td { border-bottom: none; }
+  .luxury-table tr:hover td { background: rgba(14, 165, 233, 0.05); }
+
+  .step-box {
+    display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start;
+  }
+  .step-num {
+    background: var(--gradient-primary); color: white;
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 16px; flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+  }
+  .step-content h4 { color: var(--primary); margin-bottom: 4px; font-size: 16px; font-weight: 700; }
+  .step-content p { margin: 0; font-size: 14px; }
+
+  .islamic-quote {
+    text-align: center; padding: 40px 20px; margin: 40px 0;
+    background: var(--bg-card); backdrop-filter: blur(10px);
+    border: 2px solid rgba(139, 92, 246, 0.2); border-radius: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  .islamic-quote .arabic {
+    font-size: 28px; color: var(--secondary); margin-bottom: 16px;
+    font-family: 'Traditional Arabic', 'Arial', sans-serif; line-height: 1.6;
+    font-weight: 600;
+  }
+  .islamic-quote .translation {
+    font-style: italic; font-size: 17px; color: var(--text-muted); 
+    max-width: 600px; margin: 0 auto; font-weight: 500;
+  }
+  .islamic-quote .source {
+    font-size: 12px; color: var(--secondary); margin-top: 12px; 
+    letter-spacing: 2px; font-weight: 700;
+  }
+
+  .keywords {
+    display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 30px 0;
+  }
+  .keyword-tag {
+    padding: 8px 16px; 
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(139, 92, 246, 0.1));
+    border: 2px solid rgba(14, 165, 233, 0.2); border-radius: 50px;
+    font-size: 12px; color: var(--primary); letter-spacing: 0.5px; font-weight: 600;
+    transition: all 0.3s;
+  }
+  .keyword-tag:hover {
+    background: var(--gradient-primary); color: white;
+    transform: translateY(-2px); box-shadow: var(--shadow-sm);
+  }
+
+  .quiz-container {
+    margin-top: 60px; padding: 40px;
+    background: var(--bg-card); backdrop-filter: blur(10px);
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    border-radius: 24px; box-shadow: var(--shadow-lg);
+  }
+  .quiz-header { text-align: center; margin-bottom: 30px; }
+  .quiz-header h2 { 
+    font-family: 'Playfair Display', serif; font-size: 28px; 
+    background: var(--gradient-primary); -webkit-background-clip: text; 
+    background-clip: text; color: transparent; font-weight: 700;
+  }
+  .quiz-header p { color: var(--text-muted); font-size: 14px; }
+
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block; font-size: 12px; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--primary); margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .form-group input, .form-group select {
+    width: 100%; padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.9); 
+    border: 2px solid rgba(14, 165, 233, 0.2);
+    border-radius: 10px; color: var(--text-main); 
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px; transition: all 0.3s;
+  }
+  .form-group input:focus, .form-group select:focus {
+    outline: none; border-color: var(--primary); 
+    background: white; box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+  }
+
+  .question-block { 
+    margin-bottom: 30px; padding: 24px; 
+    background: rgba(255, 255, 255, 0.9); 
+    border: 2px solid rgba(14, 165, 233, 0.15);
+    border-radius: 16px; 
+  }
+  .question-text { 
+    font-weight: 600; margin-bottom: 16px; color: var(--text-main); 
+    display: flex; gap: 10px; font-size: 15px;
+  }
+  .question-num { 
+    color: var(--primary); font-weight: 800; 
+    font-size: 16px; flex-shrink: 0;
+  }
+  .question-points {
+    padding: 4px 12px; 
+    background: var(--gradient-primary); color: white;
+    border-radius: 50px; font-size: 11px; 
+    font-weight: 700; white-space: nowrap; margin-left: auto;
+  }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option-label {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 16px; background: rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(14, 165, 233, 0.15); border-radius: 10px;
+    cursor: pointer; transition: all 0.3s;
+  }
+  .option-label:hover { 
+    background: rgba(14, 165, 233, 0.08); 
+    border-color: var(--primary);
+    transform: translateX(4px);
+  }
+  .option-label input[type="radio"] { accent-color: var(--primary); width: 18px; height: 18px; }
+  .option-label.correct { background: rgba(16, 185, 129, 0.15); border-color: var(--success); }
+  .option-label.incorrect { background: rgba(239, 68, 68, 0.15); border-color: var(--danger); }
+
+  textarea {
+    width: 100%; padding: 16px; min-height: 120px;
+    background: rgba(255, 255, 255, 0.9); 
+    border: 2px solid rgba(14, 165, 233, 0.2);
+    border-radius: 10px; color: var(--text-main); 
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 14px; resize: vertical; transition: all 0.3s;
+  }
+  textarea:focus { 
+    outline: none; border-color: var(--primary); 
+    background: white; box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+  }
+
+  .action-bar { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; justify-content: center; }
+  .btn {
+    padding: 14px 24px; font-size: 13px; letter-spacing: 0.5px;
+    text-transform: uppercase; border: none; border-radius: 10px;
+    cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    display: inline-flex; align-items: center; gap: 8px;
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: var(--gradient-primary); color: white;
+    box-shadow: 0 10px 30px -5px rgba(14, 165, 233, 0.4);
+  }
+  .btn-primary:hover { 
+    transform: translateY(-3px) scale(1.02); 
+    box-shadow: 0 15px 40px -5px rgba(14, 165, 233, 0.5); 
+  }
+  .btn-secondary { 
+    background: rgba(255, 255, 255, 0.9); color: var(--primary); 
+    border: 2px solid var(--primary);
+  }
+  .btn-secondary:hover { 
+    background: var(--primary); color: white;
+    transform: translateY(-3px);
+  }
+  .btn-outline { 
+    background: transparent; color: var(--secondary); 
+    border: 2px solid var(--secondary);
+  }
+  .btn-outline:hover { 
+    background: var(--secondary); color: white;
+    transform: translateY(-3px);
+  }
+
+  .results-panel {
+    display: none; margin-top: 30px; padding: 30px;
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.08), rgba(139, 92, 246, 0.08));
+    border: 2px solid var(--primary);
+    border-radius: 20px; text-align: center;
+  }
+  .results-panel.show { display: block; animation: fadeIn 0.5s; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  
+  .score-display { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px 0; }
+  .score-item { 
+    padding: 20px; background: rgba(255, 255, 255, 0.9); 
+    border-radius: 12px; box-shadow: var(--shadow-sm);
+  }
+  .score-item .label { 
+    font-size: 11px; letter-spacing: 1px; color: var(--text-muted); 
+    text-transform: uppercase; font-weight: 700;
+  }
+  .score-item .value { 
+    font-family: 'Playfair Display', serif; font-size: 32px; 
+    background: var(--gradient-primary); -webkit-background-clip: text; 
+    background-clip: text; color: transparent; margin-top: 8px; font-weight: 700;
+  }
+
+  footer {
+    border-top: 2px solid rgba(14, 165, 233, 0.2);
+    padding: 40px 24px; text-align: center;
+    background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px);
+    margin-top: 60px;
+  }
+  .footer-brand { 
+    font-family: 'Playfair Display', serif; font-size: 22px; 
+    background: var(--gradient-primary); -webkit-background-clip: text; 
+    background-clip: text; color: transparent; margin-bottom: 8px; font-weight: 700;
+  }
+  .footer-contact { color: var(--text-muted); font-size: 13px; margin-bottom: 16px; }
+  .footer-contact a { 
+    color: var(--primary); text-decoration: none; font-weight: 700;
+    transition: color 0.3s;
+  }
+  .footer-contact a:hover { color: var(--secondary); }
+  .copyright { 
+    font-size: 11px; letter-spacing: 1px; color: var(--text-muted); 
+    text-transform: uppercase; font-weight: 600;
+  }
+
+  @media print {
+    nav, .action-bar, footer { display: none !important; }
+    body { background: #fff; color: #000; }
+    .container { max-width: 100%; padding: 0; }
+    .content-section, .quiz-container { background: #fff; border: 1px solid #ccc; color: #000; break-inside: avoid; }
+    .section-title, .chapter-header h1 { color: #000 !important; -webkit-text-fill-color: #000 !important; }
+    p, .question-text { color: #000 !important; }
+    .formula-box { background: #0ea5e9; color: #fff; }
+    .luxury-table th { background: #0ea5e9; color: #fff; }
+    .luxury-table td { color: #000; border-bottom: 1px solid #ccc; }
+  }
+
+  @media (max-width: 600px) {
+    .score-display { grid-template-columns: 1fr; }
+    .action-bar { flex-direction: column; }
+    .btn { width: 100%; justify-content: center; }
+    .step-box { flex-direction: column; gap: 8px; }
+    .comparison-box { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-pattern"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <div class="nav-inner">
+    <ul class="nav-links">
+      <li><a href="1.html">← Bab 1: Pertumbuhan</a></li>
+      <li><a href="index.html">📖 Daftar Isi</a></li>
+      <li><a href="3.html">Bab 3: Embrio →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="container">
+
+  <!-- Chapter Header -->
+  <header class="chapter-header">
+    <div class="eyebrow">👶 Pertemuan 02 • IPA Kelas IX Semester 1</div>
+    <h1>Pubertas dan Masa Remaja</h1>
+    <p class="subtitle">— Mengidentifikasi perubahan fisik dan psikologis pada masa pubertas remaja serta memahami pentingnya menjaga kesehatan reproduksi —</p>
+    <div class="author-badge">
+      <span>👨‍🏫 Medy Candra, S.Pd</span>
+      <span>•</span>
+      <span>MTsN 10 Agam</span>
+    </div>
+  </header>
+
+  <!-- Intro Quote -->
+  <div class="intro-quote">
+    <div class="label">◆ — Pertemuan Kedua — ◆</div>
+    <div class="title">🌸 Masa Pubertas</div>
+    <p>Mengidentifikasi perubahan fisik dan psikologis pada masa pubertas remaja. Materi ini menjadi fondasi penting dalam memahami proses pertumbuhan menuju kedewasaan dan pentingnya menjaga kesehatan reproduksi sejak dini.</p>
+  </div>
+
+  <!-- Section A -->
+  <section class="content-section">
+    <h3 class="section-title">🔬 A. Pengertian Pubertas</h3>
+    <p><strong>Pubertas</strong> adalah masa perubahan biologis yang terjadi pada remaja sebagai transisi dari masa anak-anak menuju masa dewasa, di mana organ-organ reproduksi mulai berfungsi dan terjadi perubahan fisik serta psikologis yang signifikan. Masa ini biasanya dimulai pada usia 10-14 tahun pada perempuan dan 12-16 tahun pada laki-laki.</p>
+    
+    <div class="highlight-box">
+      <h4>📌 Definisi Pubertas</h4>
+      <p style="margin:0; color: var(--text-main);">Pubertas berasal dari bahasa Latin <em>"pubescere"</em> yang berarti "menjadi dewasa". Pubertas adalah periode percepatan pertumbuhan dan perkembangan seksual yang ditandai dengan kematangan organ reproduksi dan kemampuan untuk bereproduksi.</p>
+    </div>
+
+    <div class="highlight-box">
+      <h4>💡 Mengapa Pubertas Penting Dipelajari?</h4>
+      <p style="margin:0; color: var(--text-main);">
+        <strong>🧠 Pemahaman Diri:</strong> Membantu remaja memahami perubahan yang terjadi pada tubuhnya.<br>
+        <strong>💪 Kesehatan Mental:</strong> Mempersiapkan remaja menghadapi perubahan emosional.<br>
+        <strong>🛡️ Pencegahan:</strong> Menghindari perilaku berisiko dan penyakit reproduksi.<br>
+        <strong>🤝 Hubungan Sosial:</strong> Membantu remaja berinteraksi dengan lebih baik di lingkungannya.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section B -->
+  <section class="content-section">
+    <h3 class="section-title">👦👧 B. Perubahan Fisik pada Masa Pubertas</h3>
+    <p>Perubahan fisik pada masa pubertas terjadi karena pengaruh hormon-hormon seks. Pada laki-laki, hormon utama adalah <strong>testosteron</strong>, sedangkan pada perempuan adalah <strong>estrogen</strong> dan <strong>progesteron</strong>. Perubahan ini berbeda antara laki-laki dan perempuan.</p>
+    
+    <div class="comparison-box">
+      <div class="comparison-item">
+        <h4>👦 Perubahan pada Laki-laki</h4>
+        <p>• Suara menjadi lebih berat (besar)<br>
+        • Tumbuh jakun<br>
+        • Tumbuh kumis, janggut, rambut dada<br>
+        • Otot menjadi lebih besar dan kuat<br>
+        • Bahu melebar<br>
+        • Mengalami mimpi basah (spermarche)<br>
+        • Kulit menjadi lebih berminyak<br>
+        • Tinggi badan bertambah pesat</p>
+      </div>
+      <div class="comparison-item">
+        <h4>👧 Perubahan pada Perempuan</h4>
+        <p>• Payudara mulai berkembang<br>
+        • Pinggul melebar<br>
+        • Mengalami menstruasi (menarche)<br>
+        • Tumbuh rambut di ketiak dan area tertentu<br>
+        • Kulit menjadi lebih halus<br>
+        • Suara menjadi lebih tinggi<br>
+        • Tubuh menjadi lebih berisi<br>
+        • Tinggi badan bertambah pesat</p>
+      </div>
+    </div>
+
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Perubahan</th>
+            <th>Laki-laki</th>
+            <th>Perempuan</th>
+            <th>Penyebab Hormonal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Suara</td>
+            <td>Membesar/berat</td>
+            <td>Lebih tinggi</td>
+            <td>Testosteron / Estrogen</td>
+          </tr>
+          <tr>
+            <td>Rambut Tubuh</td>
+            <td>Kumis, janggut, dada</td>
+            <td>Ketiak, area tertentu</td>
+            <td>Androgen</td>
+          </tr>
+          <tr>
+            <td>Bentuk Tubuh</td>
+            <td>Otot besar, bahu lebar</td>
+            <td>Pinggul lebar, berisi</td>
+            <td>Testosteron / Estrogen</td>
+          </tr>
+          <tr>
+            <td>Kematangan Seksual</td>
+            <td>Mimpi basah</td>
+            <td>Menstruasi</td>
+            <td>Testosteron / Estrogen</td>
+          </tr>
+          <tr>
+            <td>Kulit</td>
+            <td>Berminyak, berjerawat</td>
+            <td>Lebih halus, berjerawat</td>
+            <td>Androgen</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section C -->
+  <section class="content-section">
+    <h3 class="section-title">🧠 C. Perubahan Psikologis pada Masa Pubertas</h3>
+    <p>Selain perubahan fisik, remaja juga mengalami perubahan psikologis yang signifikan. Perubahan ini dipengaruhi oleh hormon dan perkembangan otak, terutama bagian <em>prefrontal cortex</em> yang bertanggung jawab atas pengambilan keputusan.</p>
+    
+    <div class="highlight-box">
+      <h4>🌟 Ciri-ciri Perubahan Psikologis Remaja</h4>
+      <p style="margin:0; color: var(--text-main);">
+        <strong>1. Pencarian Jati Diri:</strong> Remaja mulai mempertanyakan identitas dan nilai-nilai hidup.<br>
+        <strong>2. Emosi Tidak Stabil:</strong> Mudah marah, sedih, atau senang secara berlebihan.<br>
+        <strong>3. Kemandirian:</strong> Ingin mengambil keputusan sendiri dan lepas dari ketergantungan orang tua.<br>
+        <strong>4. Minat pada Lawan Jenis:</strong> Mulai tertarik secara romantis pada lawan jenis.<br>
+        <strong>5. Pengaruh Teman Sebaya:</strong> Lebih mudah dipengaruhi oleh teman daripada orang tua.<br>
+        <strong>6. Rasa Ingin Tahu Tinggi:</strong> Tertarik pada hal-hal baru dan pengalaman baru.
+      </p>
+    </div>
+
+    <div class="example-box">
+      <strong>💡 Contoh dalam Kehidupan Sehari-hari:</strong><br>
+      Seorang remaja yang sebelumnya penurut mulai sering berdebat dengan orang tua, lebih suka menghabiskan waktu dengan teman-temannya, dan mulai memperhatikan penampilan lebih dari sebelumnya. Ini adalah tanda-tanda normal dari perubahan psikologis masa pubertas.
+    </div>
+  </section>
+
+  <!-- Section D -->
+  <section class="content-section">
+    <h3 class="section-title">🧬 D. Hormon-hormon yang Berperan dalam Pubertas</h3>
+    <p>Pubertas dikendalikan oleh serangkaian hormon yang diproduksi oleh kelenjar endokrin. Hormon-hormon ini bekerja sama untuk memicu perubahan fisik dan seksual pada remaja.</p>
+    
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Hormon</th>
+            <th>Kelenjar Penghasil</th>
+            <th>Fungsi Utama</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GnRH</td>
+            <td>Hipotalamus</td>
+            <td>Merangsang kelenjar hipofisis</td>
+          </tr>
+          <tr>
+            <td>FSH (Follicle Stimulating Hormone)</td>
+            <td>Hipofisis</td>
+            <td>Merangsang pematangan sel telur/sperma</td>
+          </tr>
+          <tr>
+            <td>LH (Luteinizing Hormone)</td>
+            <td>Hipofisis</td>
+            <td>Memicu ovulasi/produksi testosteron</td>
+          </tr>
+          <tr>
+            <td>Estrogen</td>
+            <td>Ovarium</td>
+            <td>Perkembangan ciri seksual perempuan</td>
+          </tr>
+          <tr>
+            <td>Progesteron</td>
+            <td>Ovarium</td>
+            <td>Mempersiapkan kehamilan</td>
+          </tr>
+          <tr>
+            <td>Testosteron</td>
+            <td>Testis</td>
+            <td>Perkembangan ciri seksual laki-laki</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Section E -->
+  <section class="content-section">
+    <h3 class="section-title">🛡️ E. Menjaga Kesehatan Reproduksi</h3>
+    <p>Masa pubertas adalah masa kritis di mana remaja harus mulai memahami pentingnya menjaga kesehatan reproduksi. Hal ini penting untuk mencegah berbagai masalah kesehatan di masa depan.</p>
+    
+    <div class="highlight-box">
+      <h4>✅ Cara Menjaga Kesehatan Reproduksi</h4>
+      <p style="margin:0; color: var(--text-main);">
+        <strong>1. Kebersihan:</strong> Menjaga kebersihan organ reproduksi dengan benar.<br>
+        <strong>2. Nutrisi:</strong> Mengonsumsi makanan bergizi seimbang.<br>
+        <strong>3. Olahraga:</strong> Rutin berolahraga untuk menjaga kebugaran.<br>
+        <strong>4. Istirahat:</strong> Tidur cukup 8-10 jam per hari.<br>
+        <strong>5. Hindari Zat Berbahaya:</strong> Menghindari rokok, alkohol, dan narkoba.<br>
+        <strong>6. Informasi yang Benar:</strong> Mencari informasi dari sumber terpercaya.<br>
+        <strong>7. Kesehatan Mental:</strong> Mengelola stres dengan baik.
+      </p>
+    </div>
+
+    <div class="example-box">
+      <strong>⚠️ Hal yang Harus Dihindari:</strong><br>
+      • Pergaulan bebas yang berisiko kehamilan dini<br>
+      • Pornografi dan konten seksual tidak pantas<br>
+      • Zat adiktif (rokok, alkohol, narkoba)<br>
+      • Informasi salah dari sumber tidak terpercaya<br>
+      • Stres berlebihan tanpa penanganan
+    </div>
+  </section>
+
+  <!-- Section F -->
+  <section class="content-section">
+    <h3 class="section-title">📊 F. Tahapan Perkembangan Remaja</h3>
+    <p>Perkembangan remaja dapat dibagi menjadi beberapa tahapan berdasarkan usia dan karakteristiknya:</p>
+    
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Tahapan</th>
+            <th>Usia</th>
+            <th>Karakteristik Utama</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pra-remaja</td>
+            <td>10-12 tahun</td>
+            <td>Awal pubertas, perubahan fisik mulai terlihat</td>
+          </tr>
+          <tr>
+            <td>Remaja Awal</td>
+            <td>13-15 tahun</td>
+            <td>Pubertas aktif, pencarian jati diri</td>
+          </tr>
+          <tr>
+            <td>Remaja Tengah</td>
+            <td>16-18 tahun</td>
+            <td>Kematangan emosional, hubungan sosial lebih dalam</td>
+          </tr>
+          <tr>
+            <td>Remaja Akhir</td>
+            <td>19-21 tahun</td>
+            <td>Transisi menuju dewasa, kemandirian penuh</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Keywords -->
+  <div class="keywords">
+    <span class="keyword-tag">🌸 Pubertas</span>
+    <span class="keyword-tag">👦 Laki-laki</span>
+    <span class="keyword-tag">👧 Perempuan</span>
+    <span class="keyword-tag">🧬 Hormon</span>
+    <span class="keyword-tag">🧠 Psikologis</span>
+    <span class="keyword-tag">🛡️ Kesehatan Reproduksi</span>
+    <span class="keyword-tag">💪 Testosteron</span>
+    <span class="keyword-tag">🌺 Estrogen</span>
+    <span class="keyword-tag">🩸 Menstruasi</span>
+    <span class="keyword-tag">💤 Mimpi Basah</span>
+    <span class="keyword-tag">👥 Remaja</span>
+    <span class="keyword-tag">🎯 Jati Diri</span>
+  </div>
+
+  <!-- Islamic Quote -->
+  <div class="islamic-quote">
+    <div class="arabic">خَلَقَ ٱلْإِنسَٰنَ مِن نُّطْفَةٍ فَإِذَا هُوَ خَصِيمٌ مُّبِينٌ</div>
+    <div class="translation">"Dia telah menciptakan manusia dari setetes mani, maka tiba-tiba ia menjadi penantang yang nyata."</div>
+    <div class="source">— QS. Yasin [36]: 77</div>
+  </div>
+  <p style="text-align: center; color: var(--text-muted); font-style: italic; margin-top: -20px; margin-bottom: 30px;">
+    Ayat ini mengingatkan kita tentang proses penciptaan manusia dan fase-fase perkembangannya, termasuk masa pubertas di mana manusia mulai menunjukkan kemandirian dan jati dirinya.
+  </p>
+
+  <!-- ===== UJI FORMATIF ===== -->
+  <div class="quiz-container" id="quizSection">
+    <div class="quiz-header">
+      <h2>📝 Uji Formatif Bab 2</h2>
+      <p>Pubertas dan Masa Remaja<br>
+      📋 Bagian A: Pilihan Ganda (10 soal, skor 10/soal) | ✍️ Bagian B: Essay (5 soal, skor 20/soal)</p>
+    </div>
+
+    <form id="quizForm">
+      <!-- Identitas -->
+      <div class="content-section" style="background: rgba(255,255,255,0.9);">
+        <h4 style="color: var(--primary); margin-bottom: 16px; font-family: 'Playfair Display', serif;">📋 Identitas Siswa</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+          <div class="form-group">
+            <label>Nama Lengkap *</label>
+            <input type="text" id="studentName" required placeholder="Masukkan nama lengkap">
+          </div>
+          <div class="form-group">
+            <label>No. Absen / NIS *</label>
+            <input type="text" id="studentNIS" required placeholder="Masukkan NIS">
+          </div>
+          <div class="form-group">
+            <label>📅 Tanggal Ujian</label>
+            <input type="date" id="quizDate" required>
+          </div>
+          <div class="form-group">
+            <label>Kelas</label>
+            <select id="studentClass" required>
+              <option value="">Pilih Kelas</option>
+              <option value="IX-A">IX-A</option>
+              <option value="IX-B">IX-B</option>
+              <option value="IX-C">IX-C</option>
+              <option value="IX-D">IX-D</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Semester</label>
+            <input type="text" value="1 (Satu)" readonly style="background: rgba(255,255,255,0.5);">
+          </div>
+        </div>
+      </div>
+
+      <!-- Bagian A: Pilihan Ganda -->
+      <h3 style="color: var(--primary); font-family: 'Playfair Display', serif; margin: 30px 0 20px; border-bottom: 2px solid rgba(14, 165, 233, 0.2); padding-bottom: 10px;">📋 Bagian A: Pilihan Ganda</h3>
+      <div id="mcqContainer"></div>
+
+      <!-- Bagian B: Essay -->
+      <h3 style="color: var(--primary); font-family: 'Playfair Display', serif; margin: 40px 0 20px; border-bottom: 2px solid rgba(14, 165, 233, 0.2); padding-bottom: 10px;">✍️ Bagian B: Essay</h3>
+      <div id="essayContainer"></div>
+
+      <!-- Action Buttons -->
+      <div class="action-bar">
+        <button type="button" class="btn btn-primary" onclick="submitQuiz()">✉️ KIRIM JAWABAN & LIHAT HASIL</button>
+        <button type="button" class="btn btn-secondary" onclick="downloadPDF()">📄 UNDUH PDF LENGKAP</button>
+        <button type="button" class="btn btn-secondary" onclick="downloadTXT()">📥 UNDUH SKOR (TXT)</button>
+        <button type="button" class="btn btn-outline" onclick="resetQuiz()">🔄 MULAI ULANG</button>
+        <a id="emailLink" href="#" class="btn btn-outline" style="display:none;">📧 Kirim ke Email Guru</a>
+      </div>
+    </form>
+
+    <!-- Results Panel -->
+    <div class="results-panel" id="resultsPanel">
+      <h3 style="font-family: 'Playfair Display', serif; color: var(--primary); margin-bottom: 10px;">📊 Hasil Uji Formatif</h3>
+      <p id="resultMessage" style="color: var(--text-main); margin-bottom: 20px;"></p>
+      <div class="score-display">
+        <div class="score-item">
+          <div class="label">📋 Pilihan Ganda</div>
+          <div class="value" id="scoreMCQ">0</div>
+        </div>
+        <div class="score-item">
+          <div class="label">✍️ Essay</div>
+          <div class="value" id="scoreEssay">0</div>
+        </div>
+        <div class="score-item">
+          <div class="label">Skor Akhir</div>
+          <div class="value" id="scoreTotal">0</div>
+        </div>
+      </div>
+      <p style="font-size: 12px; color: var(--text-muted); margin-top: 16px;">
+        *Penilaian Essay bersifat otomatis berdasarkan kelengkapan jawaban (minimal 30 karakter). Guru akan melakukan penilaian ulang secara manual untuk ketepatan konsep.
+      </p>
+    </div>
+  </div>
+
+  <!-- Navigation Footer -->
+  <div style="display: flex; justify-content: space-between; margin-top: 40px; padding: 20px; background: rgba(255,255,255,0.8); border-radius: 12px; border: 2px solid rgba(14, 165, 233, 0.15); flex-wrap: wrap; gap: 12px;">
+    <a href="1.html" style="color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 700;">
+      <span>←</span> Bab 1: Pertumbuhan dan Perkembangan
+    </a>
+    <a href="3.html" style="color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 700;">
+      Bab 3: Perkembangan Embrio <span>→</span>
+    </a>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-brand">🔬 IPA Kelas IX</div>
+  <div class="footer-contact">
+    MTsN 10 Agam • <a href="mailto:medycandra514@gmail.com">medycandra514@gmail.com</a>
+  </div>
+  <div class="copyright">© 2026 Medy Candra, S.Pd — MTsN 10 Agam. Hak Cipta Dilindungi Undang-Undang</div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  document.getElementById('quizDate').valueAsDate = new Date();
+
+  const mcqQuestions = [
+    { q: "Pubertas adalah masa perubahan biologis yang terjadi pada remaja sebagai transisi dari...", options: ["Masa dewasa ke lansia", "Masa anak-anak ke dewasa", "Masa bayi ke anak-anak", "Masa remaja ke dewasa"], answer: 1 },
+    { q: "Hormon utama yang berperan dalam pubertas pada laki-laki adalah...", options: ["Estrogen", "Progesteron", "Testosteron", "Insulin"], answer: 2 },
+    { q: "Perubahan fisik berikut yang terjadi pada perempuan saat pubertas adalah...", options: ["Suara menjadi berat", "Tumbuh jakun", "Payudara berkembang", "Bahu melebar"], answer: 2 },
+    { q: "Menarche adalah istilah untuk...", options: ["Mimpi basah pada laki-laki", "Menstruasi pertama pada perempuan", "Perubahan suara", "Pertumbuhan rambut"], answer: 1 },
+    { q: "Hormon FSH diproduksi oleh kelenjar...", options: ["Hipotalamus", "Hipofisis", "Ovarium", "Testis"], answer: 1 },
+    { q: "Perubahan psikologis berikut yang normal terjadi pada masa pubertas adalah...", options: ["Ketergantungan pada orang tua", "Pencarian jati diri", "Tidak peduli pada lingkungan", "Menolak semua perubahan"], answer: 1 },
+    { q: "Spermarche adalah istilah untuk...", options: ["Menstruasi pertama", "Mimpi basah pada laki-laki", "Perkembangan payudara", "Perubahan suara"], answer: 1 },
+    { q: "Cara menjaga kesehatan reproduksi yang benar adalah...", options: ["Mengonsumsi junk food", "Tidak berolahraga", "Menjaga kebersihan organ reproduksi", "Begadang setiap malam"], answer: 2 },
+    { q: "Masa pubertas pada laki-laki biasanya dimulai pada usia...", options: ["5-8 tahun", "10-14 tahun", "12-16 tahun", "18-21 tahun"], answer: 2 },
+    { q: "Hormon estrogen diproduksi oleh...", options: ["Testis", "Ovarium", "Hipofisis", "Hipotalamus"], answer: 1 }
+  ];
+
+  const essayQuestions = [
+    "Jelaskan pengertian pubertas dan mengapa masa ini penting dipelajari oleh remaja! Berikan minimal 3 alasan!",
+    "Sebutkan dan jelaskan 5 perubahan fisik yang terjadi pada laki-laki saat pubertas beserta hormon yang memengaruhinya!",
+    "Jelaskan perbedaan antara perubahan fisik dan perubahan psikologis pada masa pubertas! Berikan masing-masing 2 contoh!",
+    "Apa yang dimaksud dengan menarche dan spermarche? Jelaskan proses terjadinya dan artinya dalam konteks kematangan reproduksi!",
+    "Sebutkan dan jelaskan 5 cara menjaga kesehatan reproduksi pada masa remaja! Mengapa hal ini penting untuk masa depan?"
+  ];
+
+  const mcqContainer = document.getElementById('mcqContainer');
+  mcqQuestions.forEach((item, index) => {
+    const qDiv = document.createElement('div');
+    qDiv.className = 'question-block';
+    qDiv.innerHTML = `
+      <div class="question-text">
+        <span class="question-num">Soal ${index + 1}</span>
+        <span>${item.q}</span>
+        <span class="question-points">10 POIN</span>
+      </div>
+      <div class="options">
+        ${item.options.map((opt, optIndex) => `
+          <label class="option-label" id="label_${index}_${optIndex}">
+            <input type="radio" name="q${index}" value="${optIndex}">
+            <span>${String.fromCharCode(65 + optIndex)}. ${opt}</span>
+          </label>
+        `).join('')}
+      </div>
+    `;
+    mcqContainer.appendChild(qDiv);
+  });
+
+  const essayContainer = document.getElementById('essayContainer');
+  essayQuestions.forEach((item, index) => {
+    const qDiv = document.createElement('div');
+    qDiv.className = 'question-block';
+    qDiv.innerHTML = `
+      <div class="question-text">
+        <span class="question-num">Essay ${index + 1}</span>
+        <span>${item}</span>
+        <span class="question-points">20 POIN</span>
+      </div>
+      <textarea id="essay${index}" placeholder="Tulis jawaban Anda di sini... (Minimal 30 karakter untuk mendapatkan poin)"></textarea>
+    `;
+    essayContainer.appendChild(qDiv);
+  });
+
+  let finalScores = { mcq: 0, essay: 0, total: 0 };
+
+  function submitQuiz() {
+    const name = document.getElementById('studentName').value;
+    const nis = document.getElementById('studentNIS').value;
+    const cls = document.getElementById('studentClass').value;
+    
+    if (!name || !nis || !cls) {
+      alert("Harap lengkapi identitas siswa (Nama, NIS, dan Kelas) sebelum mengirim jawaban!");
+      return;
+    }
+
+    let mcqScore = 0;
+    mcqQuestions.forEach((item, index) => {
+      const selected = document.querySelector(`input[name="q${index}"]:checked`);
+      const labels = document.querySelectorAll(`[id^="label_${index}_"]`);
+      labels.forEach(l => { l.classList.remove('correct', 'incorrect'); l.style.pointerEvents = 'none'; });
+
+      if (selected) {
+        const val = parseInt(selected.value);
+        if (val === item.answer) {
+          mcqScore += 10;
+          document.getElementById(`label_${index}_${val}`).classList.add('correct');
+        } else {
+          document.getElementById(`label_${index}_${val}`).classList.add('incorrect');
+          document.getElementById(`label_${index}_${item.answer}`).classList.add('correct');
+        }
+      } else {
+        document.getElementById(`label_${index}_${item.answer}`).classList.add('correct');
+      }
+    });
+
+    let essayScore = 0;
+    for (let i = 0; i < 5; i++) {
+      const text = document.getElementById(`essay${i}`).value.trim();
+      if (text.length >= 30) essayScore += 20;
+      else if (text.length > 0) essayScore += 10;
+      document.getElementById(`essay${i}`).disabled = true;
+    }
+
+    finalScores = { mcq: mcqScore, essay: essayScore, total: mcqScore + essayScore };
+
+    document.getElementById('scoreMCQ').textContent = finalScores.mcq;
+    document.getElementById('scoreEssay').textContent = finalScores.essay;
+    document.getElementById('scoreTotal').textContent = finalScores.total;
+    
+    let msg = `Terima kasih, ${name}! Jawaban Anda telah berhasil dikumpulkan.`;
+    if (finalScores.total >= 160) msg += " 🌟 Luar biasa! Pemahaman Anda tentang pubertas sangat baik.";
+    else if (finalScores.total >= 100) msg += " 👍 Bagus! Tingkatkan lagi pemahaman tentang perubahan fisik dan psikologis.";
+    else msg += " 📚 Jangan menyerah! Pelajari kembali materi pubertas dan masa remaja.";
+    
+    document.getElementById('resultMessage').textContent = msg;
+    document.getElementById('resultsPanel').classList.add('show');
+    
+    document.querySelector('.btn-primary').disabled = true;
+    document.querySelector('.btn-primary').textContent = "✓ SUDAH DIKIRIM";
+    document.querySelector('.btn-primary').style.opacity = "0.6";
+
+    const emailBody = `Hasil Uji Formatif Bab 2 (Pubertas dan Masa Remaja)%0D%0A%0D%0ANama: ${name}%0D%0ANIS: ${nis}%0D%0AKelas: ${cls}%0D%0ATanggal: ${document.getElementById('quizDate').value}%0D%0A%0D%0ASKOR:%0D%0A- Pilihan Ganda: ${finalScores.mcq}/100%0D%0A- Essay: ${finalScores.essay}/100 (Perlu validasi guru)%0D%0A- Total: ${finalScores.total}/200%0D%0A%0D%0ACatatan: Jawaban detail dapat dilihat pada file PDF yang dilampirkan.`;
+    document.getElementById('emailLink').href = `mailto:medycandra514@gmail.com?subject=Hasil Uji Formatif Bab 2 - ${name} (${cls})&body=${emailBody}`;
+    document.getElementById('emailLink').style.display = 'inline-flex';
+
+    document.getElementById('resultsPanel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function downloadPDF() { window.print(); }
+
+  function downloadTXT() {
+    const name = document.getElementById('studentName').value || "Siswa";
+    const nis = document.getElementById('studentNIS').value || "-";
+    const cls = document.getElementById('studentClass').value || "-";
+    const date = document.getElementById('quizDate').value || new Date().toLocaleDateString('id-ID');
+
+    let content = `HASIL UJI FORMATIF BAB 2: PUBERTAS DAN MASA REMAJA\n`;
+    content += `====================================================\n`;
+    content += `Nama  : ${name}\nNIS   : ${nis}\nKelas : ${cls}\nTanggal: ${date}\n`;
+    content += `====================================================\n`;
+    content += `SKOR PILIHAN GANDA : ${finalScores.mcq} / 100\n`;
+    content += `SKOR ESSAY (Simulasi): ${finalScores.essay} / 100\n`;
+    content += `TOTAL SKOR         : ${finalScores.total} / 200\n`;
+    content += `====================================================\n\nJAWABAN ESSAY:\n`;
+    for (let i = 0; i < 5; i++) {
+      content += `\nEssay ${i+1}:\n${document.getElementById(`essay${i}`).value || "(Tidak dijawab)"}\n`;
+    }
+    content += `\n====================================================\nDikirim otomatis dari Sistem Pembelajaran IPA\nMTsN 10 Agam | Penulis: Medy Candra, S.Pd`;
+
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Skor_UjiFormatif_Bab2_${name.replace(/\s+/g, '_')}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function resetQuiz() {
+    if (confirm("Apakah Anda yakin ingin mengulang ujian? Semua jawaban akan dihapus.")) {
+      document.getElementById('quizForm').reset();
+      document.getElementById('quizDate').valueAsDate = new Date();
+      document.getElementById('resultsPanel').classList.remove('show');
+      document.querySelectorAll('.option-label').forEach(l => { l.classList.remove('correct', 'incorrect'); l.style.pointerEvents = 'auto'; });
+      document.querySelectorAll('textarea').forEach(t => t.disabled = false);
+      
+      const btn = document.querySelector('.btn-primary');
+      btn.disabled = false; btn.textContent = "✉️ KIRIM JAWABAN & LIHAT HASIL"; btn.style.opacity = "1";
+      document.getElementById('emailLink').style.display = 'none';
+      finalScores = { mcq: 0, essay: 0, total: 0 };
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pertemuan 9: Sistem Reproduksi Manusia | IPA Kelas IX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy-deep: #050b14;
+    --navy: #0a192f;
+    --navy-light: #112240;
+    --blue-royal: #1e3a8a;
+    --blue-glow: #3b82f6;
+    --blue-accent: #60a5fa;
+    --gold-accent: #fbbf24;
+    --green-accent: #10b981;
+    --red-accent: #ef4444;
+    --pink-accent: #ec4899;
+    --text-primary: #e2e8f0;
+    --text-secondary: #94a3b8;
+    --glass-bg: rgba(17, 34, 64, 0.6);
+    --glass-border: rgba(96, 165, 250, 0.15);
+    --shadow-soft: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+    --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--navy-deep);
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(30, 58, 138, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 40%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  .orb {
+    position: fixed; border-radius: 50%; filter: blur(80px); z-index: -1; opacity: 0.4;
+    animation: floatOrb 20s ease-in-out infinite alternate;
+  }
+  .orb-1 { width: 500px; height: 500px; background: var(--blue-royal); top: -10%; right: -5%; }
+  .orb-2 { width: 400px; height: 400px; background: var(--navy-light); bottom: 10%; left: -5%; animation-delay: -5s; }
+  
+  @keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, -40px) scale(1.1); }
+  }
+
+  .accent-line {
+    height: 2px; background: linear-gradient(90deg, transparent, var(--blue-glow), var(--gold-accent), transparent);
+    margin: 0 auto; opacity: 0.8;
+  }
+  .accent-line.thick { height: 3px; max-width: 1200px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    background: rgba(5, 11, 20, 0.9); border-bottom: 1px solid var(--glass-border);
+  }
+  .nav-inner {
+    max-width: 1000px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; padding: 16px 24px;
+  }
+  .brand {
+    font-family: 'Playfair Display', serif; font-weight: 700; font-size: 20px;
+    color: var(--text-primary); display: flex; align-items: center; gap: 12px;
+  }
+  .brand span { color: var(--blue-accent); }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a {
+    color: var(--text-secondary); text-decoration: none; font-size: 12px;
+    font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s;
+  }
+  .nav-links a:hover { color: var(--blue-accent); }
+
+  .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  .chapter-header {
+    text-align: center; margin-bottom: 50px; padding: 40px 30px; border-radius: 16px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft);
+  }
+  .chapter-header .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--blue-accent); margin-bottom: 12px; display: inline-block;
+    background: rgba(59, 130, 246, 0.1); padding: 6px 16px; border-radius: 50px;
+  }
+  .chapter-header h1 {
+    font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 48px); font-weight: 700;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--blue-accent) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    margin-bottom: 16px; line-height: 1.2;
+  }
+  .chapter-header .subtitle {
+    font-size: 16px; color: var(--text-secondary); max-width: 700px; margin: 0 auto; font-weight: 400;
+  }
+  .author-badge {
+    display: inline-flex; align-items: center; gap: 12px; margin-top: 20px; padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); border-radius: 50px;
+    font-size: 13px; color: var(--text-primary); font-weight: 600;
+  }
+
+  .intro-quote {
+    text-align: center; padding: 40px 20px; margin-bottom: 50px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+  }
+  .intro-quote .label {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--gold-accent); margin-bottom: 12px; font-weight: 700;
+  }
+  .intro-quote .title {
+    font-family: 'Playfair Display', serif; font-size: 26px; color: var(--text-primary); margin-bottom: 16px; font-weight: 600;
+  }
+  .intro-quote p { font-size: 16px; color: var(--text-secondary); max-width: 700px; margin: 0 auto; line-height: 1.7; }
+
+  .content-section {
+    margin-bottom: 40px; padding: 30px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+    transition: all 0.3s; box-shadow: var(--shadow-soft);
+  }
+  .content-section:hover {
+    border-color: var(--blue-glow); box-shadow: var(--shadow-glow); transform: translateY(-4px);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text-primary);
+    margin-bottom: 20px; display: flex; align-items: center; gap: 12px; font-weight: 600;
+  }
+  .section-title::before {
+    content: ""; width: 4px; height: 24px; background: var(--blue-glow); border-radius: 2px;
+  }
+  p { margin-bottom: 16px; color: var(--text-secondary); }
+  
+  .highlight-box {
+    background: rgba(59, 130, 246, 0.08); border-left: 4px solid var(--blue-glow);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .highlight-box h4 { color: var(--blue-accent); margin-bottom: 8px; font-family: 'Playfair Display', serif; font-weight: 600; }
+  
+  .formula-box {
+    background: linear-gradient(135deg, var(--blue-royal), var(--navy-light));
+    padding: 20px; border-radius: 12px; text-align: center;
+    font-family: 'Playfair Display', serif; font-size: 18px; color: var(--text-primary);
+    margin: 20px 0; font-weight: 600; letter-spacing: 0.5px; border: 1px solid var(--glass-border);
+  }
+
+  .example-box {
+    background: rgba(255, 255, 255, 0.03); border: 1px dashed rgba(251, 191, 36, 0.4);
+    padding: 24px; border-radius: 12px; margin: 20px 0;
+  }
+  .example-box strong { color: var(--gold-accent); }
+
+  .warning-box {
+    background: rgba(239, 68, 68, 0.08); border-left: 4px solid var(--red-accent);
+    padding: 20px; margin: 20px 0; border-radius: 0 12px 12px 0;
+  }
+  .warning-box h4 { color: var(--red-accent); margin-bottom: 8px; font-family: 'Playfair Display', serif; font-weight: 600; }
+
+  .comparison-box { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 20px 0; }
+  .comparison-item {
+    padding: 24px; border-radius: 12px; background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border); transition: all 0.3s;
+  }
+  .comparison-item:hover { transform: translateY(-4px); border-color: var(--blue-glow); }
+  .comparison-item h4 { color: var(--blue-accent); font-family: 'Playfair Display', serif; margin-bottom: 12px; font-size: 18px; font-weight: 600; }
+  .comparison-item p, .comparison-item li { font-size: 14px; margin: 0; color: var(--text-secondary); line-height: 1.6; }
+  .comparison-item ul { margin-left: 20px; margin-top: 8px; }
+
+  .table-wrapper { overflow-x: auto; margin: 20px 0; border-radius: 12px; border: 1px solid var(--glass-border); background: rgba(255, 255, 255, 0.02); }
+  .luxury-table { width: 100%; border-collapse: collapse; min-width: 600px; }
+  .luxury-table th {
+    background: var(--blue-royal); color: var(--text-primary); padding: 14px 16px; text-align: center;
+    font-family: 'Playfair Display', serif; font-weight: 600; font-size: 15px;
+  }
+  .luxury-table td {
+    padding: 14px 16px; border-bottom: 1px solid var(--glass-border); color: var(--text-secondary); font-size: 14px; text-align: center;
+  }
+  .luxury-table td:first-child { text-align: left; font-weight: 600; color: var(--blue-accent); }
+  .luxury-table tr:last-child td { border-bottom: none; }
+  .luxury-table tr:hover td { background: rgba(59, 130, 246, 0.05); }
+
+  .step-box {
+    display: flex; gap: 16px; margin-bottom: 16px; align-items: flex-start;
+  }
+  .step-num {
+    background: linear-gradient(135deg, var(--blue-royal), var(--blue-glow)); color: white;
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 16px; flex-shrink: 0;
+  }
+  .step-content h4 { color: var(--blue-accent); margin-bottom: 4px; font-size: 16px; font-weight: 700; }
+  .step-content p { margin: 0; font-size: 14px; }
+
+  .islamic-quote {
+    text-align: center; padding: 40px 20px; margin: 40px 0;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px;
+  }
+  .islamic-quote .arabic {
+    font-size: 26px; color: var(--gold-accent); margin-bottom: 16px;
+    font-family: 'Traditional Arabic', 'Arial', sans-serif; line-height: 1.6; font-weight: 600;
+  }
+  .islamic-quote .translation {
+    font-style: italic; font-size: 16px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-weight: 400;
+  }
+  .islamic-quote .source { font-size: 12px; color: var(--blue-accent); margin-top: 12px; letter-spacing: 2px; font-weight: 600; }
+
+  .keywords { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 30px 0; }
+  .keyword-tag {
+    padding: 6px 14px; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 50px; font-size: 12px; color: var(--blue-accent); letter-spacing: 0.5px; font-weight: 600;
+    transition: all 0.3s;
+  }
+  .keyword-tag:hover { background: var(--blue-glow); color: white; transform: translateY(-2px); }
+
+  .quiz-container {
+    margin-top: 60px; padding: 40px;
+    background: var(--glass-bg); backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border); border-radius: 16px; box-shadow: var(--shadow-soft);
+  }
+  .quiz-header { text-align: center; margin-bottom: 30px; }
+  .quiz-header h2 { 
+    font-family: 'Playfair Display', serif; font-size: 26px; 
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--blue-accent) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700;
+  }
+  .quiz-header p { color: var(--text-secondary); font-size: 14px; }
+
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--blue-accent); margin-bottom: 8px; font-weight: 700;
+  }
+  .form-group input, .form-group select {
+    width: 100%; padding: 12px 16px; background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-primary); 
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; transition: all 0.3s;
+  }
+  .form-group input:focus, .form-group select:focus {
+    outline: none; border-color: var(--blue-glow); background: rgba(255, 255, 255, 0.08);
+  }
+
+  .question-block { margin-bottom: 30px; padding: 24px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 12px; }
+  .question-text { font-weight: 600; margin-bottom: 16px; color: var(--text-primary); display: flex; gap: 10px; font-size: 15px; }
+  .question-num { color: var(--blue-accent); font-weight: 800; font-size: 16px; flex-shrink: 0; }
+  .question-points {
+    padding: 4px 12px; background: var(--blue-royal); color: var(--text-primary);
+    border-radius: 50px; font-size: 11px; font-weight: 700; white-space: nowrap; margin-left: auto;
+  }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .option-label {
+    display: flex; align-items: center; gap: 12px; padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.03); border: 1px solid var(--glass-border); border-radius: 8px;
+    cursor: pointer; transition: all 0.3s;
+  }
+  .option-label:hover { background: rgba(59, 130, 246, 0.1); border-color: var(--blue-glow); transform: translateX(4px); }
+  .option-label input[type="radio"] { accent-color: var(--blue-glow); width: 18px; height: 18px; }
+  .option-label.correct { background: rgba(16, 185, 129, 0.15); border-color: #10b981; }
+  .option-label.incorrect { background: rgba(239, 68, 68, 0.15); border-color: #ef4444; }
+
+  textarea {
+    width: 100%; padding: 16px; min-height: 120px; background: rgba(255, 255, 255, 0.05); 
+    border: 1px solid var(--glass-border); border-radius: 8px; color: var(--text-primary); 
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; resize: vertical; transition: all 0.3s;
+  }
+  textarea:focus { outline: none; border-color: var(--blue-glow); background: rgba(255, 255, 255, 0.08); }
+
+  .action-bar { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; justify-content: center; }
+  .btn {
+    padding: 14px 24px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    border: none; border-radius: 6px; cursor: pointer; font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; transition: all 0.4s; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--blue-royal), var(--blue-glow)); color: white;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(59, 130, 246, 0.5); }
+  .btn-secondary { background: rgba(255, 255, 255, 0.05); color: var(--text-primary); border: 1px solid var(--glass-border); }
+  .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--blue-accent); }
+  .btn-outline { background: transparent; color: var(--blue-accent); border: 1px solid var(--blue-accent); }
+  .btn-outline:hover { background: rgba(59, 130, 246, 0.1); }
+
+  .results-panel {
+    display: none; margin-top: 30px; padding: 30px;
+    background: rgba(59, 130, 246, 0.08); border: 1px solid var(--blue-glow);
+    border-radius: 12px; text-align: center;
+  }
+  .results-panel.show { display: block; animation: fadeIn 0.5s; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  
+  .score-display { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 20px 0; }
+  .score-item { padding: 20px; background: rgba(255, 255, 255, 0.05); border-radius: 8px; }
+  .score-item .label { font-size: 11px; letter-spacing: 1px; color: var(--text-secondary); text-transform: uppercase; font-weight: 700; }
+  .score-item .value {
+    font-family: 'Playfair Display', serif; font-size: 32px;
+    background: linear-gradient(135deg, var(--text-primary), var(--blue-accent));
+    -webkit-background-clip: text; background-clip: text; color: transparent; margin-top: 8px; font-weight: 700;
+  }
+
+  .nav-footer {
+    display: flex; justify-content: space-between; margin-top: 40px; padding: 20px;
+    background: var(--glass-bg); border-radius: 12px; border: 1px solid var(--glass-border);
+  }
+  .nav-footer a {
+    color: var(--blue-accent); text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 600;
+    transition: color 0.3s;
+  }
+  .nav-footer a:hover { color: var(--gold-accent); }
+
+  footer {
+    border-top: 1px solid var(--glass-border); padding: 40px 24px; text-align: center;
+    background: rgba(5, 11, 20, 0.9); margin-top: 60px;
+  }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--text-primary); margin-bottom: 8px; }
+  .footer-brand span { color: var(--blue-accent); }
+  .footer-contact { color: var(--text-secondary); font-size: 13px; margin-bottom: 16px; }
+  .footer-contact a { color: var(--blue-accent); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+  .footer-contact a:hover { color: var(--text-primary); }
+  .copyright { font-size: 11px; letter-spacing: 1px; color: var(--text-secondary); text-transform: uppercase; opacity: 0.6; }
+
+  @media print {
+    nav, .action-bar, footer, .nav-footer { display: none !important; }
+    body { background: #fff; color: #000; }
+    .container { max-width: 100%; padding: 0; }
+    .content-section, .quiz-container { background: #fff; border: 1px solid #ccc; color: #000; break-inside: avoid; }
+    .section-title, .chapter-header h1 { color: #000 !important; -webkit-text-fill-color: #000 !important; }
+    p, .question-text { color: #000 !important; }
+    .luxury-table th { background: #e0e0e0; color: #000; }
+    .luxury-table td { color: #000; border-bottom: 1px solid #ccc; }
+  }
+
+  @media (max-width: 600px) {
+    .score-display { grid-template-columns: 1fr; }
+    .action-bar { flex-direction: column; }
+    .btn { width: 100%; justify-content: center; }
+    .comparison-box { grid-template-columns: 1fr; }
+    .nav-footer { flex-direction: column; gap: 16px; text-align: center; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- ===== NAVBAR ===== -->
+<nav>
+  <div class="nav-inner">
+    <div class="brand">SCIENTIA <span>IX</span></div>
+    <ul class="nav-links">
+      <li><a href="8.html">← Bab 8: Hormon & Zat Adiktif</a></li>
+      <li><a href="index.html">📖 Daftar Isi</a></li>
+      <li><a href="10.html">Bab 10: Siklus Menstruasi →</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="container">
+
+  <!-- Chapter Header -->
+  <header class="chapter-header">
+    <div class="eyebrow">Pertemuan 09 • IPA Kelas IX Semester 1</div>
+    <h1>Sistem Reproduksi Manusia</h1>
+    <p class="subtitle">Mengidentifikasi struktur dan fungsi organ pada sistem reproduksi laki-laki dan perempuan sebagai kelanjutan siklus kehidupan manusia.</p>
+    <div class="author-badge">
+      <span>‍🏫 Medy Candra, S.Pd</span>
+      <span>•</span>
+      <span>MTsN 10 Agam</span>
+    </div>
+  </header>
+
+  <!-- Intro Quote -->
+  <div class="intro-quote">
+    <div class="label">◆ — Pertemuan Kesembilan — ◆</div>
+    <div class="title"> Kelanjutan Siklus Kehidupan</div>
+    <p>Sistem reproduksi adalah sistem organ yang memungkinkan manusia untuk berkembang biak dan melestarikan keturunannya. Memahami struktur dan fungsinya dengan ilmiah dan sopan adalah bagian penting dari pendidikan biologi yang bertanggung jawab.</p>
+  </div>
+
+  <!-- Section A -->
+  <section class="content-section">
+    <h3 class="section-title">🔬 A. Pengertian Sistem Reproduksi</h3>
+    <p><strong>Sistem reproduksi</strong> adalah sistem organ dalam tubuh manusia yang berfungsi untuk menghasilkan sel kelamin (gamet), melakukan pembuahan (fertilisasi), dan mendukung perkembangan embrio hingga kelahiran. Sistem ini mulai berfungsi aktif saat masa <strong>pubertas</strong> (seperti yang telah dipelajari di Pertemuan 2).</p>
+    
+    <div class="highlight-box">
+      <h4>📌 Tujuan Pembelajaran</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Setelah mempelajari bab ini, siswa diharapkan mampu:<br>
+        • Mengidentifikasi organ-organ reproduksi laki-laki dan perempuan<br>
+        • Menjelaskan fungsi masing-masing organ reproduksi<br>
+        • Memahami proses pembentukan sel kelamin (gametogenesis)<br>
+        • Menjelaskan proses fertilisasi dan kehamilan secara singkat<br>
+        • Mengenal gangguan/kelainan pada sistem reproduksi
+      </p>
+    </div>
+
+    <div class="formula-box">
+      🧬 Sistem Reproduksi = Organ Penghasil Gamet + Saluran Reproduktif + Kelenjar Aksesori + Organ Kopulasi
+    </div>
+  </section>
+
+  <!-- Section B -->
+  <section class="content-section">
+    <h3 class="section-title">♂️ B. Sistem Reproduksi Laki-laki</h3>
+    <p>Sistem reproduksi laki-laki berfungsi untuk menghasilkan <strong>spermatozoa (sel sperma)</strong> dan menyalurkannya ke dalam saluran reproduksi perempuan saat kopulasi. Organ reproduksi laki-laki terdiri dari organ <strong>internal</strong> dan <strong>eksternal</strong>.</p>
+    
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Organ</th>
+            <th>Lokasi</th>
+            <th>Fungsi Utama</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Testis (Buah Zakar)</strong></td>
+            <td>Di dalam skrotum</td>
+            <td>Menghasilkan spermatozoa (spermatogenesis) dan hormon testosteron</td>
+          </tr>
+          <tr>
+            <td><strong>Skrotum (Kantong Zakar)</strong></td>
+            <td>Di luar rongga perut</td>
+            <td>Melindungi testis dan mengatur suhu agar 2-3°C lebih rendah dari suhu tubuh (optimal untuk produksi sperma)</td>
+          </tr>
+          <tr>
+            <td><strong>Epididimis</strong></td>
+            <td>Di atas testis</td>
+            <td>Tempat pematangan dan penyimpanan sperma sementara</td>
+          </tr>
+          <tr>
+            <td><strong>Vas Deferens</strong></td>
+            <td>Saluran dari epididimis ke uretra</td>
+            <td>Menyalurkan sperma dari epididimis ke uretra</td>
+          </tr>
+          <tr>
+            <td><strong>Uretra</strong></td>
+            <td>Di dalam penis</td>
+            <td>Saluran bersama untuk sperma dan urine (tidak keluar bersamaan)</td>
+          </tr>
+          <tr>
+            <td><strong>Penis</strong></td>
+            <td>Organ eksternal</td>
+            <td>Organ kopulasi (sanggama) untuk memasukkan sperma ke vagina</td>
+          </tr>
+          <tr>
+            <td><strong>Kelenjar Prostat</strong></td>
+            <td>Di bawah kandung kemih</td>
+            <td>Menghasilkan cairan basa untuk menetralkan asam vagina dan memberi nutrisi sperma</td>
+          </tr>
+          <tr>
+            <td><strong>Kelenjar Vesikula Seminalis</strong></td>
+            <td>Di belakang prostat</td>
+            <td>Menghasilkan cairan mengandung fruktosa (sumber energi sperma)</td>
+          </tr>
+          <tr>
+            <td><strong>Kelenjar Cowper (Bulbouretral)</strong></td>
+            <td>Di bawah prostat</td>
+            <td>Menghasilkan lendir pelumas untuk membersihkan uretra dari urine</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlight-box">
+      <h4>🧬 Spermatogenesis (Pembentukan Sperma)</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Spermatogenesis terjadi di <strong>tubulus seminiferus</strong> dalam testis, dimulai sejak pubertas dan berlangsung seumur hidup. Prosesnya:<br><br>
+        <strong>Spermatogonium (2n)</strong> → Mitosis → <strong>Spermatosit Primer (2n)</strong> → Meiosis I → <strong>Spermatosit Sekunder (n)</strong> → Meiosis II → <strong>Spermatid (n)</strong> → Diferensiasi → <strong>Spermatozoa (n)</strong><br><br>
+        Satu spermatogonium menghasilkan <strong>4 spermatozoa fungsional</strong>. Proses ini memakan waktu sekitar <strong>64-72 hari</strong>.
+      </p>
+    </div>
+
+    <div class="example-box">
+      <strong> Fakta Menarik tentang Sperma:</strong><br>
+      • Pria dewasa sehat menghasilkan sekitar <strong>100-300 juta sperma</strong> per ejakulasi<br>
+      • Sperma dapat hidup hingga <strong>5 hari</strong> di dalam saluran reproduksi perempuan<br>
+      • Sperma berenang dengan kecepatan sekitar <strong>1-4 mm per menit</strong><br>
+      • Hanya <strong>satu sperma</strong> yang berhasil membuahi sel telur (monospermi)
+    </div>
+  </section>
+
+  <!-- Section C -->
+  <section class="content-section">
+    <h3 class="section-title">♀️ C. Sistem Reproduksi Perempuan</h3>
+    <p>Sistem reproduksi perempuan lebih kompleks karena tidak hanya menghasilkan sel telur (ovum), tetapi juga menyediakan tempat bagi embrio untuk berkembang selama ±9 bulan (kehamilan). Organ reproduksi perempuan juga terdiri dari organ <strong>internal</strong> dan <strong>eksternal</strong>.</p>
+    
+    <div class="table-wrapper">
+      <table class="luxury-table">
+        <thead>
+          <tr>
+            <th>Organ</th>
+            <th>Lokasi</th>
+            <th>Fungsi Utama</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Ovarium (Indung Telur)</strong></td>
+            <td>Di rongga perut (kiri & kanan)</td>
+            <td>Menghasilkan ovum (oogenesis) dan hormon estrogen serta progesteron</td>
+          </tr>
+          <tr>
+            <td><strong>Tuba Fallopi (Oviduk)</strong></td>
+            <td>Saluran dari ovarium ke uterus</td>
+            <td>Tempat terjadinya fertilisasi (pembuahan); memiliki fimbriae untuk menangkap ovum</td>
+          </tr>
+          <tr>
+            <td><strong>Uterus (Rahim)</strong></td>
+            <td>Di rongga panggul</td>
+            <td>Tempat implantasi dan perkembangan embrio/janin; dindingnya (endometrium) menebal setiap siklus menstruasi</td>
+          </tr>
+          <tr>
+            <td><strong>Serviks (Leher Rahim)</strong></td>
+            <td>Bagian bawah uterus</td>
+            <td>Gerbang antara uterus dan vagina; menghasilkan lendir serviks yang berubah selama siklus menstruasi</td>
+          </tr>
+          <tr>
+            <td><strong>Vagina</strong></td>
+            <td>Saluran dari serviks ke luar tubuh</td>
+            <td>Organ kopulasi, saluran menstruasi, dan jalan lahir saat persalinan</td>
+          </tr>
+          <tr>
+            <td><strong>Vulva</strong></td>
+            <td>Organ eksternal</td>
+            <td>Meliputi labia mayor, labia minor, klitoris, dan lubang vagina; melindungi organ reproduksi internal</td>
+          </tr>
+          <tr>
+            <td><strong>Klitoris</strong></td>
+            <td>Bagian atas vulva</td>
+            <td>Organ sensitif yang mengandung banyak ujung saraf (homolog dengan penis pada laki-laki)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="highlight-box">
+      <h4>🧬 Oogenesis (Pembentukan Sel Telur)</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Oogenesis dimulai sejak janin perempuan masih dalam kandungan (sekitar minggu ke-20 kehamilan) dan berhenti saat menopause. Prosesnya:<br><br>
+        <strong>Oogonium (2n)</strong> → Mitosis (saat janin) → <strong>Oosit Primer (2n)</strong> → Meiosis I (saat pubertas, 1 per bulan) → <strong>Oosit Sekunder (n) + Badan Polar Pertama</strong> → Meiosis II (saat fertilisasi) → <strong>Ovum (n) + Badan Polar Kedua</strong><br><br>
+        Satu oogonium hanya menghasilkan <strong>1 ovum fungsional</strong> (dan 3 badan polar yang degenerasi). Perempuan lahir dengan sekitar <strong>1-2 juta folikel primer</strong>, dan hanya ±400 yang akan matang dan dilepaskan selama masa reproduksi.
+      </p>
+    </div>
+
+    <div class="comparison-box">
+      <div class="comparison-item">
+        <h4>♂️ Spermatogenesis</h4>
+        <ul>
+          <li>Berlangsung terus-menerus sejak pubertas</li>
+          <li>Menghasilkan 4 sperma fungsional dari 1 sel induk</li>
+          <li>Sperma kecil, motil (bisa bergerak), berflagela</li>
+          <li>Proses selesai dalam ±64-72 hari</li>
+          <li>Dipengaruhi hormon FSH dan testosteron</li>
+        </ul>
+      </div>
+      <div class="comparison-item">
+        <h4>♀️ Oogenesis</h4>
+        <ul>
+          <li>Berhenti saat menopause (±45-55 tahun)</li>
+          <li>Menghasilkan 1 ovum fungsional dari 1 sel induk</li>
+          <li>Ovum besar, tidak motil, kaya nutrisi (kuning telur)</li>
+          <li>Proses dimulai sejak janin, selesai saat fertilisasi</li>
+          <li>Dipengaruhi hormon FSH, LH, estrogen, progesteron</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section D -->
+  <section class="content-section">
+    <h3 class="section-title">💑 D. Fertilisasi dan Awal Kehamilan</h3>
+    <p><strong>Fertilisasi</strong> (pembuahan) adalah peleburan inti sel sperma dengan inti sel telur membentuk <strong>zigot</strong> (sel pertama individu baru). Proses ini biasanya terjadi di <strong>tuba fallopi (1/3 bagian luar)</strong>.</p>
+    
+    <div class="step-box">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Ovulasi</h4>
+        <p>Ovarium melepaskan satu ovum matang (ovulasi) sekitar hari ke-14 siklus menstruasi. Ovum ditangkap oleh fimbriae dan masuk ke tuba fallopi.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Kopulasi & Ejakulasi</h4>
+        <p>Saat hubungan intim, jutaan sperma dikeluarkan ke dalam vagina. Sperma berenang melalui serviks, uterus, menuju tuba fallopi.</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Fertilisasi</h4>
+        <p>Satu sperma berhasil menembus lapisan pelindung ovum (zona pelusida). Inti sperma dan ovum melebur membentuk zigot (2n).</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>Pembelahan & Implantasi</h4>
+        <p>Zigot membelah berkali-kali (morula → blastula) sambil bergerak ke uterus. Pada hari ke-6-7, blastokista menempel (implantasi) di dinding uterus (endometrium).</p>
+      </div>
+    </div>
+
+    <div class="step-box">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h4>Perkembangan Embrio</h4>
+        <p>Embrio berkembang menjadi janin, dilindungi oleh kantung ketuban (amnion) dan mendapat nutrisi melalui plasenta. Kehamilan normal berlangsung ±280 hari (40 minggu).</p>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      Zigot (2n) → Morula → Blastula → Gastrula → Embrio → Janin → Bayi
+    </div>
+  </section>
+
+  <!-- Section E -->
+  <section class="content-section">
+    <h3 class="section-title">⚠️ E. Gangguan dan Penyakit pada Sistem Reproduksi</h3>
+    <p>Sistem reproduksi dapat mengalami berbagai gangguan, mulai dari infeksi, kelainan hormonal, hingga kanker. Pencegahan dan deteksi dini sangat penting.</p>
+    
+    <div class="comparison-box">
+      <div class="comparison-item">
+        <h4>🦠 Infeksi Menular Seksual (IMS)</h4>
+        <ul>
+          <li><strong>Sifilis:</strong> Disebabkan bakteri <em>Treponema pallidum</em>. Tahap awal: luka tanpa nyeri (chancre). Tahap lanjut: kerusakan organ dalam.</li>
+          <li><strong>Gonore (Kencing Nanah):</strong> Bakteri <em>Neisseria gonorrhoeae</em>. Gejala: keputihan berwarna, nyeri saat buang air kecil.</li>
+          <li><strong>HIV/AIDS:</strong> Virus HIV menyerang sistem imun. Ditularkan melalui hubungan seksual, jarum suntik, transfusi darah, ibu ke bayi.</li>
+          <li><strong>Herpes Genital:</strong> Virus HSV menyebabkan lepuhan nyeri di area genital.</li>
+          <li><strong>Klamidia:</strong> Sering tanpa gejala, dapat menyebabkan kemandiran jika tidak diobati.</li>
+        </ul>
+      </div>
+      <div class="comparison-item">
+        <h4>🩺 Gangguan Lainnya</h4>
+        <ul>
+          <li><strong>Endometriosis:</strong> Jaringan endometrium tumbuh di luar uterus, menyebabkan nyeri haid hebat dan infertilitas.</li>
+          <li><strong>Mioma Uteri:</strong> Tumor jinak pada dinding rahim, umum pada wanita usia reproduksi.</li>
+          <li><strong>Kanker Serviks:</strong> Disebabkan virus HPV (Human Papillomavirus). Dapat dicegah dengan vaksin HPV dan skrining Pap smear.</li>
+          <li><strong>Kanker Prostat:</strong> Umum pada pria lanjut usia. Deteksi dini dengan tes PSA.</li>
+          <li><strong>Infertilitas:</strong> Ketidakmampuan memiliki keturunan setelah 1 tahun hubungan intim tanpa kontrasepsi.</li>
+          <li><strong>Kriptorkidismus:</strong> Testis tidak turun ke skrotum (pada bayi laki-laki).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="warning-box">
+      <h4>🚨 Pencegahan Penyakit Reproduksi</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        • <strong>Menjaga kebersihan organ reproduksi</strong> (cuci dengan air bersih, keringkan)<br>
+        • <strong>Hindari hubungan seksual di luar nikah</strong> (sesuai nilai agama dan norma sosial)<br>
+        • <strong>Vaksinasi HPV</strong> untuk mencegah kanker serviks (diberikan pada usia 9-14 tahun)<br>
+        • <strong>Skrining rutin</strong> (Pap smear untuk wanita, tes PSA untuk pria)<br>
+        • <strong>Pola hidup sehat:</strong> makan bergizi, olahraga, hindari rokok dan alkohol<br>
+        • <strong>Edukasi kesehatan reproduksi</strong> sejak dini
+      </p>
+    </div>
+  </section>
+
+  <!-- Section F -->
+  <section class="content-section">
+    <h3 class="section-title">🌟 F. Menjaga Kesehatan Reproduksi Remaja</h3>
+    <p>Masa remaja adalah periode penting untuk membangun kebiasaan sehat yang akan berdampak pada kesehatan reproduksi sepanjang hidup.</p>
+    
+    <div class="highlight-box">
+      <h4>✅ Tips Kesehatan Reproduksi untuk Remaja</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        <strong>1. Kebersihan Personal:</strong> Ganti pakaian dalam minimal 2x sehari, gunakan air bersih untuk membersihkan area intim.<br>
+        <strong>2. Nutrisi Seimbang:</strong> Konsumsi zat besi (untuk mencegah anemia pada perempuan), kalsium, protein, dan vitamin.<br>
+        <strong>3. Olahraga Teratur:</strong> Minimal 30 menit/hari untuk menjaga kesehatan hormonal dan sirkulasi darah.<br>
+        <strong>4. Istirahat Cukup:</strong> Tidur 8-10 jam untuk mendukung produksi hormon pertumbuhan dan reproduksi.<br>
+        <strong>5. Hindari Zat Berbahaya:</strong> Rokok, alkohol, dan narkoba dapat merusak sistem reproduksi.<br>
+        <strong>6. Edukasi Diri:</strong> Pelajari perubahan tubuh yang normal selama pubertas.<br>
+        <strong>7. Konsultasi Dokter:</strong> Jangan malu bertanya pada dokter atau orang tua tentang kesehatan reproduksi.
+      </p>
+    </div>
+
+    <div class="example-box">
+      <strong>📝 Pentingnya Edukasi Kesehatan Reproduksi:</strong><br>
+      Berdasarkan data WHO (2023), remaja yang mendapat edukasi kesehatan reproduksi yang komprehensif memiliki:<br>
+      • 50% lebih rendah risiko kehamilan tidak diinginkan<br>
+      • 60% lebih rendah risiko tertular IMS<br>
+      • Lebih mampu membuat keputusan sehat tentang tubuh mereka<br>
+      • Lebih percaya diri dalam menghadapi perubahan pubertas
+    </div>
+  </section>
+
+  <!-- Section G: Teori Pendukung -->
+  <section class="content-section">
+    <h3 class="section-title">🧠 G. Teori dan Konsep Penting</h3>
+    
+    <div class="highlight-box">
+      <h4>🔬 Teori Evolusi dan Seleksi Seksual</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Charles Darwin menjelaskan bahwa perbedaan morfologi antara jantan dan betina (dimorfisme seksual) hasil dari <strong>seleksi seksual</strong>. Pada manusia, perbedaan seperti pinggul lebar pada perempuan (untuk melahirkan) dan bahu lebar pada laki-laki (untuk perlindungan) adalah adaptasi evolusioner.
+      </p>
+    </div>
+
+    <div class="highlight-box">
+      <h4>🧬 Penentuan Jenis Kelamin</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Jenis kelamin bayi ditentukan oleh <strong>kromosom seks</strong> dari sperma yang membuahi ovum:<br>
+        • Ovum selalu membawa kromosom <strong>X</strong><br>
+        • Sperma membawa kromosom <strong>X</strong> atau <strong>Y</strong><br>
+        • <strong>XX</strong> = Perempuan | <strong>XY</strong> = Laki-laki<br>
+        Jadi, <strong>laki-laki yang menentukan jenis kelamin bayi</strong>, bukan perempuan.
+      </p>
+    </div>
+
+    <div class="highlight-box">
+      <h4>🌍 Perbandingan dengan Hewan</h4>
+      <p style="margin:0; color: var(--text-primary);">
+        Sistem reproduksi manusia mirip dengan mamalia lain, namun memiliki perbedaan penting:<br>
+        • <strong>Siklus menstruasi</strong> (manusia, primata) vs <strong>siklus estrus</strong> (hewan lain)<br>
+        • Manusia mengalami <strong>menopause</strong> (berhenti reproduksi di usia tua), sementara kebanyakan hewan tetap subur hingga mati<br>
+        • Manusia memiliki <strong>periode reproduksi terpanjang</strong> di antara primata
+      </p>
+    </div>
+  </section>
+
+  <!-- Keywords -->
+  <div class="keywords">
+    <span class="keyword-tag">♂️ Testis</span>
+    <span class="keyword-tag">♀️ Ovarium</span>
+    <span class="keyword-tag">🧬 Spermatogenesis</span>
+    <span class="keyword-tag"> Oogenesis</span>
+    <span class="keyword-tag">💑 Fertilisasi</span>
+    <span class="keyword-tag">🤰 Implantasi</span>
+    <span class="keyword-tag"> IMS</span>
+    <span class="keyword-tag">🩺 HPV</span>
+    <span class="keyword-tag">🧪 Hormon Seks</span>
+    <span class="keyword-tag"> Siklus Menstruasi</span>
+    <span class="keyword-tag"> Kehamilan</span>
+    <span class="keyword-tag">🌟 Kesehatan Reproduksi</span>
+  </div>
+
+  <!-- Islamic Quote -->
+  <div class="islamic-quote">
+    <div class="arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</div>
+    <div class="translation">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang."</div>
+    <div class="source">— QS. Ar-Rum [30]: 21</div>
+  </div>
+  <p style="text-align: center; color: var(--text-secondary); font-style: italic; margin-top: -20px; margin-bottom: 30px;">
+    Ayat ini menjelaskan tujuan mulia dari sistem reproduksi: menciptakan pasangan hidup untuk membangun keluarga yang penuh kasih sayang. Islam mengajarkan bahwa reproduksi adalah anugerah Allah yang harus dijaga kesuciannya melalui pernikahan yang sah.
+  </p>
+
+  <!-- Section H: Referensi -->
+  <section class="content-section">
+    <h3 class="section-title">📚 H. Referensi Pendukung</h3>
+    <ul style="margin-left: 20px; color: var(--text-secondary); line-height: 1.8;">
+      <li>Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi. (2021). <em>Ilmu Pengetahuan Alam Kelas IX SMP/MTs</em>. Jakarta: Pusat Perbukuan, Kemendikbudristek.</li>
+      <li>Campbell, N. A., & Reece, J. B. (2020). <em>Biology</em> (12th ed.). Pearson Education. (Bab 46: Animal Reproduction)</li>
+      <li>Guyton, A. C., & Hall, J. E. (2020). <em>Textbook of Medical Physiology</em> (14th ed.). Elsevier. (Bab 81-83: Reproductive System)</li>
+      <li>World Health Organization (WHO). (2023). <em>Adolescent Sexual and Reproductive Health</em>. Geneva: WHO Press.</li>
+      <li>Kementerian Kesehatan RI. (2022). <em>Pedoman Kesehatan Reproduksi Remaja</em>. Jakarta: Kemenkes RI.</li>
+      <li>Badan Kependudukan dan Keluarga Berencana Nasional (BKKBN). (2023). <em>Generasi Berencana (GenRe)</em>. Jakarta: BKKBN.</li>
+    </ul>
+  </section>
+
+  <!-- ===== UJI FORMATIF ===== -->
+  <div class="quiz-container" id="quizSection">
+    <div class="quiz-header">
+      <h2>📝 Uji Formatif Bab 9</h2>
+      <p>Sistem Reproduksi Manusia<br>
+      📋 Bagian A: Pilihan Ganda (10 soal, skor 10/soal) | ✍️ Bagian B: Essay (5 soal, skor 20/soal)</p>
+    </div>
+
+    <form id="quizForm">
+      <!-- Identitas -->
+      <div class="content-section" style="background: rgba(255,255,255,0.03);">
+        <h4 style="color: var(--blue-accent); margin-bottom: 16px; font-family: 'Playfair Display', serif;">📋 Identitas Siswa</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+          <div class="form-group">
+            <label>Nama Lengkap *</label>
+            <input type="text" id="studentName" required placeholder="Masukkan nama lengkap">
+          </div>
+          <div class="form-group">
+            <label>No. Absen / NIS *</label>
+            <input type="text" id="studentNIS" required placeholder="Masukkan NIS">
+          </div>
+          <div class="form-group">
+            <label>📅 Tanggal Ujian</label>
+            <input type="date" id="quizDate" required>
+          </div>
+          <div class="form-group">
+            <label>Kelas</label>
+            <select id="studentClass" required>
+              <option value="">Pilih Kelas</option>
+              <option value="IX-A">IX-A</option>
+              <option value="IX-B">IX-B</option>
+              <option value="IX-C">IX-C</option>
+              <option value="IX-D">IX-D</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Semester</label>
+            <input type="text" value="1 (Satu)" readonly style="background: rgba(255,255,255,0.02); color: var(--text-secondary);">
+          </div>
+        </div>
+      </div>
+
+      <!-- Bagian A: Pilihan Ganda -->
+      <h3 style="color: var(--blue-accent); font-family: 'Playfair Display', serif; margin: 30px 0 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">📋 Bagian A: Pilihan Ganda</h3>
+      <div id="mcqContainer"></div>
+
+      <!-- Bagian B: Essay -->
+      <h3 style="color: var(--blue-accent); font-family: 'Playfair Display', serif; margin: 40px 0 20px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">️ Bagian B: Essay</h3>
+      <div id="essayContainer"></div>
+
+      <!-- Action Buttons -->
+      <div class="action-bar">
+        <button type="button" class="btn btn-primary" onclick="submitQuiz()">✉️ KIRIM JAWABAN & LIHAT HASIL</button>
+        <button type="button" class="btn btn-secondary" onclick="downloadPDF()">📄 UNDUH PDF LENGKAP</button>
+        <button type="button" class="btn btn-secondary" onclick="downloadTXT()">📥 UNDUH SKOR (TXT)</button>
+        <button type="button" class="btn btn-outline" onclick="resetQuiz()">🔄 MULAI ULANG</button>
+        <a id="emailLink" href="#" class="btn btn-outline" style="display:none;">📧 Kirim ke Email Guru</a>
+      </div>
+    </form>
+
+    <!-- Results Panel -->
+    <div class="results-panel" id="resultsPanel">
+      <h3 style="font-family: 'Playfair Display', serif; color: var(--blue-accent); margin-bottom: 10px;"> Hasil Uji Formatif</h3>
+      <p id="resultMessage" style="color: var(--text-primary); margin-bottom: 20px;"></p>
+      <div class="score-display">
+        <div class="score-item">
+          <div class="label">📋 Pilihan Ganda</div>
+          <div class="value" id="scoreMCQ">0</div>
+        </div>
+        <div class="score-item">
+          <div class="label">✍️ Essay</div>
+          <div class="value" id="scoreEssay">0</div>
+        </div>
+        <div class="score-item">
+          <div class="label">Skor Akhir</div>
+          <div class="value" id="scoreTotal">0</div>
+        </div>
+      </div>
+      <p style="font-size: 12px; color: var(--text-secondary); margin-top: 16px;">
+        *Penilaian Essay bersifat otomatis berdasarkan kelengkapan jawaban (minimal 30 karakter). Guru akan melakukan penilaian ulang secara manual untuk ketepatan konsep.
+      </p>
+    </div>
+  </div>
+
+  <!-- Navigation Footer -->
+  <div class="nav-footer">
+    <a href="8.html">
+      <span>←</span> Bab 8: Hormon & Zat Adiktif
+    </a>
+    <a href="10.html">
+      Selanjutnya → <span>Bab 10: Siklus Menstruasi</span>
+    </a>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-brand">🔬 IPA <span>Kelas IX</span></div>
+  <div class="footer-contact">
+    MTsN 10 Agam • <a href="mailto:medycandra514@gmail.com">medycandra514@gmail.com</a>
+  </div>
+  <div class="copyright">© 2026 Medy Candra, S.Pd — MTsN 10 Agam. Hak Cipta Dilindungi Undang-Undang</div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+  document.getElementById('quizDate').valueAsDate = new Date();
+
+  const mcqQuestions = [
+    { q: "Organ reproduksi laki-laki yang berfungsi menghasilkan sperma dan hormon testosteron adalah...", options: ["Epididimis", "Testis", "Vas deferens", "Prostat"], answer: 1 },
+    { q: "Tempat pematangan dan penyimpanan sperma sementara sebelum ejakulasi adalah...", options: ["Testis", "Vas deferens", "Epididimis", "Uretra"], answer: 2 },
+    { q: "Organ reproduksi perempuan yang berfungsi menghasilkan sel telur (ovum) adalah...", options: ["Uterus", "Tuba fallopi", "Vagina", "Ovarium"], answer: 3 },
+    { q: "Tempat terjadinya fertilisasi (pembuahan) pada manusia adalah...", options: ["Uterus", "Tuba fallopi", "Vagina", "Ovarium"], answer: 1 },
+    { q: "Proses pembentukan sperma pada laki-laki disebut...", options: ["Oogenesis", "Spermatogenesis", "Fertilisasi", "Ovulasi"], answer: 1 },
+    { q: "Berapa jumlah sperma fungsional yang dihasilkan dari satu spermatogonium?", options: ["1", "2", "3", "4"], answer: 3 },
+    { q: "Hormon yang diproduksi oleh testis dan berperan dalam perkembangan ciri seks sekunder laki-laki adalah...", options: ["Estrogen", "Progesteron", "Testosteron", "Prolaktin"], answer: 2 },
+    { q: "Lapisan dinding rahim yang menebal setiap siklus menstruasi dan meluruh saat haid disebut...", options: ["Miometrium", "Perimetrium", "Endometrium", "Epimetrium"], answer: 2 },
+    { q: "Virus yang dapat menyebabkan kanker serviks adalah...", options: ["HIV", "HSV", "HPV", "HBV"], answer: 2 },
+    { q: "Kromosom seks yang menentukan jenis kelamin laki-laki pada manusia adalah...", options: ["XX", "XY", "XO", "YY"], answer: 1 }
+  ];
+
+  const essayQuestions = [
+    "Jelaskan perbedaan mendasar antara spermatogenesis dan oogenesis! Sebutkan minimal 3 perbedaan dari segi waktu, jumlah sel hasil, dan karakteristik sel kelamin!",
+    "Sebutkan dan jelaskan fungsi 4 organ reproduksi laki-laki serta 4 organ reproduksi perempuan!",
+    "Jelaskan proses fertilisasi mulai dari ovulasi hingga implantasi! Di mana fertilisasi biasanya terjadi?",
+    "Sebutkan 3 penyakit menular seksual (IMS) beserta penyebab dan cara pencegahannya!",
+    "Mengapa edukasi kesehatan reproduksi penting bagi remaja? Sebutkan minimal 4 tips menjaga kesehatan reproduksi bagi remaja!"
+  ];
+
+  const mcqContainer = document.getElementById('mcqContainer');
+  mcqQuestions.forEach((item, index) => {
+    const qDiv = document.createElement('div');
+    qDiv.className = 'question-block';
+    qDiv.innerHTML = `
+      <div class="question-text">
+        <span class="question-num">Soal ${index + 1}</span>
+        <span>${item.q}</span>
+        <span class="question-points">10 POIN</span>
+      </div>
+      <div class="options">
+        ${item.options.map((opt, optIndex) => `
+          <label class="option-label" id="label_${index}_${optIndex}">
+            <input type="radio" name="q${index}" value="${optIndex}">
+            <span>${String.fromCharCode(65 + optIndex)}. ${opt}</span>
+          </label>
+        `).join('')}
+      </div>
+    `;
+    mcqContainer.appendChild(qDiv);
+  });
+
+  const essayContainer = document.getElementById('essayContainer');
+  essayQuestions.forEach((item, index) => {
+    const qDiv = document.createElement('div');
+    qDiv.className = 'question-block';
+    qDiv.innerHTML = `
+      <div class="question-text">
+        <span class="question-num">Essay ${index + 1}</span>
+        <span>${item}</span>
+        <span class="question-points">20 POIN</span>
+      </div>
+      <textarea id="essay${index}" placeholder="Tulis jawaban Anda di sini... (Minimal 30 karakter untuk mendapatkan poin)"></textarea>
+    `;
+    essayContainer.appendChild(qDiv);
+  });
+
+  let finalScores = { mcq: 0, essay: 0, total: 0 };
+
+  function submitQuiz() {
+    const name = document.getElementById('studentName').value;
+    const nis = document.getElementById('studentNIS').value;
+    const cls = document.getElementById('studentClass').value;
+    
+    if (!name || !nis || !cls) {
+      alert("Harap lengkapi identitas siswa (Nama, NIS, dan Kelas) sebelum mengirim jawaban!");
+      return;
+    }
+
+    let mcqScore = 0;
+    mcqQuestions.forEach((item, index) => {
+      const selected = document.querySelector(`input[name="q${index}"]:checked`);
+      const labels = document.querySelectorAll(`[id^="label_${index}_"]`);
+      labels.forEach(l => { l.classList.remove('correct', 'incorrect'); l.style.pointerEvents = 'none'; });
+
+      if (selected) {
+        const val = parseInt(selected.value);
+        if (val === item.answer) {
+          mcqScore += 10;
+          document.getElementById(`label_${index}_${val}`).classList.add('correct');
+        } else {
+          document.getElementById(`label_${index}_${val}`).classList.add('incorrect');
+          document.getElementById(`label_${index}_${item.answer}`).classList.add('correct');
+        }
+      } else {
+        document.getElementById(`label_${index}_${item.answer}`).classList.add('correct');
+      }
+    });
+
+    let essayScore = 0;
+    for (let i = 0; i < 5; i++) {
+      const text = document.getElementById(`essay${i}`).value.trim();
+      if (text.length >= 30) essayScore += 20;
+      else if (text.length > 0) essayScore += 10;
+      document.getElementById(`essay${i}`).disabled = true;
+    }
+
+    finalScores = { mcq: mcqScore, essay: essayScore, total: mcqScore + essayScore };
+
+    document.getElementById('scoreMCQ').textContent = finalScores.mcq;
+    document.getElementById('scoreEssay').textContent = finalScores.essay;
+    document.getElementById('scoreTotal').textContent = finalScores.total;
+    
+    let msg = `Terima kasih, ${name}! Jawaban Anda telah berhasil dikumpulkan.`;
+    if (finalScores.total >= 160) msg += " 🌟 Luar biasa! Pemahaman Anda tentang sistem reproduksi sangat baik.";
+    else if (finalScores.total >= 100) msg += " 👍 Bagus! Tingkatkan lagi pemahaman tentang organ dan fungsi reproduksi.";
+    else msg += " 📚 Jangan menyerah! Pelajari kembali materi sistem reproduksi manusia.";
+    
+    document.getElementById('resultMessage').textContent = msg;
+    document.getElementById('resultsPanel').classList.add('show');
+    
+    document.querySelector('.btn-primary').disabled = true;
+    document.querySelector('.btn-primary').textContent = "✓ SUDAH DIKIRIM";
+    document.querySelector('.btn-primary').style.opacity = "0.6";
+
+    const emailBody = `Hasil Uji Formatif Bab 9 (Sistem Reproduksi Manusia)%0D%0A%0D%0ANama: ${name}%0D%0ANIS: ${nis}%0D%0AKelas: ${cls}%0D%0ATanggal: ${document.getElementById('quizDate').value}%0D%0A%0D%0ASKOR:%0D%0A- Pilihan Ganda: ${finalScores.mcq}/100%0D%0A- Essay: ${finalScores.essay}/100 (Perlu validasi guru)%0D%0A- Total: ${finalScores.total}/200%0D%0A%0D%0ACatatan: Jawaban detail dapat dilihat pada file PDF yang dilampirkan.`;
+    document.getElementById('emailLink').href = `mailto:medycandra514@gmail.com?subject=Hasil Uji Formatif Bab 9 - ${name} (${cls})&body=${emailBody}`;
+    document.getElementById('emailLink').style.display = 'inline-flex';
+
+    document.getElementById('resultsPanel').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function downloadPDF() { window.print(); }
+
+  function downloadTXT() {
+    const name = document.getElementById('studentName').value || "Siswa";
+    const nis = document.getElementById('studentNIS').value || "-";
+    const cls = document.getElementById('studentClass').value || "-";
+    const date = document.getElementById('quizDate').value || new Date().toLocaleDateString('id-ID');
+
+    let content = `HASIL UJI FORMATIF BAB 9: SISTEM REPRODUKSI MANUSIA\n`;
+    content += `====================================================\n`;
+    content += `Nama  : ${name}\nNIS   : ${nis}\nKelas : ${cls}\nTanggal: ${date}\n`;
+    content += `====================================================\n`;
+    content += `SKOR PILIHAN GANDA : ${finalScores.mcq} / 100\n`;
+    content += `SKOR ESSAY (Simulasi): ${finalScores.essay} / 100\n`;
+    content += `TOTAL SKOR         : ${finalScores.total} / 200\n`;
+    content += `====================================================\n\nJAWABAN ESSAY:\n`;
+    for (let i = 0; i < 5; i++) {
+      content += `\nEssay ${i+1}:\n${document.getElementById(`essay${i}`).value || "(Tidak dijawab)"}\n`;
+    }
+    content += `\n====================================================\nDikirim otomatis dari Sistem Pembelajaran IPA\nMTsN 10 Agam | Penulis: Medy Candra, S.Pd`;
+
+    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Skor_UjiFormatif_Bab9_${name.replace(/\s+/g, '_')}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function resetQuiz() {
+    if (confirm("Apakah Anda yakin ingin mengulang ujian? Semua jawaban akan dihapus.")) {
+      document.getElementById('quizForm').reset();
+      document.getElementById('quizDate').valueAsDate = new Date();
+      document.getElementById('resultsPanel').classList.remove('show');
+      document.querySelectorAll('.option-label').forEach(l => { l.classList.remove('correct', 'incorrect'); l.style.pointerEvents = 'auto'; });
+      document.querySelectorAll('textarea').forEach(t => t.disabled = false);
+      
+      const btn = document.querySelector('.btn-primary');
+      btn.disabled = false; btn.textContent = "✉️ KIRIM JAWABAN & LIHAT HASIL"; btn.style.opacity = "1";
+      document.getElementById('emailLink').style.display = 'none';
+      finalScores = { mcq: 0, essay: 0, total: 0 };
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+</script>
+
+</body>
+</html>
